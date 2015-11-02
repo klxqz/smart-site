@@ -1,0 +1,43 @@
+{if $wa->shop && $wa->shop->categories(0, 0)}
+    {$categories = $wa->shop->categories(0, 0)}
+    <li class="categories_hor dropdown">
+        <a>Категории</a>
+        <div class="dropdown-menu">
+            {foreach $categories as $category}
+                <div class="column col-lg-2 col-md-3"> 
+                    <a href="{$category.url}">{$category.name}</a>
+                    {$subcategories = $wa->shop->categories($category.id, 1)}
+                    {if $subcategories}
+                        <div>
+                            <ul>
+                                {foreach $subcategories as $subcategory}
+                                    <li>
+                                        <a href="{$subcategory.url}">{$subcategory.name}{if $wa->shop->categories($subcategory.id, 1)}<span>&rsaquo;</span>{/if}</a>
+                                        {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
+                                        {if $subsubcategories}
+                                            <div class="submenu">
+                                                <ul>
+                                                    {foreach $subsubcategories as $subsubcategory}
+                                                        <li> 
+                                                            <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
+                                                        </li>
+                                                    {/foreach}
+                                                </ul>
+                                            </div>
+                                        {/if}
+                                    </li>
+                                    {if $subcategory@iteration == 5 && count($subcategories) > 6}
+                                        <li>
+                                            <a href="{$category.url}">Показать еще</a>
+                                        </li>
+                                        {break}
+                                    {/if}
+                                {/foreach}
+                            </ul>
+                        </div>
+                    {/if}
+                </div>
+            {/foreach}
+        </div>
+    </li>
+{/if}

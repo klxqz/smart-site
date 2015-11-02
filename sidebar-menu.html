@@ -1,0 +1,21 @@
+{if empty($selected)}
+    {$selected = null}
+{/if}
+<script type="text/javascript" src="{$wa_theme_url}js/jquery.dcjqaccordion.min.js"></script> 
+<h3>{$menu_title}</h3>
+<div class="box-category">
+    {wa_print_tree tree=$items selected=$selected unfolded=true class="" attrs='id="menu_accordion"' elem ='<a href=":url" title=":name">:name</a>'}
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#menu_accordion ul').parents('li').find('>a').after('<span class="down"></span>');
+        $('#menu_accordion').cutomAccordion({
+            classExpand: 'selected',
+            menuClose: false,
+            autoClose: true,
+            saveState: false,
+            disableLink: false,
+            autoExpand: true
+        });
+    });
+</script>

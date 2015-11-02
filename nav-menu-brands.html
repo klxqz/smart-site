@@ -1,0 +1,20 @@
+{if class_exists(shopProductbrandsPlugin)}
+    {$brands = shopProductbrandsPlugin::getBrands()}
+    {if $brands}
+        <li class="menu_brands  dropdown">
+            <a href="#">Бренды</a>
+            <div class="dropdown-menu">
+                {foreach $brands as $brand}
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> 
+                        {if $brand.image}
+                            <a href="{$brand.url}">
+                                <img alt="{$brand.name}" src="{$wa_url}wa-data/public/shop/brands/{$brand.id}/{$brand.id}{$brand.image}">
+                            </a>
+                        {/if} 
+                        <a href="{$brand.url}">{$brand.name}</a> 
+                    </div>
+                {/foreach}
+            </div>
+        </li>
+    {/if}
+{/if}

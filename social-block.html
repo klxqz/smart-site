@@ -1,0 +1,77 @@
+<div id="facebook" class="fb-left" style="top:210px; z-index:10000;">
+    <div id="facebook_icon"><i class="fa fa-facebook"></i></div>
+    <script src="//connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:fan profile_id="160281810726316" stream="0" connections="20" logobar="0" width="235" height="284" ></fb:fan>
+        {literal}
+        <script>
+            $(function () {
+                $("#facebook.fb-left").hover(function () {
+                    $("#facebook.fb-left").stop(true, false).animate({left: "0"}, 800, 'easeOutQuint');
+                },
+                        function () {
+                            $("#facebook.fb-left").stop(true, false).animate({left: "-241px"}, 800, 'easeInQuint');
+                        }, 1000);
+            });
+        </script>
+    {/literal}
+</div>
+<div id="twitter_footer" class="twit-left" style="top:270px; z-index:9999;">
+    <div class="twitter_icon"><i class="fa fa-twitter"></i></div>
+    <a class="twitter-timeline" href="https://twitter.com/" data-chrome="nofooter noscrollbar transparent" data-theme="light" data-tweet-limit="2" data-related="twitterapi,twitter" data-aria-polite="assertive" data-widget-id="347621595801608192">Tweets by @</a>
+    {literal}
+        <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs")
+                    ;</script>
+        {/literal}
+</div>
+{literal}
+    <script>
+        $(function () {
+            $("#twitter_footer.twit-left").hover(function () {
+                $("#twitter_footer.twit-left").stop(true, false).animate({left: "0"}, 800, 'easeOutQuint');
+            },
+                    function () {
+                        $("#twitter_footer.twit-left").stop(true, false).animate({left: "-215px"}, 800, 'easeInQuint');
+                    }, 1000);
+        });
+    </script>
+{/literal}
+<div id="video_box" class="vb-left" style="top:330px; z-index:9998;">
+    <div id="video_box_icon"><i class="fa fa-play"></i></div>
+    <p><iframe allowfullscreen="" src="//www.youtube.com/embed/SZEflIVnhH8" frameborder="0" height="315" width="560"></iframe></p>                                                                                                                                                                        </div>
+        {literal}
+    <script>
+        $(function () {
+            $("#video_box.vb-left").hover(function () {
+                $("#video_box.vb-left").stop(true, false).animate({left: "0"}, 800, 'easeOutQuint');
+            },
+                    function () {
+                        $("#video_box.vb-left").stop(true, false).animate({left: "-566px"}, 800, 'easeInQuint');
+                    }, 1000);
+        });
+    </script>
+{/literal}
+<div id="custom_side_block" class="custom_side_block_left" style="top:390px; z-index:9997;">
+    <div class="custom_side_block_icon">
+        <i class="fa fa-chevron-right"></i>
+    </div>
+    <table align="left" border="0" cellpadding="0" cellspacing="5">	<tbody>		<tr>			<td>			<h2>CMS Blocks</h2>			</td>		</tr>		<tr>			<td><img alt="" src="{$wa_theme_url}content/cms-block.jpg" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;"></td>		</tr>		<tr>			<td>You can add any HTML content to this block or turn it off in Theme Admin panel!</td>		</tr>		<tr>			<td><strong><a href="#">Read More</a></strong></td>		</tr>	</tbody></table> </div>
+                    {literal}
+    <script>
+        $(function () {
+            $('#custom_side_block.custom_side_block_left').hover(function () {
+                $('#custom_side_block.custom_side_block_left').stop(true, false).animate({left: '0'}, 800, 'easeOutQuint');
+            },
+                    function () {
+                        $('#custom_side_block.custom_side_block_left').stop(true, false).animate({left: '-215px'}, 800, 'easeInQuint');
+                    }, 1000);
+        });
+    </script>
+{/literal}
