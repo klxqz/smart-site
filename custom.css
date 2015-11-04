@@ -1,57 +1,3 @@
-/*
- * Webasyst CUSTOM theme family
- *
- * Core CSS file
- *
- * @link http://www.webasyst.com/
- * @author Webasyst LLC
- * @copyright 2012 Webasyst LLC
- * @package Webasyst
- */
- 
-/* Reset
--------- */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, /* ol, ul, li, */ fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, credentials, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; }
-article, aside, credentials, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1; }
-
-/* Common HTML elements, fonts, and colors
------------------------------------------- */
-html,
-body { width: 100%; min-height: 100%; font-family: Helvetica, Arial, sans-serif; font-size: 13px; background: url("img/cloth.jpg"); /* customize core background image here */ }
-a { color: #03c; outline:0 none; }
-a:focus { outline:none; outline-offset:-4px; }
-a:visited { color: #63c; }
-a:hover { color: red !important; }
-input[type="button"]::-moz-focus-inner { border: 0; }
-input[type="submit"]::-moz-focus-inner { border: 0; }
-a img { border: 0; }
-p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, blockquote { margin-bottom: 20px; }
-h1, h2, h3 { font-weight: normal; }
-h1 { font-size: 2.4em; }
-h1 a { text-decoration:none; }
-h2 { font-size: 1.75em; }
-h3 { font-size: 1.45em; }
-h4 { font-size: 1.2em; }
-h5 { font-size: 1.1em; }
-h6 { font-size: 1em; }
-h1, h2, h3, h4, h5, h6 { line-height:1.2em; margin-bottom:.3em; }
-ul, ol { padding-top:0; }
-ol { list-style: decimal; }
-input, textarea, select { margin:0; } 
-input, textarea { font-size: 1em; color: #000; font-family: Helvetica, Arial, sans-serif; }
-input[type="button"]:focus { outline:none; outline-offset:-2px; }
-fieldset { border:1px solid #bbb; padding:10px; position:relative; background:#e9e9e9; margin-bottom:10px; }
-legend { font-size:1.1em; padding:.4em .8em; background:#fff; //background:none;
-border:1px solid #bbb; //border:none
-}
-fieldset p label { width:98%; }
-fieldset p input[type="text"] { width:98%; }
-fieldset p select { width:99%; }
-blockquote { color: #555; font-size:0.9em; padding:20px; background: #f3f3f3; border-left: 2px solid #ccc; }
-blockquote cite { font-size: 0.9em; }
-hr { background-color: #ccc; height: 1px; border: 0; }
-
 /* Misc elements
 ---------------- */
 
@@ -78,83 +24,6 @@ hr { background-color: #ccc; height: 1px; border: 0; }
 .clear-both { clear: both; }
 .shadowed { -moz-box-shadow: 0 5px 15px #aaa; -webkit-box-shadow: 0 5px 15px #aaa; box-shadow: 0 5px 15px #aaa; }
 .nowrap { white-space: nowrap; }
-
-/* Common layout
------------------------------- */
-
-.custom-margins { margin: 0 80px; }
-.container { /* min-width: 650px; max-width: 1440px; */ margin: 0 auto; padding: 25px; }
-.container.paper { background: #fff; box-shadow: 0 5px 10px rgba(0,0,0,0.2); }
-
-.sidebar.left { width: 170px; float: left; }
-.sidebar.right { width: 190px; float: right; }
-.content.left { margin-left: 200px; }
-.content.right { margin-right: 200px; }
-.content.right #page { margin-right: 50px; /* extra margin in case page tree is on the right */ }
-.top-padded { padding-top: 50px; /* "due to heading" padding */ }
-
-.welcome { text-align: center; font-size: 110%; padding: 80px 20px 150px; }
-
-#header { margin-bottom: 30px; margin-top: -25px; }
-#header h2 { float: left; text-transform: uppercase; margin-top: 25px; }
-#header h2 a { color: #000; text-decoration: none; }
-#header a:hover { color: #c00 !important; } 
-#header ul#wa-apps { margin: 20px -10px 0 0; padding: 0; float: right; }
-#header ul#wa-apps li { float: left; text-transform: uppercase; list-style: none; margin: 0; padding: 3px 0; }
-#header ul#wa-apps li a { display: block; padding: 7px 10px 5px; margin-right: 10px; color: #333; font-weight: bold; text-decoration: none; }
-#header ul#wa-apps li.selected a { background: #000; font-weight: bold; color: #fff; }
-#header ul#wa-apps li.selected a:hover { color: #fff !important; }
-#header .icon16 { margin-top: -4px; }
-#header .float-right.hint a { margin-right: 10px; }
-#header .float-right.hint strong { color: #000 /* username of the authorized user */; margin-right: 5px; }
-
-#header #cart { margin-left: 10px; }
-#header #cart a { display: block; padding: 15px 15px 12px; background: #ceb; text-align: center; color: #000; text-decoration: none;  margin-top: -5px; box-shadow: 0 -2px 9px -5px rgba(0,0,0,0.3); width: 240px; }
-#header #cart a strong { text-decoration: underline; }
-#header div#cart.fixed { border-bottom: 1px solid #cca; box-shadow: 0 1px 9px -5px rgba(0, 0, 0, 0.5) !important; overflow: hidden; position: fixed; top: 0; z-index: 1312; right: 105px; }
-#header div#cart.fixed a { font-size: 1.2em; padding-top: 20px !important; }
-#header div#cart.fixed a i.icon16 { margin-top: -2px; }
-#header div#cart.empty a { background: #f7f7f7; }
-
-#main { clear: both; line-height: 1.5em; margin: 0; }
-
-#footer { clear: both; margin-top: 10px; font-size: 0.9em; color: #777; padding-bottom: 40px; }
-#footer #sub-links { margin-left: 60px; }
-#footer #sub-links ul { list-style: none; padding: 0; margin: 0; }
-#footer #sub-links ul li { float: left;  padding: 0 15px 0 0; }
-#footer #poweredby {  text-align: center; float: right; padding-top: 0; }
-#footer #poweredby a.dots { font-size: 0.8em; text-decoration: none; display: block; width: 54px; height: 9px; background: url("/wa-content/img/dots/all-dots-default-order-shadowed.png") no-repeat 0 3px; padding-top: 7px; }
-
-table th { color: #aaa; }
-table th,
-table td { padding: 5px; }
-
-/* .hero content highliting element
------------------------------------ */
-
-.hero { margin: 0 -25px 25px; background: #eee; padding: 25px; }
-.hero.superhero { margin-right: -35px; margin-left: -35px; padding-left: 35px; padding-right: 35px; box-shadow: 0 2px 7px -2px rgba(0, 0, 0, 0.4); }
-.hero.black { background: #000; color: #eee; }
-.hero.red { background: #b44; color: #fff; }
-.hero.green { background: #5ba640; color: #fff; }
-.hero.blue { background: #38c; color: #eef2f3; }
-.hero.purple { background: #86a; color: #eef2f3; }
-.hero.yellow { background: #fe7; color: #411; }
-.hero.blue a,
-.hero.purple a,
-.hero.green a,
-.hero.red a,
-.hero.black a,
-.hero.purple a { color: #fff; }
-
-/* Custom selected menu element colors for different Webasyst apps
------------------------------------------------------------------- */
-
-body#site #header ul#wa-apps li.selected a { background: #0099FF; }
-body#blog #header ul#wa-apps li.selected a { background: #EEBB00; }
-body#photos #header ul#wa-apps li.selected a { background: #8866CC; }
-body#shop #header ul#wa-apps li.selected a { background: #66CC33; }
-body#qa #header ul#wa-apps li.selected a { background: #FF6600; }
 
 /* Menus
 -------- */
@@ -231,84 +100,39 @@ input.error, textarea.error { border: 2px solid red; }
 /* 16x16 Icons
 -------------- */
 
-i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; }
+i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; background-image: url("img/icons.png"); background-size: 260px 160px /* 50% of the original size for auto @2x optimization */; }
 * i.icon16 { text-decoration:none!important; vertical-align:top; margin: 0.2em 0.25em 0 0; }
-.icon16.loading { background-image: url('/wa-content/img/loading16.gif'); }
-.icon16.rss { background-image: url("img/icons/rss.png"); }
-.icon16.facebook { background-image: url("img/icons/facebook.png"); }
-.icon16.twitter { background-image: url("img/icons/twitter.png"); }
-.icon16.cart { background-image: url('img/icons/cart-full.png'); }
-.icon16.cart.empty { background-image: url('img/icons/cart-empty.png'); }
+.icon16.rss { background-position: -16px 0; }
+.icon16.facebook { background-position: -32px 0; }
+.icon16.twitter { background-position: -48px 0; }
+.icon16.vk { background-position: -64px 0; }
+.icon16.gplus { background-position: -80px 0; }
+.icon16.pinterest { background-position: -96px 0; }
+.icon16.youtube { background-position: -112px 0; }
+.icon16.instagram { background-position: -128px 0; }
 
-.icon16.color { border-radius: 50%; border: 1px solid rgba(0,0,0,0.2); width: 14px; height: 14px; }
+.icon16.userpic20 { background-position: -2px -2px; border-radius: 50%; background-size: 20px 20px; }
+.icon16.color { border-radius: 50%; border: 1px solid rgba(0,0,0,0.2); width: 12px; height: 12px; background-image: none; }
 
-/* 10x10 Icons
--------------- */
+.icon16.like { background-position:0 -16px; margin-top: 0; }
+.icon16.star,
+.icon16.star-full { background-position:-16px -16px; }
+.icon16.star-half { background-position:-32px -16px; }
+.icon16.star-empty { background-position:-48px -16px; }
+.icon16.star-hover { background-position:-64px -16px; }
 
-i.icon10 { background-repeat:no-repeat; height:10px; width:10px; display:inline-block; text-indent:-9999px; text-decoration:none!important; }
-* i.icon10 { text-decoration:none!important; vertical-align:top; margin: 0.2em 0.1em 0 0; }
-.icon10.darr { background-image: url('img/icons/darr.png'); }
+.icon16.remove { background-position:-96px -16px; }
+.icon16.saved { background-position:-112px -16px; }
+.icon16.stock-red { background-position:-128px -16px; }
+.icon16.stock-yellow { background-position:-144px -16px; }
+.icon16.stock-green { background-position:-160px -16px; }
+.icon16.stock-transparent { background-position:-176px -16px; }
+.icon16.checkmark { background-position:-192px -16px; }
+.icon16.compare { background-position:-208px -16px; }
+.icon16.compare.active { background-position:-224px -16px; }
 
+.icon16.uarr { background: url('img/uarr.png'); background-position: 0 0; background-size: 16px 16px; }
 
-/* TABLET
-========= */
-
-@media screen and (min-width: 760px) and (max-width: 1024px) {
-    
-}
-
-/* MOBILE
-========= */
-
-@media screen and (max-width: 760px) {
-
-    body { font-size: 15px; -webkit-text-size-adjust: 100%; }
-    h1 { font-weight: bold; }
-    
-    .mobile-only { display: block; }
-    .non-mobile-only { display: none; }
-    
-    .block { padding: 10px 0; }
-    .float-left { float: none; }
-    .float-right { float: none; }
-    .top-padded { padding-top: 10px; }
-    
-    .custom-margins { margin: 0; }
-    .container { min-width: 0; padding: 15px; }
-    .sidebar { padding-top: 0 !important; }
-    .sidebar.left { width: 100%; float: none; }
-    .sidebar.right { width: 100%; float: none; }
-    .content.left { margin-left: 0; }
-    .content.right { margin-right: 0; }
-    .content img { max-width: 100%; height: auto !important; }
-    
-    #header { margin-top: -18px; margin-bottom: 20px; }
-    #header ul#wa-apps { margin-left: -7px; }
-    #header ul#wa-apps li a { padding-left: 7px; padding-right: 7px; }
-    
-    #header div#cart a { float: none !important; width: auto !important; }
-    #header div#cart.fixed { right: 0; left: 0; margin: 0; }
-    #header div#cart.fixed a { margin: 0; width: auto; padding-top: 15px !important; }
-    
-    #footer { padding-bottom: 30px; }
-    #footer .container { margin: 0 15px; }
-    #footer #copyright { padding-left: 0; }
-    #footer #sub-links { margin-left: 0; margin-top: 30px; }
-    #footer #sub-links ul li { float: none; margin-bottom: 5px; }
-    
-    .hero, .hero.superhero { margin: 0 -15px 20px -15px; padding: 15px; }
-    
-    #page { margin: 0 0 20px; }
-    .content.right #page { margin-right: 0; }
-    
-    i.icon16 { margin-top: 0; vertical-align: middle; }
-
-}
-
-/* WIDE
-========= */
-
-@media screen and (min-width: 1300px) {
-
-
-}
+.icon16.loading { background-image: url('img/loading16.gif'); background-position: 0 0; background-size: 16px 16px; }
+.icon24.loading { background-image: url('img/loading.gif'); background-size: 24px 24px; height:24px; width:24px; display:inline-block; }
+.icon32.loading { background-image: url('img/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
