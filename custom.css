@@ -69,7 +69,8 @@ ul.menu-h li.selected ul * { background: #fff !important; }
 .wa-form .wa-field .wa-value .wa-error-msg { font-size: 0.9em; color: red; display: block; }
 .wa-form .wa-field .wa-value input[type="text"],
 .wa-form .wa-field .wa-value input[type="email"],
-.wa-form .wa-field .wa-value input[type="password"] { width: 30%; min-width: 260px;  margin:0;}
+.wa-form .wa-field .wa-value input[type="password"],
+.wa-form .wa-field .wa-value select{ width: 30%; min-width: 260px;  margin:0;}
 .wa-form .wa-field .wa-value textarea { min-width: 300px; height: 70px; }
 .wa-form .wa-field .wa-value input.wa-captcha-input { width: 100px; min-width: 0; }
 .wa-form .wa-field .wa-value label { display: block; }
@@ -136,3 +137,32 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 .icon16.loading { background-image: url('img/loading16.gif'); background-position: 0 0; background-size: 16px 16px; }
 .icon24.loading { background-image: url('img/loading.gif'); background-size: 24px 24px; height:24px; width:24px; display:inline-block; }
 .icon32.loading { background-image: url('img/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
+
+/* Dialog */
+
+.dialog { display: none; }
+.dialog-background { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; opacity: 0.8; filter: alpha(opacity=80); z-index: 99; }
+.dialog-window .content { position: fixed; top: 15%; left: 0; right: 0; opacity: 1; z-index: 9999; overflow-x: hidden; box-shadow: 0 3px 15px #ddd; margin: 0 auto; text-align: left; width: 420px; background: #fff; padding: 25px; }
+.dialog-window .content .added2cart { font-size: 1.1em; font-style: italic; }
+.dialog-window .dialog-close { float: right; color: #656565; text-decoration: none; font-size: 200%; margin-top: -3px; }
+.dialog-window .content h1, 
+.dialog-window .content h2, 
+.dialog-window .content h3{ margin-top:0px; }
+
+.dialog-window .content .wa-form .wa-field .wa-name { float: none; padding-bottom: 0; }
+.dialog-window .content .wa-form .wa-field .wa-value { margin-left: 0; }
+.dialog-window .content .wa-form .wa-field .wa-value p span { display: block; }
+.dialog-window .content .wa-form .wa-field .wa-value input[type="text"],
+.dialog-window .content .wa-form .wa-field .wa-value input[type="email"],
+.dialog-window .content .wa-form .wa-field .wa-value input[type="password"] { min-width: 200px; }
+.dialog-window .content .wa-auth-adapters p { width: 100%; }
+
+@media screen and (max-width: 760px) {
+    .wa-form .wa-field .wa-name { float: none; padding-bottom: 0; }
+    .wa-form .wa-field .wa-value { margin-left: 0; }
+    .wa-form .wa-field .wa-value p span { display: block; }
+    .wa-form .wa-field .wa-value input[type="text"],
+    .wa-form .wa-field .wa-value input[type="email"],
+    .wa-form .wa-field .wa-value input[type="password"] { min-width: 200px; }
+    .wa-auth-adapters p { width: 100%; }
+}

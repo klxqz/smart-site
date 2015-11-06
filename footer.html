@@ -11,19 +11,18 @@
             </div>
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
                 <h5>Information</h5>
-                <ul>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/information&amp;information_id=4">About Us</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
-                </ul>
+                {$footer_pages = $wa->shop->pages()}
+                {wa_print_tree  unfolded=false tree=$footer_pages elem ='<a href=":url" title=":title">:name</a>'   }
             </div>
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>Customer Service</h5>
+                <h5>Приложения</h5>
                 <ul>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/contact">Contact Us</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/return/add">Returns</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/sitemap">Site Map</a></li>
+                    {foreach $wa->apps() as $app}
+                        <li>
+                            <a href="{$app.url}">{$app.name}</a>
+                        </li>
+                    {/foreach}
+
                 </ul>
             </div>
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
@@ -35,15 +34,55 @@
                     <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/special">Specials</a></li>
                 </ul>
             </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>My Account</h5>
-                <ul>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/account">My Account</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/order">Order History</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/wishlist">Wish List</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/newsletter">Newsletter</a></li>
-                </ul>
-            </div>
+            {if $wa->isAuthEnabled()}
+                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    <h5>[s`My account`]</h5>
+                    <ul>
+                        {if $wa->user()->isAuth()}
+                            {if $wa->shop}
+                                <li>
+                                    <a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a>
+                                </li>
+                                <li>
+                                    <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
+                                </li>
+                                <li>
+                                    <a href="{$wa->getUrl('shop/frontend/myProfile')}">[`My profile`]</a>
+                                </li>
+                                {if shopAffiliate::isEnabled()}
+                                    <li>
+                                        <a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a>
+                                    </li>
+                                {/if}
+                                {if $wa->mailer}
+                                    <li>
+                                        <a href="{$wa->getUrl('mailer/frontend/my')}">Мои подписки</a>
+                                    </li>
+                                {/if}
+                                {if $wa->helpdesk}
+                                    <li>
+                                        <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">Мои запросы</a>
+                                    </li>
+                                {/if}
+                            {else}
+                                <li>
+                                    <span>{$wa->user('name')}</span>
+                                </li>
+                            {/if}
+                            <li>
+                                <a href="?logout">[s`Log out`]</a>
+                            </li>
+                        {else}
+                            <li>
+                                <a href="{$wa->loginUrl()}">[s`Log in`]</a>
+                            </li>
+                            <li>
+                                <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
+                            </li>
+                        {/if}
+                    </ul>
+                </div>
+            {/if}
         </div>
     </div>
 </div>
@@ -51,7 +90,10 @@
     <div class="container">
         <div id="powered" class="clearfix">
             <div class="powered_text pull-left flip">
-                <p>Marketshop Theme © 2014, Powered by <a href="http://opencart.com" target="_blank">OpenCart</a> | Theme By <a href="http://harnishdesign.net" target="_blank">Harnish Design</a></p>                                                                                                                                                                                </div>
+                <p>
+                    <a href="{$wa_url}">{$wa->accountName()}</a> &copy; {time()|wa_datetime:"Y"}, <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/">[s`Powered by Webasyst`]</a>
+                    | Theme By <a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
+                </p>                                                                                                                                                                                </div>
             <div class="social pull-right flip">
                 <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/facebook.png" alt="Facebook" title="Facebook"></a>
                 <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/twitter.png" alt="Twitter" title="Twitter"> </a>
@@ -65,14 +107,16 @@
             <div class="custom-text text-center">
                 <p>This is a CMS block edited from theme admin panel. You can insert any content (HTML, Text, Images) Here. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>                  </div>
 
-            <div class="payments_types">
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_paypal.png" alt="paypal" title="PayPal"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_american.png" alt="american-express" title="American Express"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_2checkout.png" alt="2checkout" title="2checkout"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_maestro.png" alt="maestro" title="Maestro"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_discover.png" alt="discover" title="Discover"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/payment_mastercard.png" alt="mastercard" title="MasterCard"></a>
-            </div>
+            {if $wa->shop}
+                {$availabe_options = $wa->shop->payment()}
+                <div class="payments_types">
+                    {foreach $availabe_options as $option}
+                        {if $option.logo}
+                            <img data-toggle="tooltip" src="{$option.logo}" alt="{$option.name}" title="{$option.name}">
+                        {/if}
+                    {/foreach}
+                </div>
+            {/if}
         </div>
     </div>
 </div>

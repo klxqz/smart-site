@@ -86,6 +86,8 @@ form
 .form-control
 {
     border-radius: 0;
+    width: auto;
+    display: inline-block;
 }
 img
 {
@@ -163,6 +165,9 @@ div.required .control-label:before
     o-transition: all .8s ease-in-out;
     transition: all .8s ease-in-out;
     webkit-transition: all .8s ease-in-out;
+}
+#currency ul li span {
+    color: inherit;
 }
 #top .dropdown-menu
 {
