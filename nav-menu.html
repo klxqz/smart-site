@@ -1,50 +1,105 @@
-<nav id="menu" class="navbar">
-    <div class="navbar-header"> 
-        <span class="visible-xs visible-sm">
-            Menu<b></b>
-        </span>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-                <a class="home_link" title="Home" href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=common/home">
-                    <span>Home</span>
-                </a>
-            </li>
-            {include file="nav-menu-categories.html"}
-            {include file="nav-menu-brands.html"}
-            <li class="custom-link"><a href="#" target="_self"> Custom Links</a> </li>
-            <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>Custom Block</a>
-                <div class="dropdown-menu custom_block">
-                    <ul>
+{$wide_menu = !empty($theme_settings.main_menu_wide)}
+{if !$wide_menu}<div class="container">{/if}
+    <nav id="menu" class="navbar">
+        {if $wide_menu}<div class="container">{/if}
+            <div class="navbar-header"> 
+                <span class="visible-xs visible-sm">
+                    Menu<b></b>
+                </span>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    {if $theme_settings.main_menu_show_homepage}
                         <li>
-                            <table style="width: 500px;" align="left" border="0" cellpadding="10" cellspacing="10">	
-                                <tbody>		
-                                    <tr>			
-                                        <td><img alt="" src="{$wa_theme_url}content/cms-block.jpg" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;"></td>			
-                                        <td><img alt="" src="{$wa_theme_url}content/responsive.jpg" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;"></td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td>			<h2>CMS Blocks</h2>			</td>			
-                                        <td>			<h2>Responsive Theme</h2>			</td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td>You can add any HTML content to this block or turn it off in Theme Admin panel!</td>			
-                                        <td>You can add any HTML content to this block or turn it off in Theme Admin panel!</td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td><strong><a href="#">Read More</a></strong></td>			
-                                        <td><strong><a href="#">Read More</a></strong></td>		
-                                    </tr>	
-                                </tbody>
-                            </table>
+                            <a class="home_link" title="{$wa->accountName()}" href="{$wa_url}">
+                                <span>{$wa->accountName()}</span>
+                            </a>
+                        </li>    
+                    {/if}
+                    {include file="nav-menu-categories.html"}
+                    {include file="nav-menu-information.html"}
+                    {include file="nav-menu-brands.html"}
+                    {if $theme_settings.main_menu_show_news && $wa->blog && $wa->blog->posts()}
+                        <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>Новости</a>
+                            <div class="dropdown-menu custom_block">
+                                <ul>
+                                    <li>
+                                        <table align="left" border="0" cellpadding="10" cellspacing="10">	
+                                            <tbody>	
+                                                {foreach $wa->blog->posts() as $post}
+                                                    {$img = ''}
+                                                    {if preg_match('/<img.*src=\"(.*?)\"[^>]*>/', $post.text, $img)}
+                                                        <tr>			
+                                                            <td>
+                                                                <a href="{$post.link}">
+                                                                    <img alt="" src="{$img[1]}" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;">
+                                                                </a>
+                                                            </td>			
+                                                        </tr>
+                                                    {/if}
+                                                    <tr>			
+                                                        <td><h2>{$post.title}</h2></td>				
+                                                    </tr>		
+                                                    <tr>			
+                                                        <td>{$post.text|strip_tags|truncate:255}</td>					
+                                                    </tr>		
+                                                    <tr>			
+                                                        <td><strong><a href="{$post.link}">Read More</a></strong></td>				
+                                                    </tr>	
+                                                    {if $post@iteration == 2}
+                                                        {break}
+                                                    {/if}
+                                                {/foreach}	
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
-                    </ul>
-                </div>
-            </li>
-            {include file="nav-menu-information.html"}
-            <li class="contact-link"><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/contact">Contact Us</a></li>
-            <li class="custom-link-right"><a href="#" target="_blank"> Buy Theme!</a> </li>
-        </ul>
-    </div>
-</nav>
+                    {/if}
+
+                    {if $theme_settings.main_menu_links == 'shop_pages'}
+                        {foreach $wa->shop->pages() as $page}
+                            {$subpages = $wa->shop->pages($page.id)}
+                            <li{if $subpages} class="dropdown"{/if}>
+                                <a href="{$page.url}">{$page.name}</a>
+                                {if $subpages}
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            {foreach $subpages as $subpage}
+                                                <li>
+                                                    <a href="{$subpage.url}">{$subpage.name}</a>
+                                                </li>
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                {/if}
+                            </li>
+                        {/foreach}
+                    {elseif $theme_settings.main_menu_links == 'site_pages'}
+                        {foreach $wa->site->pages() as $page}
+                            {$subpages = $wa->site->pages($page.id)}
+                            <li{if $subpages} class="dropdown"{/if}>
+                                <a href="{$page.url}">{$page.name}</a>
+                                {if $subpages}
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            {foreach $subpages as $subpage}
+                                                <li>
+                                                    <a href="{$subpage.url}">{$subpage.name}</a>
+                                                </li>
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                {/if}
+                            </li>
+                        {/foreach}
+                    {/if}
+
+
+                    {$theme_settings.main_menu_custom_links}
+                </ul>
+            </div>
+            {if $wide_menu}</div>{/if}      
+    </nav>
+    {if !$wide_menu}</div>{/if}

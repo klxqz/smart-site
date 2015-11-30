@@ -15,7 +15,6 @@ html
 }
 body
 {
-    background: #dcdbdb;
     color: #222;
     font-family: OpenSansRegular;
     font-size: 12px;
@@ -119,6 +118,10 @@ div.required .control-label:before
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,.08);
     max-width: 100%;
+}
+.wrapper-wide.limited{
+    max-width: 1170px;
+    margin: 0 auto;
 }
 .main-wrapper
 {

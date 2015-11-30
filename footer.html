@@ -2,18 +2,52 @@
     <div class="container">
         <div class="row">
             <div class="contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <h5>Contact Details</h5>
+                <h5>Контактная информация</h5>
                 <ul>
-                    <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, New Delhi, India</li>
-                    <li class="mobile"><i class="fa fa-phone"></i>+91 9898777656</li>
-                    <li class="email"><i class="fa fa-envelope"></i>Send email via our <a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=information/contact">Contact Us</a>
+                    {if !empty($theme_settings.address)}
+                        <li class="address">
+                            <i class="fa fa-map-marker"></i>{$theme_settings.address}
+                        </li>
+                    {/if}
+                    {if !empty($theme_settings.phone)}
+                        <li class="mobile">
+                            <i class="fa fa-phone"></i>{$theme_settings.phone}
+                        </li>
+                    {elseif $wa->shop}
+                        <li class="mobile">
+                            <i class="fa fa-phone"></i>{$wa->shop->settings('phone')}
+                        </li>
+                    {/if}
+
+                    {if !empty($theme_settings.additional_phone)}
+                        <li class="mobile">
+                            <i class="fa fa-phone"></i>{$theme_settings.additional_phone}
+                        </li>
+                    {/if}
+
+                    {if !empty($theme_settings.email)}
+                        <li class="email">
+                            <i class="fa fa-envelope"></i>
+                            {$theme_settings.email}
+                        </li>
+                    {elseif $wa->shop}
+                        <li class="email">
+                            <i class="fa fa-envelope"></i>{$wa->shop->settings('email')}
+                        </li>
+                    {/if}
                 </ul>
             </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>Information</h5>
-                {$footer_pages = $wa->shop->pages()}
-                {wa_print_tree  unfolded=false tree=$footer_pages elem ='<a href=":url" title=":title">:name</a>'   }
-            </div>
+            {if $theme_settings.source_footer_info}
+                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    <h5>Информация</h5>
+                    {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages'}
+                        {$footer_pages = $wa->shop->pages()}
+                    {else}
+                        {$footer_pages = $wa->site->pages()}   
+                    {/if}
+                    {wa_print_tree  unfolded=false tree=$footer_pages elem ='<a href=":url" title=":title">:name</a>'}
+                </div>
+            {/if}
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
                 <h5>Приложения</h5>
                 <ul>
@@ -22,18 +56,13 @@
                             <a href="{$app.url}">{$app.name}</a>
                         </li>
                     {/foreach}
-
                 </ul>
             </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>Extras</h5>
-                <ul>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/manufacturer">Brands</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=account/voucher">Gift Vouchers</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=affiliate/account">Affiliates</a></li>
-                    <li><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/special">Specials</a></li>
-                </ul>
-            </div>
+            {if $theme_settings.footer_extra}
+                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    {$theme_settings.footer_extra}
+                </div>
+            {/if}
             {if $wa->isAuthEnabled()}
                 <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <h5>[s`My account`]</h5>
@@ -95,19 +124,45 @@
                     | Theme By <a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
                 </p>                                                                                                                                                                                </div>
             <div class="social pull-right flip">
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/facebook.png" alt="Facebook" title="Facebook"></a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/twitter.png" alt="Twitter" title="Twitter"> </a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/google_plus.png" alt="Google+" title="Google+"> </a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/pinterest.png" alt="Pinterest" title="Pinterest"> </a>
-                <a href="#" target="_blank"> <img data-toggle="tooltip" src="{$wa_theme_url}content/rss.png" alt="RSS" title="RSS"> </a>
+                {if $theme_settings.facebook_url}
+                    <a href="{$theme_settings.facebook_url}" target="_blank">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/facebook.png" alt="Facebook" title="Facebook">
+                    </a>
+                {/if}
+                {if $theme_settings.twitter_url}
+                    <a href="{$theme_settings.twitter_url}" target="_blank">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/twitter.png" alt="Twitter" title="Twitter"> 
+                    </a>
+                {/if}
+                {if $theme_settings.google_plus_url}
+                    <a href="{$theme_settings.google_plus_url}" target="_blank">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/google_plus.png" alt="Google+" title="Google+">
+                    </a>
+                {/if}
+                {if $theme_settings.pinterest_url}
+                    <a href="{$theme_settings.pinterest_url}" target="_blank">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/pinterest.png" alt="Pinterest" title="Pinterest"> 
+                    </a>
+                {/if}
+                {if $wa->blog && $theme_settings.rss}
+                    {$rss_url = $wa->blog->rssUrl()}
+                    {if $rss_url}
+                        <a href="{$rss_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/rss.png" alt="RSS" title="RSS">
+                        </a>
+                    {/if}
+                {/if}
             </div>
         </div>
         <div class="bottom-row">
 
-            <div class="custom-text text-center">
-                <p>This is a CMS block edited from theme admin panel. You can insert any content (HTML, Text, Images) Here. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>                  </div>
+            {if $theme_settings.footer_text}
+                <div class="custom-text text-center">
+                    {$theme_settings.footer_text}                 
+                </div>
+            {/if}
 
-            {if $wa->shop}
+            {if $wa->shop && $theme_settings.footer_payments}
                 {$availabe_options = $wa->shop->payment()}
                 <div class="payments_types">
                     {foreach $availabe_options as $option}

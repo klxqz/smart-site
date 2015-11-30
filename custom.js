@@ -1,5 +1,5 @@
 function initFormControl(selector) {
-    selector.find('input[type=text],input[type=password],select,textarea').addClass('form-control');
+    selector.find('input[type=text],input[type=email],input[type=password],select,textarea').addClass('form-control');
     selector.find('input[type=submit]').addClass('btn btn-primary');
 }
 

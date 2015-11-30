@@ -1,4 +1,4 @@
-{if class_exists(shopProductbrandsPlugin)}
+{if $theme_settings.main_menu_brands_plugin == 'productbrands' && class_exists(shopProductbrandsPlugin)}
     {$brands = shopProductbrandsPlugin::getBrands()}
     {if $brands}
         <li class="menu_brands  dropdown">
@@ -17,4 +17,12 @@
             </div>
         </li>
     {/if}
+{elseif $theme_settings.main_menu_brands_plugin == 'brands' && class_exists(shopBrandsPlugin) && !empty($frontend_nav['brands-plugin'])}
+    <li class="menu_brands name dropdown sub">
+        <a href="#">Бренды</a>
+        <span class="submore"></span>
+        <div class="dropdown-menu">
+            {$frontend_nav['brands-plugin']}
+        </div>
+    </li>
 {/if}

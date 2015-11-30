@@ -1,120 +1,767 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="marketshop" system="0" vendor="webasyst" author="Webasyst" app="site" version="1.1.3">
-  <name locale="en_US">marketshop</name>
-  <name locale="ru_RU">marketshop</name>
-  <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
-  <files>
-    <file path="index.html">
-		<description locale="en_US">Core layout of the CUSTOM theme family</description>
-		<description locale="ru_RU">Основной макет тем дизайна семейства CUSTOM</description>
-    </file>
-    <file path="custom.css">
-		<description locale="en_US">Core CSS of the CUSTOM theme family</description>
-		<description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна CUSTOM</description>
-    </file>
-	<file path="content.html" custom="0">
-		<description locale="en_US">Main layout for the Site app content</description>
-		<description locale="ru_RU">Основной вывод приложения «Сайт»</description>
-	</file>
-	<file path="head.html" custom="0">
-		<description locale="en_US">Site app's &lt;head&gt; instructions</description>
-		<description locale="ru_RU">Блок &lt;head&gt; приложения «Сайт»</description>
-	</file>
-    <file path="page.html">
-		<description locale="en_US">Static page content and navigation</description>
-		<description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
-    </file>
-    <file path="login.html" custom="0">
-		<description locale="en_US">Login page</description>
-		<description locale="ru_RU">Страница входа для пользователей</description>
-	</file>
-    <file path="signup.html" custom="0">
-        <description locale="en_US">Sign up page</description>
-        <description locale="ru_RU">Страница регистрации пользователей</description>
-    </file>
-    <file path="forgotpassword.html" custom="0">
-        <description locale="en_US">Forgot password page</description>
-        <description locale="ru_RU">Страница сброса пароля</description>
-    </file>
-    <file path="my.profile.html">
-        <description locale="en_US">My profile: contact info editing form</description>
-        <description locale="ru_RU">Мой профиль: редактирование контактной информации</description>
-    </file>
-     <file path="my.nav.html">
-        <description locale="en_US">My profile navigation</description>
-        <description locale="ru_RU">Навигационное меню внутри личного кабинета</description>
-    </file>
-    <file path="error.html">
-		<description locale="en_US">404 and other errors</description>
-		<description locale="ru_RU">404 и другие ошибки</description>
-    </file>
-    <file path="custom.js" custom="0">
-        <description locale="en_US">JS</description>
-        <description locale="ru_RU">JS</description>
-    </file>
-  </files>
-  <about locale="en_US">
-<![CDATA[
-<p><b>CUSTOM</b> is a universal design theme family for all basic Webasyst apps: Site, Blog, Photos, Shop-Script, and others. The parent (main) theme of the family, which includes the basic set of CSS rules and the common layout template index.html, is the CUSTOM (i.e. this) theme for the Site application. All CUSTOM design themes used in other applications (e.g., Blog or Photos) utilize common CSS rules and file index.html of the parent (main) theme.</p>
-<p>CUSTOM design themes are optimized for all modern web browsers, including iOS and Android based mobile devices.</p>
-
-<h3>.hero</h3>
-<p>The theme offers the .hero class, which is recommended for use for highlighting key content on a page. With this class, content is displayed stretched across the entire visible page width:</p>
-<pre>
-&lt;div <strong>class="hero"</strong>&gt;
-    … Important content; e.g., online store's special offers,
-      blog post, best photo, etc. …
-&lt;/div&gt;
-… Other content here …
-</pre>
-<p>Auxiliary classes .red, .green, .blue, .purple, .yellow, .black allow you to specify the color for a .hero banner, and an extra class .superhero will visually make the banner appear over the edges of the main content area:</p>
-<pre>
-&lt;div <strong>class="hero superhero yellow"</strong>&gt;
-    &lt;h1&gt;This Week's Special Offer!&lt;/h1&gt;
-    &lt;img src="…" /&gt;
-&lt;/div&gt;
-</pre>
-]]>
-  </about>
-  <about locale="ru_RU">
-<![CDATA[
-<p><b>CUSTOM</b> — это универсальное семейство тем дизайна для всех базовых приложений фреймворка Вебасист: Сайт, Блог, Фото, Shop-Script и других. Родительской (основной) темой семейства, включающей в себя базовый набор CSS-стилей и общий макет дизайна index.html, является тема CUSTOM для приложения «Сайт» (данная тема). Все темы дизайна CUSTOM для других приложений (Блог, Фото и других) используют базовый CSS и index.html из родительской (основной) темы.</p>
-<p>Темы дизайна семейства CUSTOM оптимизированы для всех современных браузеров и мобильных устройств на основе iOS и Android.</p>
-
-<h3>.hero</h3>
-<p>Тема дизайна предоставляет класс .hero, который рекомендуется использовать для выделения ключевого содержимого страницы. Класс визуально оформляет содержимое в виде «растяжки» на всю ширину основной видимой области страницы:</p>
-<pre>
-&lt;div <strong>class="hero"</strong>&gt;
-    … Важное содержимое страницы, например, спецпредложения магазина,
-      ключевой блог-пост, лучшая фотография …
-&lt;/div&gt;
-… Менее важная информация …
-</pre>
-<p>Дополнительные классы .red, .green, .blue, .purple, .yellow, .black позволяют указать цвет баннера .hero, а отдельный дополнительный класс .superhero позволяет выделить баннер более явно так, что его края визуально будут нависать над областью основного содержимого:</p>
-<pre>
-&lt;div <strong>class="hero superhero yellow"</strong>&gt;
-    &lt;h1&gt;Спецпредложение недели!&lt;/h1&gt;
-    &lt;img src="…" /&gt;
-&lt;/div&gt;
-</pre>
-
-]]>
-  </about>
-  <settings>
-        <setting var="bg_image" control_type="image_select">
-            <value>img/cloth.jpg</value>
-            <name locale="en_US">Background</name>
-            <name locale="ru_RU">Фон</name>
+<theme id="marketshop" system="0" vendor="webasyst" author="Webasyst" app="site" version="1.0.0">
+    <name locale="en_US">marketshop</name>
+    <name locale="ru_RU">marketshop</name>
+    <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
+    <files>
+        <file path="index.html">
+            <description locale="en_US">Core layout of the CUSTOM theme family</description>
+            <description locale="ru_RU">Основной макет тем дизайна семейства CUSTOM</description>
+        </file>
+        <file path="custom.css">
+            <description locale="en_US">Core CSS of the CUSTOM theme family</description>
+            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна CUSTOM</description>
+        </file>
+        <file path="content.html" custom="0">
+            <description locale="en_US">Main layout for the Site app content</description>
+            <description locale="ru_RU">Основной вывод приложения «Сайт»</description>
+        </file>
+        <file path="head.html" custom="0">
+            <description locale="en_US">Site app's &lt;head&gt; instructions</description>
+            <description locale="ru_RU">Блок &lt;head&gt; приложения «Сайт»</description>
+        </file>
+        <file path="page.html">
+            <description locale="en_US">Static page content and navigation</description>
+            <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
+        </file>
+        <file path="login.html" custom="0">
+            <description locale="en_US">Login page</description>
+            <description locale="ru_RU">Страница входа для пользователей</description>
+        </file>
+        <file path="signup.html" custom="0">
+            <description locale="en_US">Sign up page</description>
+            <description locale="ru_RU">Страница регистрации пользователей</description>
+        </file>
+        <file path="forgotpassword.html" custom="0">
+            <description locale="en_US">Forgot password page</description>
+            <description locale="ru_RU">Страница сброса пароля</description>
+        </file>
+        <file path="my.profile.html">
+            <description locale="en_US">My profile: contact info editing form</description>
+            <description locale="ru_RU">Мой профиль: редактирование контактной информации</description>
+        </file>
+        <file path="my.nav.html">
+            <description locale="en_US">My profile navigation</description>
+            <description locale="ru_RU">Навигационное меню внутри личного кабинета</description>
+        </file>
+        <file path="error.html">
+            <description locale="en_US">404 and other errors</description>
+            <description locale="ru_RU">404 и другие ошибки</description>
+        </file>
+        <file path="custom.js" custom="0">
+            <description locale="en_US">JS</description>
+            <description locale="ru_RU">JS</description>
+        </file>
+    </files>
+    <settings>
+        <setting var="main_come" control_type="group_divider">
+            <value/>
+            <name locale="en_US">
+                <![CDATA[
+                <style>
+                .wa-theme-image-select{
+                    max-width: 750px;
+                }
+                .wa-theme-image-select a{
+                    height: 70px; width: 70px;
+                }
+                .wa-theme-image-select a img{
+                    height: 70px; width: 70px;
+                }
+                </style>
+                ]]>
+            </name>
+            <name locale="ru_RU">
+                <![CDATA[
+                <style>
+                .wa-theme-image-select{
+                    max-width: 750px;
+                }
+                .wa-theme-image-select a{
+                    height: 70px; width: 70px;
+                }
+                .wa-theme-image-select a img{
+                    height: 70px; width: 70px;
+                }
+                </style>
+                ]]>
+            </name>
+        </setting>
+        <setting var="divider_logo" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Logo</name>
+            <name locale="ru_RU">Логотип</name>
+        </setting>
+        <setting var="logo" control_type="image">
+            <value>img/logo.png</value>
+            <filename>img/logo.*</filename>
+            <name locale="en_US">Image</name>
+            <name locale="ru_RU">Изображение</name>
+        </setting>
+        <setting var="logo_title" control_type="text">
+            <value><![CDATA[Мой магазин]]></value>
+            <name locale="en_US">Title logo</name>
+            <name locale="ru_RU">Заголовок логотипа</name>
+        </setting>
+                
+        <setting var="divider_decor" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Decor</name>
+            <name locale="ru_RU">Оформление</name>
+        </setting>
+        <setting var="page_maket" control_type="select">
+            <value></value>
+            <name locale="en_US">
+                Page maket
+            </name>
+            <name locale="ru_RU">
+                Макет страницы
+            </name>
             <options>
-                <option value="img/cloth.jpg"></option>
-                <option value="img/grey.jpg"></option>
-                <option value="img/red.jpg"></option>
-                <option value="img/blue.jpg"></option>
-                <option value="img/green.jpg"></option>
-                <option value="img/purple.jpg"></option>
-                <option value="img/yellow.jpg"></option>
+                <option value="">
+                    <name locale="en_US">The full width</name>
+                    <name locale="ru_RU">На всю ширину</name>
+                </option>
+                <option value="limited">
+                    <name locale="en_US">Limited</name>
+                    <name locale="ru_RU">Ограниченный</name>
+                </option>
             </options>
         </setting>
-  </settings>
+        <setting var="color_scheme" control_type="select">
+            <value></value>
+            <name locale="en_US">
+                Color scheme
+            </name>
+            <name locale="ru_RU">
+                Цветовая схема
+            </name>
+            <options>
+                <option value="">
+                    <name locale="en_US">theme1</name>
+                    <name locale="ru_RU">theme1</name>
+                </option>
+                <option value="2">
+                    <name locale="en_US">theme2</name>
+                    <name locale="ru_RU">theme2</name>
+                </option>
+                <option value="3">
+                    <name locale="en_US">theme3</name>
+                    <name locale="ru_RU">theme3</name>
+                </option>
+                <option value="4">
+                    <name locale="en_US">theme4</name>
+                    <name locale="ru_RU">theme4</name>
+                </option>
+                <option value="custom_color_scheme">
+                    <name locale="en_US">Custom color scheme</name>
+                    <name locale="ru_RU">Пользовательская цветовая схема</name>
+                </option>
+            </options>
+        </setting>
+        <setting var="divider_background" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Background</name>
+            <name locale="ru_RU">Фон</name>
+        </setting>
+        <setting var="background_color" control_type="color">
+            <value>#dcdbdb</value>
+            <name locale="en_US">Background color</name>
+            <name locale="ru_RU">Цвет фона</name>
+        </setting>
+        
+        <setting var="bg_texture" control_type="image_select">
+            <value>img/bg/no_bg.png</value>
+            <name locale="en_US">background texture</name>
+            <name locale="ru_RU">Фоновая текстура</name>
+            <options>
+                <option value="img/bg/no_bg.png"></option>
+                <option value="img/texture/water.jpg"></option>
+                <option value="img/texture/lava3.jpg"></option>
+                <option value="img/texture/lava2.jpg"></option>
+                <option value="img/texture/lava.jpg"></option>
+                <option value="img/texture/stars2.jpg"></option>
+                <option value="img/texture/stars.jpg"></option>
+                <option value="img/texture/gravel4.jpg"></option>
+                <option value="img/texture/gravel3.jpg"></option>
+                <option value="img/texture/gravel2.jpg"></option>
+                <option value="img/texture/gravel.jpg"></option>
+                <option value="img/texture/rose.jpg"></option>
+                <option value="img/texture/graffiti2.jpg"></option>
+                <option value="img/texture/graffiti.jpg"></option>
+                <option value="img/texture/protector.jpg"></option>
+                <option value="img/texture/parket.jpg"></option>
+                <option value="img/texture/wood.jpg"></option>
+                <option value="img/texture/carbon2.jpg"></option>
+                <option value="img/texture/carbon.jpg"></option>
+                <option value="img/texture/bg-style2.gif"></option>
+                <option value="img/texture/bg-style3.jpg"></option>
+                <option value="img/texture/bg-style4.jpg"></option>
+                <option value="img/texture/bg-style5.jpg"></option>
+                <option value="img/texture/9d75dau-m.jpg"></option>
+                <option value="img/texture/2475dau-m.jpg"></option>
+                <option value="img/texture/4275dau-m.jpg"></option>
+                <option value="img/texture/5875dau-m.jpg"></option>
+                <option value="img/texture/6175dau-m.jpg"></option>
+                <option value="img/texture/6375dau-m.jpg"></option>
+                <option value="img/texture/7675dau-m.jpg"></option>
+                <option value="img/texture/a1d44cu-m.jpg"></option>
+                <option value="img/texture/e4g4cu-m.jpg"></option>
+                <option value="img/texture/cloth.jpg"></option>
+                <option value="img/texture/grey.jpg"></option>
+                <option value="img/texture/red.jpg"></option>
+                <option value="img/texture/blue.jpg"></option>
+                <option value="img/texture/green.jpg"></option>
+                <option value="img/texture/purple.jpg"></option>
+                <option value="img/texture/yellow.jpg"></option>
+            </options>
+        </setting>
+        <setting var="custom_texture_image" control_type="image">
+            <value></value>
+            <filename>img/texture/*</filename>
+            <name locale="en_US">Custom background texture</name>
+            <name locale="ru_RU">Пользовательская текстура</name>
+        </setting>
+        <setting var="bg_image" control_type="image_select">
+            <value>img/bg/no_bg.png</value>
+            <name locale="en_US">background image</name>
+            <name locale="ru_RU">Фоновое изображение</name>
+            <options>
+                <option value="img/bg/no_bg.png"></option>
+                <option value="img/bg/winter.jpg"></option>
+                <option value="img/bg/beautiful-blue.jpg"></option>
+                <option value="img/bg/windows.jpg"></option>
+                <option value="img/bg/sky.jpg"></option>
+                <option value="img/bg/tulips.jpg"></option>
+                <option value="img/bg/abstract-colors.jpg"></option>
+                <option value="img/bg/rainbow_color_swirl.jpg"></option>
+                <option value="img/bg/maxresdefault13.jpg"></option>
+                <option value="img/bg/anypics.ru-29910.jpg"></option>
+                <option value="img/bg/look.com.ua-31155.jpg"></option>
+                <option value="img/bg/bg3.jpg"></option>
+                <option value="img/bg/motto.net.ua-9597.jpg"></option>
+                <option value="img/bg/abstraction3d_14998.jpg"></option>
+                <option value="img/bg/1282497095_0037.jpg"></option>
+                <option value="img/bg/reWalls.com-5145.jpg"></option>
+                <option value="img/bg/niceimage.ru-11104.jpg"></option>
+                <option value="img/bg/nastol.com.ua-2213.jpg"></option>
+                <option value="img/bg/race-driver-grid.jpg"></option>
+                <option value="img/bg/cartoon-design.jpg"></option>
+                <option value="img/bg/motto.net.ua-8881.jpg"></option>
+                <option value="img/bg/abstraction3d_60596.jpg"></option>
+                <option value="img/bg/1306093318_E4EEF0EEE3E0.jpg"></option>
+                <option value="img/bg/texture4.jpg"></option>
+                <option value="img/bg/wwalls.ru-60245.jpg"></option>
+                <option value="img/bg/1354035175_1-10.jpg"></option>
+                <option value="img/bg/reWalls.com-8867.jpg"></option>
+                <option value="img/bg/zwalls.ru-18631.jpg"></option>
+                <option value="img/bg/1263279.jpg"></option>
+            </options>
+        </setting>
+        
+       
+        <setting var="custom_bg_image" control_type="image">
+            <value></value>
+            <filename>img/bg/*</filename>
+            <name locale="en_US">Custom background image</name>
+            <name locale="ru_RU">Пользовательское фоновое изображение</name>
+        </setting>
+        <setting var="fixed_bg_image" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Fixed background image</name>
+            <name locale="ru_RU">Фиксировать фоновое изображение</name>
+        </setting>
+        <setting var="size_bg_image" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">scale background image</name>
+            <name locale="ru_RU">Масштабировать фоновое изображение</name>
+        </setting>
+        <setting var="bg_position" control_type="text">
+            <value>left top</value>
+            <name locale="en_US">background position</name>
+            <name locale="ru_RU">Положение фонового изображения. Формат: Значение по X, Значение по Y. Возможные значения: [left | center | right], [top | center | bottom]</name>
+        </setting>
+        <setting var="repeat_bg_image" control_type="select">
+            <value>no-repeat</value>
+            <name locale="en_US">repeat background image</name>
+            <name locale="ru_RU">Повторять фоновое изображение</name>
+            <options>
+                <option value="repeat">
+                    <name locale="en_US">Repeat X and Y</name>
+                    <name locale="ru_RU">Повторять по X и Y</name>
+                </option>
+                <option value="repeat-x">
+                    <name locale="en_US">Repeat X</name>
+                    <name locale="ru_RU">Повторять по X</name>
+                </option>
+                <option value="repeat-y">
+                    <name locale="en_US">Repeat Y</name>
+                    <name locale="ru_RU">Повторять по Y</name>
+                </option>
+                <option value="no-repeat">
+                    <name locale="en_US">no repeat</name>
+                    <name locale="ru_RU">Не повторять</name>
+                </option>
+            </options>
+        </setting>
+        
+        <setting var="divider_top_menu" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Top menu</name>
+            <name locale="ru_RU">Верхнее меню</name>
+        </setting>
+        <setting var="top_menu_show_phone" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show phone</name>
+            <name locale="ru_RU">Показывать телефон</name>
+        </setting>
+        <setting var="top_menu_show_additional_phone" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">Show additional phone</name>
+            <name locale="ru_RU">Показывать дополнительный телефон</name>
+        </setting>
+        <setting var="top_menu_show_email" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show email</name>
+            <name locale="ru_RU">Показывать Email</name>
+        </setting>
+        <setting var="top_menu_show_news" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">Show news</name>
+            <name locale="ru_RU">Показывать Новости</name>
+        </setting>
+        <setting var="top_menu_custom_link" control_type="text">
+            <value><![CDATA[<li>
+    <a href="#">Пользовательская ссылка</a>
+</li>]]></value>
+            <name locale="en_US">Custom link</name>
+            <name locale="ru_RU">Пользовательские ссылки</name>
+        </setting>
+        <setting var="top_menu_links" control_type="radio">
+            <value></value>
+            <name locale="en_US">Block links</name>
+            <name locale="ru_RU">Блок ссылок</name>
+            <options>
+                <option value="shop_pages">
+                    <name locale="en_US">Shop pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы магазина<![CDATA[<br/>]]></name>
+                </option>
+                <option value="site_pages">
+                    <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        <setting var="top_menu_show_favorites" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show favorites</name>
+            <name locale="ru_RU">Показывать избранное</name>
+        </setting>
+        <setting var="top_menu_show_compare" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show compare</name>
+            <name locale="ru_RU">Показывать сравнение</name>
+        </setting>
+        <setting var="top_menu_show_currency" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show currency</name>
+            <name locale="ru_RU">Показывать валюту</name>
+        </setting>
+        
+        
+        <setting var="divider_header" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Header</name>
+            <name locale="ru_RU">Header</name>
+        </setting>
+        <setting var="header_struct" control_type="radio">
+            <value>1</value>
+            <name locale="en_US">
+                Header structure
+            </name>
+            <name locale="ru_RU">
+                Структура Header'а
+            </name>
+            <options>
+                <option value="1">
+                    <name locale="en_US">Logo - Cart - Search<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Логотип - Корзина - Поиск<![CDATA[<br/>]]></name>
+                </option>
+                <option value="2">
+                    <name locale="en_US">Logo - Search - Cart<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Логотип - Поиск - Корзина<![CDATA[<br/>]]></name>
+                </option>
+                <option value="3">
+                    <name locale="en_US">Cart - Logo - Search<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Корзина - Логотип - Поиск<![CDATA[<br/>]]></name>
+                </option>
+                <option value="4">
+                    <name locale="en_US">Search - Logo - Cart<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Поиск - Логотип - Корзина<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        <setting var="divider_main_menu" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Main menu</name>
+            <name locale="ru_RU">Главное меню</name>
+        </setting>
+        <setting var="main_menu_wide" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">Wide menu</name>
+            <name locale="ru_RU">Широкое меню</name>
+        </setting>
+        <setting var="main_menu_show_homepage" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show Homepage</name>
+            <name locale="ru_RU">Показывать «Домой»</name>
+        </setting>
+        <setting var="main_menu_category_type" control_type="select">
+            <value>1</value>
+            <name locale="en_US">
+                Catalog menu type
+            </name>
+            <name locale="ru_RU">
+                Тип меню каталога
+            </name>
+            <options>
+                <option value="1">
+                    <name locale="en_US">1</name>
+                    <name locale="ru_RU">1</name>
+                </option>
+                <option value="2">
+                    <name locale="en_US">2</name>
+                    <name locale="ru_RU">2</name>
+                </option>
+                <option value="3">
+                    <name locale="en_US">3</name>
+                    <name locale="ru_RU">3</name>
+                </option>
+                <option value="4">
+                    <name locale="en_US">4</name>
+                    <name locale="ru_RU">4</name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide</name>
+                    <name locale="ru_RU">Не показывать</name>
+                </option>
+            </options>
+        </setting>
+        <setting var="main_menu_brands_plugin" control_type="radio">
+            <value>productbrands</value>
+            <name locale="en_US">Brands plugin</name>
+            <name locale="ru_RU">Плагин брендов</name>
+            <options>
+                <option value="productbrands">
+                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Brands with images and descriptions</a><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>]]></name>
+                </option>
+                <option value="brands">
+                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Brands</a><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide brands</name>
+                    <name locale="ru_RU">Не показывать бренды</name>
+                </option>
+            </options>
+        </setting>
+        
+        <setting var="main_menu_information" control_type="radio">
+            <value>shop_pages</value>
+            <name locale="en_US">Information</name>
+            <name locale="ru_RU">Информации</name>
+            <options>
+                <option value="shop_pages">
+                    <name locale="en_US">Shop pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы магазина<![CDATA[<br/>]]></name>
+                </option>
+                <option value="site_pages">
+                    <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        <setting var="main_menu_show_news" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show news</name>
+            <name locale="ru_RU">Показывать Новости</name>
+        </setting>
+        
+        <setting var="main_menu_links" control_type="radio">
+            <value></value>
+            <name locale="en_US">Block links</name>
+            <name locale="ru_RU">Блок ссылок</name>
+            <options>
+                <option value="shop_pages">
+                    <name locale="en_US">Shop pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы магазина<![CDATA[<br/>]]></name>
+                </option>
+                <option value="site_pages">
+                    <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        
+        
+        <setting var="main_menu_custom_links" control_type="text">
+            <value><![CDATA[<li class="custom-link">
+    <a href="#">Пользовательская ссылка</a>
+</li>
+<li class="dropdown sub"><a>Пользовательское меню</a>
+    <span class="submore"></span>
+<div class="dropdown-menu">
+    <ul>
+        <li><a href="#">Пункт1</a></li>
+        <li><a href="#">Пункт2</a></li>
+        <li><a href="#">Пункт3</a></li>
+    </ul>
+</div>
+</li>
+<li class="custom-link-right">
+    <a href="#">Обратный звонок</a>
+</li>
+]]></value>
+            <name locale="en_US">Custom link</name>
+            <name locale="ru_RU">Пользовательские ссылки</name>
+        </setting>
+
+
+        <setting var="divider_home_page" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Homepage</name>
+            <name locale="ru_RU">Главная страница</name>
+        </setting>
+        <setting var="homepage_sidebar" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Sidebar on the homepage</name>
+            <name locale="ru_RU">Боковое меню на главной</name>
+        </setting>
+        <setting var="homepage_infobanners" control_type="radio">
+            <value>top</value>
+            <name locale="en_US">Block links</name>
+            <name locale="ru_RU">Информационные баннеры</name>
+            <options>
+                <option value="top">
+                    <name locale="en_US">On top<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Сверху<![CDATA[<br/>]]></name>
+                </option>
+                <option value="bottom">
+                    <name locale="en_US">Bottom<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Снизу<![CDATA[<br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        <setting var="homepage_infobanner1" control_type="text">
+            <value><![CDATA[<div class="title">Бесплатная доставка</div>
+<p>Free shipping on order over $1000</p>]]></value>
+            <name locale="en_US">Info banner 1</name>
+            <name locale="ru_RU">Информационный баннер №1</name>
+        </setting>
+        <setting var="homepage_infobanner2" control_type="text">
+            <value><![CDATA[<div class="title">Возврат</div>
+<p>Free return in 24 hour after purchasing</p>]]></value>
+            <name locale="en_US">Info banner 2</name>
+            <name locale="ru_RU">Информационный баннер №2</name>
+        </setting>
+        <setting var="homepage_infobanner3" control_type="text">
+            <value><![CDATA[<div class="title">Податочные карты</div>
+<p>Give the special perfect gift</p>]]></value>
+            <name locale="en_US">Info banner 3</name>
+            <name locale="ru_RU">Информационный баннер №3</name>
+        </setting>
+        <setting var="homepage_infobanner4" control_type="text">
+            <value><![CDATA[<div class="title">Пункты самовывоза</div>
+<p>Earn and spend with ease</p>]]></value>
+            <name locale="en_US">Info banner 4</name>
+            <name locale="ru_RU">Информационный баннер №4</name>
+        </setting>
+        
+        <setting var="divider_footer" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Footer</name>
+            <name locale="ru_RU">Подвал</name>
+        </setting>
+        <setting var="source_footer_info" control_type="select">
+            <value>shop_pages</value>
+            <name locale="en_US">
+                Source for block «Information»
+            </name>
+            <name locale="ru_RU">
+                Источник для блока «Информация»
+            </name>
+            <options>
+                <option value="site_pages">
+                    <name locale="en_US">Application «Site» - pages</name>
+                    <name locale="ru_RU">Приложение «Сайт» - страницы</name>
+                </option>
+                <option value="shop_pages">
+                    <name locale="en_US">Application «Shop» - pages</name>
+                    <name locale="ru_RU">Приложение «Магазин» - страницы</name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide</name>
+                    <name locale="ru_RU">Не показывать</name>
+                </option>
+            </options>
+        </setting>
+        
+        <setting var="footer_extra" control_type="text">
+            <value><![CDATA[<h5>Дополнительно</h5>
+<ul>
+    <li><a href="#">Бренды</a></li>
+    <li><a href="#">Подарочные карты</a></li>
+    <li><a href="#">Партнерская программа</a></li>
+    <li><a href="#">Акции</a></li>
+</ul>]]></value>
+            <name locale="en_US">Extra</name>
+            <name locale="ru_RU">Дополнительный блок</name>
+        </setting>
+        
+        <setting var="facebook_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Facebook</name>
+            <name locale="ru_RU">Facebook</name>
+        </setting>
+        <setting var="twitter_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Twitter</name>
+            <name locale="ru_RU">Twitter</name>
+        </setting>
+        <setting var="google_plus_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Google+</name>
+            <name locale="ru_RU">Google+</name>
+        </setting>
+        <setting var="pinterest_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Pinterest</name>
+            <name locale="ru_RU">Pinterest</name>
+        </setting>
+        <setting var="rss" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">RSS</name>
+            <name locale="ru_RU">RSS</name>
+        </setting>
+        
+        <setting var="footer_text" control_type="text">
+            <value><![CDATA[Этот текстовый блок можно отредактировать в админ. панели управления сайта в настройках темы дизайна. Вы можете разместить любой контент: текст, HTML, изображения. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.]]></value>
+            <name locale="en_US">Text</name>
+            <name locale="ru_RU">Текст</name>
+        </setting>
+        
+        <setting var="footer_payments" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Payments</name>
+            <name locale="ru_RU">Способы оплаты</name>
+        </setting>
+  
+  
+  
+        <setting var="divider_contact" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Contact details</name>
+            <name locale="ru_RU">Контактные данные</name>
+        </setting>
+      
+        
+        <setting var="phone" control_type="text">
+            <value>+7-123-456-78-90</value>
+            <name locale="en_US">Phone</name>
+            <name locale="ru_RU">Телефон</name>
+        </setting>
+        <setting var="additional_phone" control_type="text">
+            <value>+7-123-456-78-91</value>
+            <name locale="en_US">Additional Phone</name>
+            <name locale="ru_RU">Дополнительный телефон</name>
+        </setting>
+        
+        
+        <setting var="email" control_type="text">
+            <value>info@my-shop.ru</value>
+            <name locale="en_US">Email</name>
+            <name locale="ru_RU">Email</name>
+        </setting>
+        <setting var="address" control_type="text">
+            <value>111111, Москва, Ленина, 5Б, офис 201</value>
+            <name locale="en_US">Address</name>
+            <name locale="ru_RU">Адрес</name>
+        </setting>
+        
+        <setting var="divider_sidebar_site" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Sidebar application «Site»</name>
+            <name locale="ru_RU">Сайдбар. Приложение «Сайт»</name>
+        </setting>
+        
+        <setting var="sidebar_site_custom_content" control_type="text">
+            <value><![CDATA[<h2>Пользовательский контент</h2>
+<p>This is a CMS block edited from admin. You can insert any content (HTML, Text, Images) Here. </p>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>]]></value>
+            <name locale="en_US">Custom Content</name>
+            <name locale="ru_RU">Пользовательский контент</name>
+        </setting>
+        
+        <setting var="divider_sidebar_site" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Sidebar application «Site». Banners</name>
+            <name locale="ru_RU">Сайдбар. Приложение «Сайт». Баннеры</name>
+        </setting>
+        
+        <setting var="sidebar_site_banner1" control_type="image">
+            <value>img/banners/banner-1.jpg</value>
+            <filename>img/banners/banner-1.*</filename>
+            <name locale="en_US">banner 1</name>
+            <name locale="ru_RU">баннер 1</name>
+        </setting>
+        <setting var="sidebar_site_banner1_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">banner 1 url</name>
+            <name locale="ru_RU">баннер 1 ссылка</name>
+        </setting>
+        
+        <setting var="sidebar_site_banner2" control_type="image">
+            <value>img/banners/banner-2.jpg</value>
+            <filename>img/banners/banner-2.*</filename>
+            <name locale="en_US">banner 2</name>
+            <name locale="ru_RU">баннер 2</name>
+        </setting>
+        <setting var="sidebar_site_banner2_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">banner 2 url</name>
+            <name locale="ru_RU">баннер 2 ссылка</name>
+        </setting>
+        
+        <setting var="sidebar_site_banner3" control_type="image">
+            <value></value>
+            <filename>img/banners/banner-3.*</filename>
+            <name locale="en_US">banner 3</name>
+            <name locale="ru_RU">баннер 3</name>
+        </setting>
+        <setting var="sidebar_site_banner3_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">banner 3 url</name>
+            <name locale="ru_RU">баннер 3 ссылка</name>
+        </setting>
+        
+    </settings>
 </theme>

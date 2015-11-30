@@ -5,27 +5,44 @@
 {/if}
 {include file="sidebar-menu.html" items=$wa->site->pages() menu_title='Информация' selected=$selected}
 
-<div class="list-group">
-    <h2>Custom Content</h2>
-    <p>This is a CMS block edited from admin. You can insert any content (HTML, Text, Images) Here. </p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p><p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-</div>
-<div id="banner0" class="owl-carousel">
-    <div class="item">
-        <a href="http://themeforest.net/item/marketshop-multipurpose-premium-opencart-theme/6913803?ref=harnishdesign"><img src="{$wa_theme_url}content/small-banner1-265x350.jpg" alt="small banner" class="img-responsive" /></a>
+{if $theme_settings.sidebar_site_custom_content}
+    <div class="list-group">
+        {$theme_settings.sidebar_site_custom_content}
     </div>
-    <div class="item">
-        <a href="http://themeforest.net/item/marketshop-multipurpose-premium-opencart-theme/6913803?ref=harnishdesign"><img src="{$wa_theme_url}content/small-banner-265x350.jpg" alt="small banner1" class="img-responsive" /></a>
+{/if}
+
+{$count_banners = 0}
+{for $i = 1 to 3}
+    {if $theme_settings["sidebar_site_banner`$i`"]}
+        {$count_banners = $count_banners + 1}
+    {/if}
+{/for}
+{if $count_banners}
+    <div id="banner0" class="owl-carousel">
+        {for $i = 1 to 3}
+            {if $theme_settings["sidebar_site_banner`$i`"] && $theme_settings["sidebar_site_banner`$i`_url"]}
+                <div class="item">
+                    <a href="{$theme_settings["sidebar_site_banner`$i`_url"]}">
+                        <img src="{$wa_theme_url}{$theme_settings["sidebar_site_banner`$i`"]}" class="img-responsive" />
+                    </a>
+                </div>
+            {elseif $theme_settings["sidebar_site_banner`$i`"] }
+                <div class="item">
+                    <img src="{$wa_theme_url}{$theme_settings["sidebar_site_banner`$i`"]}" class="img-responsive" />
+                </div>
+            {/if}
+        {/for}
     </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#banner0').owlCarousel({
-            items: 6,
-            autoPlay: 3000,
-            singleItem: true,
-            navigation: false,
-            pagination: false,
-            transitionStyle: 'fade'
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#banner0').owlCarousel({
+                items: 6,
+                autoPlay: 3000,
+                singleItem: true,
+                navigation: false,
+                pagination: false,
+                transitionStyle: 'fade'
+            });
         });
-    });
-</script>
+    </script>
+{/if}

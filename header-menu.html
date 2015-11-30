@@ -2,51 +2,94 @@
 <div class="pull-left flip left-top">
     <div class="links">
         <ul>
-            <li class="mobile"><a href="tel:{$wa->shop->settings('phone')}"><i class="fa fa-phone"></i>{$wa->shop->settings('phone')}</a></li>
-            <li class="email"><a href="mailto:{$wa->shop->settings('email')}"><i class="fa fa-envelope"></i>{$wa->shop->settings('email')}</a></li>
-            <li class="wrap_custom_block hidden-sm hidden-xs"><a>Custom Block<b></b></a>
-                <div class="custom_block">
-                    <ul>
-                        <li>
-                            <table style="width: 500px;" align="left" border="0" cellpadding="10" cellspacing="10">	
-                                <tbody>		
-                                    <tr>			
-                                        <td><img alt="" src="{$wa_theme_url}content/cms-block.jpg" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;"></td>			
-                                        <td><img alt="" src="{$wa_theme_url}content/responsive.jpg" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;"></td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td>			<h2>CMS Blocks</h2>			</td>			
-                                        <td>			<h2>Responsive Theme</h2>			</td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td>You can add any HTML content to this block or turn it off in Theme Admin panel!</td>			
-                                        <td>You can add any HTML content to this block or turn it off in Theme Admin panel!</td>		
-                                    </tr>		
-                                    <tr>			
-                                        <td><strong><a href="#">Read More</a></strong></td>			
-                                        <td><strong><a href="#">Read More</a></strong></td>		
-                                    </tr>	
-                                </tbody>
-                            </table>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            {if $wa->shop}
-                <li>
-                    {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
-                    <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">Wish List (<span class="count">{count($wishlist)}</span>)</a>
-                </li>
-                <li>
-                    {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
-                    <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+            {if $theme_settings.top_menu_show_phone && $theme_settings.phone}
+                <li class="mobile">
+                    <a href="tel:{$theme_settings.phone}"><i class="fa fa-phone"></i>{$theme_settings.phone}</a>
                 </li>
             {/if}
-            <li><a href="{$wa->getUrl('shop/frontend/checkout')}">[`Checkout`]</a></li>
+
+            {if $theme_settings.top_menu_show_additional_phone && $theme_settings.additional_phone}
+                <li class="mobile">
+                    <a href="tel:{$theme_settings.additional_phone}"><i class="fa fa-phone"></i>{$theme_settings.additional_phone}</a>
+                </li>
+            {/if}
+
+            {if $theme_settings.top_menu_show_email && $theme_settings.email}
+                <li class="email">
+                    <a href="mailto:{$theme_settings.email}"><i class="fa fa-envelope"></i>{$theme_settings.email}</a>
+                </li>
+            {/if}
+
+            {if $theme_settings.top_menu_show_news && $wa->blog && $wa->blog->posts()}
+                <li class="wrap_custom_block hidden-sm hidden-xs"><a>Новости<b></b></a>
+                    <div class="custom_block">
+                        <ul>
+                            <li>
+                                <table align="left" border="0" cellpadding="10" cellspacing="10">	
+                                    <tbody>	
+                                        {foreach $wa->blog->posts() as $post}
+                                            {$img = ''}
+                                            {if preg_match('/<img.*src=\"(.*?)\"[^>]*>/', $post.text, $img)}
+                                                <tr>			
+                                                    <td>
+                                                        <a href="{$post.link}">
+                                                            <img alt="" src="{$img[1]}" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;">
+                                                        </a>
+                                                    </td>			
+                                                </tr>
+                                            {/if}
+                                            <tr>			
+                                                <td><h2>{$post.title}</h2></td>				
+                                            </tr>		
+                                            <tr>			
+                                                <td>{$post.text|strip_tags|truncate:255}</td>					
+                                            </tr>		
+                                            <tr>			
+                                                <td><strong><a href="{$post.link}">Read More</a></strong></td>				
+                                            </tr>	
+                                            {if $post@iteration == 2}
+                                                {break}
+                                            {/if}
+                                        {/foreach}	
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {/if}
+            {$theme_settings.top_menu_custom_link}
+            {if $theme_settings.top_menu_links == 'shop_pages'}
+                {foreach $wa->shop->pages() as $page}
+                    <li>
+                        <a href="{$page.url}">{$page.name}</a>
+                    </li>
+                {/foreach}
+            {elseif $theme_settings.top_menu_links == 'site_pages'}
+                {foreach $wa->site->pages() as $page}
+                    <li>
+                        <a href="{$page.url}">{$page.name}</a>
+                    </li>
+                {/foreach}
+            {/if}
+            {if $wa->shop}
+                {if $theme_settings.top_menu_show_favorites}
+                    <li>
+                        {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
+                        <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">Избранные товары (<span class="count">{count($wishlist)}</span>)</a>
+                    </li>
+                {/if}
+                {if $theme_settings.top_menu_show_compare}
+                    <li>
+                        {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
+                        <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                    </li>
+                {/if}
+            {/if}
         </ul>
     </div>
 
-    {if $wa->shop && !empty($currencies) && count($currencies) > 1 }
+    {if $wa->shop && !empty($currencies) && count($currencies) > 1 && $theme_settings.top_menu_show_currency}
         {$currency = $wa->shop->currency(true)}
         <div id="currency">
             <div class="btn-group">
@@ -61,8 +104,6 @@
                         <i class="fa fa-caret-down"></i>
                     </span>
                 </div>
-
-
                 <ul class="dropdown-menu">
                     {foreach $currencies as $c_code => $c}
                         <li>

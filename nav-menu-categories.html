@@ -1,43 +1,167 @@
 {if $wa->shop && $wa->shop->categories(0, 0)}
-    {$categories = $wa->shop->categories(0, 0)}
-    <li class="categories_hor dropdown">
-        <a>Каталог</a>
-        <div class="dropdown-menu">
-            {foreach $categories as $category}
-                <div class="column col-lg-2 col-md-3"> 
-                    <a href="{$category.url}">{$category.name}</a>
-                    {$subcategories = $wa->shop->categories($category.id, 1)}
-                    {if $subcategories}
-                        <div>
-                            <ul>
+    {$menu_type = $theme_settings.main_menu_category_type}
+    {if $menu_type == 4}
+        {$categories = $wa->shop->categories(0, 0)}
+        {foreach $categories as $category}
+            <li class="categories_hor dropdown sub"> 
+                <a href="{$category.url}">{$category.name}</a>
+                {$subcategories = $wa->shop->categories($category.id, 1)}
+                {if $subcategories}
+                    <span class="submore"></span>
+                    <div class="dropdown-menu">
+                        {foreach $subcategories as $subcategory}
+                            <div class="column col-lg-2 col-md-3"> 
+                                <a href="{$subcategory.url}">{$subcategory.name}</a>
+                                {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
+                                {if $subcategories}
+                                    <span class="submore"></span>
+                                    <div>
+                                        <ul>
+                                            {foreach $subsubcategories as $subsubcategory}
+                                                <li> 
+                                                    <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
+                                                </li>
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                {/if}
+                            </div>
+                        {/foreach}
+                        <div class="clearfix visible-lg-block"></div>
+                    </div>
+                {/if}
+            </li>
+        {/foreach}
+    {elseif $menu_type == 3}
+        {$categories = $wa->shop->categories(0, 0)}
+        <li class="categories dropdown sub">
+            <a>Каталог</a>
+            <span class="submore"></span>
+            <div class="dropdown-menu">
+                {foreach $categories as $category}
+                    <div class="column">
+                        {$subcategories = $wa->shop->categories($category.id, 1)}
+                        <a href="{$category.url}">
+                            {$category.name}
+                            {if $subcategories}
+                                <span>›</span>
+                            {/if}
+                        </a>   
+
+                        {if $subcategories}
+                            <span class="submore"></span>
+                            <div>
                                 {foreach $subcategories as $subcategory}
-                                    <li>
-                                        <a href="{$subcategory.url}">{$subcategory.name}{if $wa->shop->categories($subcategory.id, 1)}<span>&rsaquo;</span>{/if}</a>
-                                        {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
-                                        {if $subsubcategories}
-                                            <div class="submenu">
-                                                <ul>
-                                                    {foreach $subsubcategories as $subsubcategory}
-                                                        <li> 
-                                                            <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
-                                                        </li>
-                                                    {/foreach}
-                                                </ul>
-                                            </div>
-                                        {/if}
-                                    </li>
-                                    {if $subcategory@iteration == 5 && count($subcategories) > 6}
+                                    <ul>
                                         <li>
-                                            <a href="{$category.url}">Показать еще</a>
+                                            {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
+                                            <a href="{$subcategory.url}">
+                                                {$subcategory.name}
+                                                {if $subsubcategories}
+                                                    <span>›</span>
+                                                {/if}
+                                            </a>                                                
+
+                                            {if $subsubcategories}
+                                                <span class="submore"></span>
+                                                <div class="submenu">
+                                                    <ul>
+                                                        {foreach $subsubcategories as $subsubcategory}
+                                                            <li> 
+                                                                <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
+                                                            </li>
+                                                        {/foreach}
+                                                    </ul>
+                                                </div>
+                                            {/if}
                                         </li>
-                                        {break}
-                                    {/if}
+                                    </ul>
                                 {/foreach}
-                            </ul>
-                        </div>
-                    {/if}
-                </div>
-            {/foreach}
-        </div>
-    </li>
+                            </div>
+                        {/if}
+                    </div>
+                {/foreach}
+            </div>
+        </li>
+    {elseif $menu_type == 2}
+        {$categories = $wa->shop->categories(0, 0)}
+        {foreach $categories as $category}
+            <li class="categories_defu dropdown sub">
+                <a href="{$category.url}" class="dropdown-toggle">{$category.name}</a>
+                {$subcategories = $wa->shop->categories($category.id, 1)}
+                {if $subcategories}
+                    <span class="submore"></span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            {foreach $subcategories as $subcategory}
+                                <li>
+                                    {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
+                                    <a href="{$subcategory.url}">
+                                        {$subcategory.name}
+                                        {if $subsubcategories}
+                                            <span>›</span>
+                                        {/if}
+                                    </a>       
+                                    {if $subsubcategories}
+                                        <span class="submore"></span>
+                                        <div class="submenu">
+                                            <ul>
+                                                {foreach $subsubcategories as $subsubcategory}
+                                                    <li> 
+                                                        <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
+                                                    </li>
+                                                {/foreach}
+                                            </ul>
+                                        </div>
+                                    {/if}
+                                </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                {/if}
+            </li>
+        {/foreach}
+    {elseif $menu_type == 1}
+        {$categories = $wa->shop->categories(0, 0)}
+        <li class="categories_hor dropdown">
+            <a>Каталог</a>
+            <div class="dropdown-menu">
+                {foreach $categories as $category}
+                    <div class="column col-lg-2 col-md-3"> 
+                        <a href="{$category.url}">{$category.name}</a>
+                        {$subcategories = $wa->shop->categories($category.id, 1)}
+                        {if $subcategories}
+                            <div>
+                                <ul>
+                                    {foreach $subcategories as $subcategory}
+                                        <li>
+                                            <a href="{$subcategory.url}">{$subcategory.name}{if $wa->shop->categories($subcategory.id, 1)}<span>&rsaquo;</span>{/if}</a>
+                                            {$subsubcategories = $wa->shop->categories($subcategory.id, 1)}
+                                            {if $subsubcategories}
+                                                <div class="submenu">
+                                                    <ul>
+                                                        {foreach $subsubcategories as $subsubcategory}
+                                                            <li> 
+                                                                <a href="{$subsubcategory.url}">{$subsubcategory.name}</a> 
+                                                            </li>
+                                                        {/foreach}
+                                                    </ul>
+                                                </div>
+                                            {/if}
+                                        </li>
+                                        {if $subcategory@iteration == 5 && count($subcategories) > 6}
+                                            <li>
+                                                <a href="{$category.url}">Показать еще</a>
+                                            </li>
+                                            {break}
+                                        {/if}
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        {/if}
+                    </div>
+                {/foreach}
+            </div>
+        </li>
+    {/if}
 {/if}
