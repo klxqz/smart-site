@@ -24,7 +24,7 @@
             <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css">
         {/if}
 
-        <script src="{$wa_theme_url}javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
         <link href="{$wa_theme_url}js/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
         <link href="{$wa_theme_url}javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{$wa_theme_url}stylesheet/stylesheet.css" />
@@ -78,7 +78,6 @@
                 </header>     
                 {include file="nav-menu.html"}
             </div>
-
             <div id="container">
                 {if $wa->currentUrl() == $wa_app_url && $theme_settings.homepage_infobanners == 'top'}
                     {include file="home-banners.html"}
@@ -108,7 +107,7 @@
                                                 $wa->getUrl('shop/frontend/my'),
                                                 $wa->getUrl('shop/frontend/myOrders'),
                                                 $wa->getUrl('shop/frontend/myProfile'),
-                                                $wa->getUrl('/frontend/myAffiliate')]}
+                                                $wa->getUrl('shop/frontend/myAffiliate')]}
                     {if empty($theme_settings.homepage_sidebar)}
                         {$without_sidebar_urls[] = $wa_url}
                     {/if}
@@ -143,7 +142,6 @@
                     <div class="content"></div>
                 </div>
             </div>
-            {*include file="social-block.html"*}
         </section>
 
         <script src="{$wa_theme_url}js/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -152,15 +150,12 @@
         <script type="text/javascript" src="{$wa_theme_url}js/custom.min.js"></script>
         <script src="{$wa_theme_url}javascript/jquery/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
 
-
         <script type="text/javascript">
             var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
         </script>
         <script src="{$wa_theme_url}custom.js" type="text/javascript"></script>
 
         <script src="{$wa_theme_url}javascript/jquery-ui/jquery-ui.js" type="text/javascript"></script>
-        {*<script src="{$wa_theme_url}javascript/jquery.plugins.adv.js" type="text/javascript"></script>*}
-        {*<script src="{$wa_theme_url}javascript/adv_ajaxfilter.js" type="text/javascript"></script>*}
 
         {if $wa_app == 'shop'}
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.tmpl.min.js"></script>

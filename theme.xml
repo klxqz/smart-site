@@ -454,15 +454,15 @@
         </setting>
         <setting var="main_menu_brands_plugin" control_type="radio">
             <value>productbrands</value>
-            <name locale="en_US">Brands plugin</name>
-            <name locale="ru_RU">Плагин брендов</name>
+            <name locale="en_US">Brands plugin (Only store)</name>
+            <name locale="ru_RU">Плагин брендов (Только для магазина)</name>
             <options>
                 <option value="productbrands">
-                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Brands with images and descriptions</a><br/>]]></name>
+                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.com/store/plugin/shop/productbrands/">Brands with images and descriptions</a><br/>]]></name>
                     <name locale="ru_RU"><![CDATA[Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>]]></name>
                 </option>
                 <option value="brands">
-                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Brands</a><br/>]]></name>
+                    <name locale="en_US"><![CDATA[Use plugin <a target="_blank" href="https://www.webasyst.com/store/plugin/shop/brands/">Brands</a><br/>]]></name>
                     <name locale="ru_RU"><![CDATA[Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>]]></name>
                 </option>
                 <option value="">
@@ -571,26 +571,34 @@
             </options>
         </setting>
         <setting var="homepage_infobanner1" control_type="text">
-            <value><![CDATA[<div class="title">Бесплатная доставка</div>
+            <value locale="en_US"><![CDATA[<div class="title">Free Shipping</div>
 <p>Free shipping on order over $1000</p>]]></value>
+            <value locale="ru_RU"><![CDATA[<div class="title">Бесплатная доставка</div>
+<p>Бесплатная доставка при заказе от 5000 руб.</p>]]></value>
             <name locale="en_US">Info banner 1</name>
             <name locale="ru_RU">Информационный баннер №1</name>
         </setting>
         <setting var="homepage_infobanner2" control_type="text">
-            <value><![CDATA[<div class="title">Возврат</div>
+            <value locale="en_US"><![CDATA[<div class="title">Free Return</div>
 <p>Free return in 24 hour after purchasing</p>]]></value>
+            <value locale="ru_RU"><![CDATA[<div class="title">Возврат</div>
+<p>Бесплатный возврат в течение 7 дней</p>]]></value>
             <name locale="en_US">Info banner 2</name>
             <name locale="ru_RU">Информационный баннер №2</name>
         </setting>
         <setting var="homepage_infobanner3" control_type="text">
-            <value><![CDATA[<div class="title">Податочные карты</div>
+            <value locale="en_US"><![CDATA[<div class="title">Gift Cards</div>
 <p>Give the special perfect gift</p>]]></value>
+            <value locale="ru_RU"><![CDATA[<div class="title">Податочные карты</div>
+<p>Специальные подарочные карты</p>]]></value>
             <name locale="en_US">Info banner 3</name>
             <name locale="ru_RU">Информационный баннер №3</name>
         </setting>
         <setting var="homepage_infobanner4" control_type="text">
-            <value><![CDATA[<div class="title">Пункты самовывоза</div>
+            <value locale="en_US"><![CDATA[<div class="title">Reward Points</div>
 <p>Earn and spend with ease</p>]]></value>
+            <value locale="ru_RU"><![CDATA[<div class="title">Пункты самовывоза</div>
+<p>Пункты самовывоза по всей России</p>]]></value>
             <name locale="en_US">Info banner 4</name>
             <name locale="ru_RU">Информационный баннер №4</name>
         </setting>
@@ -762,6 +770,75 @@
             <name locale="en_US">banner 3 url</name>
             <name locale="ru_RU">баннер 3 ссылка</name>
         </setting>
-        
     </settings>
+    <locales>
+        <locale>
+            <msgid>Contact Information</msgid>
+            <msgstr locale="ru_RU">Контактная информация</msgstr>
+        </locale>
+        <locale>
+            <msgid>Information</msgid>
+            <msgstr locale="ru_RU">Информация</msgstr>
+        </locale>
+        <locale>
+            <msgid>Applications</msgid>
+            <msgstr locale="ru_RU">Приложения</msgstr>
+        </locale>
+        <locale>
+            <msgid>My subscriptions</msgid>
+            <msgstr locale="ru_RU">Мои подписки</msgstr>
+        </locale>
+        <locale>
+            <msgid>My requests</msgid>
+            <msgstr locale="ru_RU">Мои запросы</msgstr>
+        </locale>
+        <locale>
+            <msgid>Theme By</msgid>
+            <msgstr locale="ru_RU">Тема дизайна</msgstr>
+        </locale>
+        <locale>
+            <msgid>Back to Top</msgid>
+            <msgstr locale="ru_RU">Вернуться наверх</msgstr>
+        </locale>
+        <locale>
+            <msgid>News</msgid>
+            <msgstr locale="ru_RU">Новости</msgstr>
+        </locale>
+        <locale>
+            <msgid>Read more</msgid>
+            <msgstr locale="ru_RU">Читать больше</msgstr>
+        </locale>
+        <locale>
+            <msgid>Favorite products</msgid>
+            <msgstr locale="ru_RU">Избранные товары</msgstr>
+        </locale>
+        <locale>
+            <msgid>Remove</msgid>
+            <msgstr locale="ru_RU">Удалить</msgstr>
+        </locale>
+        <locale>
+            <msgid>Your shopping cart is empty!</msgid>
+            <msgstr locale="ru_RU">Ваша корзина пуста!</msgstr>
+        </locale>
+        <locale>
+            <msgid>Find products</msgid>
+            <msgstr locale="ru_RU">Поиск товаров</msgstr>
+        </locale>
+        <locale>
+            <msgid>Brands</msgid>
+            <msgstr locale="ru_RU">Бренды</msgstr>
+        </locale>
+        <locale>
+            <msgid>Catalog</msgid>
+            <msgstr locale="ru_RU">Каталог</msgstr>
+        </locale>
+        <locale>
+            <msgid>Show more</msgid>
+            <msgstr locale="ru_RU">Показать еще</msgstr>
+        </locale>
+        <locale>
+            <msgid>Menu</msgid>
+            <msgstr locale="ru_RU">Меню</msgstr>
+        </locale>
+    </locales>
 </theme>

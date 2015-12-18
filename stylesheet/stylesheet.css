@@ -2823,3 +2823,20 @@ table.cart td.image{
 .lowercase{
     text-transform: lowercase;
 }
+.tags-block {
+    overflow: hidden; }
+.tags-block ul{
+    list-style: none;
+}
+.tags-block a {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: bold;
+    padding: 4px 9px 5px 9px;
+    border: 1px solid #d6d4d4;
+    float: left;
+    margin: 0 3px 3px 0; }
+.tags-block a:hover {
+    color: #bababa;
+    background: #f6f6f6; }

@@ -4,7 +4,7 @@
         {if $wide_menu}<div class="container">{/if}
             <div class="navbar-header"> 
                 <span class="visible-xs visible-sm">
-                    Menu<b></b>
+                    [`Menu`]<b></b>
                 </span>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -20,7 +20,7 @@
                     {include file="nav-menu-information.html"}
                     {include file="nav-menu-brands.html"}
                     {if $theme_settings.main_menu_show_news && $wa->blog && $wa->blog->posts()}
-                        <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>Новости</a>
+                        <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>[`News`]</a>
                             <div class="dropdown-menu custom_block">
                                 <ul>
                                     <li>
@@ -44,7 +44,7 @@
                                                         <td>{$post.text|strip_tags|truncate:255}</td>					
                                                     </tr>		
                                                     <tr>			
-                                                        <td><strong><a href="{$post.link}">Read More</a></strong></td>				
+                                                        <td><strong><a href="{$post.link}">[`Read more`]</a></strong></td>				
                                                     </tr>	
                                                     {if $post@iteration == 2}
                                                         {break}

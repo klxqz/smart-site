@@ -35,7 +35,7 @@
     {elseif $menu_type == 3}
         {$categories = $wa->shop->categories(0, 0)}
         <li class="categories dropdown sub">
-            <a>Каталог</a>
+            <a>[`Catalog`]</a>
             <span class="submore"></span>
             <div class="dropdown-menu">
                 {foreach $categories as $category}
@@ -124,7 +124,7 @@
     {elseif $menu_type == 1}
         {$categories = $wa->shop->categories(0, 0)}
         <li class="categories_hor dropdown">
-            <a>Каталог</a>
+            <a>[`Catalog`]</a>
             <div class="dropdown-menu">
                 {foreach $categories as $category}
                     <div class="column col-lg-2 col-md-3"> 
@@ -151,7 +151,7 @@
                                         </li>
                                         {if $subcategory@iteration == 5 && count($subcategories) > 6}
                                             <li>
-                                                <a href="{$category.url}">Показать еще</a>
+                                                <a href="{$category.url}">[`Show more`]</a>
                                             </li>
                                             {break}
                                         {/if}

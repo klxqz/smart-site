@@ -21,7 +21,7 @@
             {/if}
 
             {if $theme_settings.top_menu_show_news && $wa->blog && $wa->blog->posts()}
-                <li class="wrap_custom_block hidden-sm hidden-xs"><a>Новости<b></b></a>
+                <li class="wrap_custom_block hidden-sm hidden-xs"><a>[`News`]<b></b></a>
                     <div class="custom_block">
                         <ul>
                             <li>
@@ -45,7 +45,7 @@
                                                 <td>{$post.text|strip_tags|truncate:255}</td>					
                                             </tr>		
                                             <tr>			
-                                                <td><strong><a href="{$post.link}">Read More</a></strong></td>				
+                                                <td><strong><a href="{$post.link}">[`Read more`]</a></strong></td>				
                                             </tr>	
                                             {if $post@iteration == 2}
                                                 {break}
@@ -76,7 +76,7 @@
                 {if $theme_settings.top_menu_show_favorites}
                     <li>
                         {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
-                        <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">Избранные товары (<span class="count">{count($wishlist)}</span>)</a>
+                        <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
                     </li>
                 {/if}
                 {if $theme_settings.top_menu_show_compare}
@@ -144,12 +144,12 @@
                             {/if}
                             {if $wa->mailer}
                                 <li>
-                                    <a href="{$wa->getUrl('mailer/frontend/my')}">Мои подписки</a>
+                                    <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
                                 </li>
                             {/if}
                             {if $wa->helpdesk}
                                 <li>
-                                    <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">Мои запросы</a>
+                                    <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
                                 </li>
                             {/if}
                         </ul>

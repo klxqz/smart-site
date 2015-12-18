@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <h5>Контактная информация</h5>
+                <h5>[`Contact Information`]</h5>
                 <ul>
                     {if !empty($theme_settings.address)}
                         <li class="address">
@@ -39,7 +39,7 @@
             </div>
             {if $theme_settings.source_footer_info}
                 <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                    <h5>Информация</h5>
+                    <h5>[`Information`]</h5>
                     {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages'}
                         {$footer_pages = $wa->shop->pages()}
                     {else}
@@ -49,7 +49,7 @@
                 </div>
             {/if}
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>Приложения</h5>
+                <h5>[`Applications`]</h5>
                 <ul>
                     {foreach $wa->apps() as $app}
                         <li>
@@ -85,12 +85,12 @@
                                 {/if}
                                 {if $wa->mailer}
                                     <li>
-                                        <a href="{$wa->getUrl('mailer/frontend/my')}">Мои подписки</a>
+                                        <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
                                     </li>
                                 {/if}
                                 {if $wa->helpdesk}
                                     <li>
-                                        <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">Мои запросы</a>
+                                        <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
                                     </li>
                                 {/if}
                             {else}
@@ -121,8 +121,9 @@
             <div class="powered_text pull-left flip">
                 <p>
                     <a href="{$wa_url}">{$wa->accountName()}</a> &copy; {time()|wa_datetime:"Y"}, <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/">[s`Powered by Webasyst`]</a>
-                    | Theme By <a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
-                </p>                                                                                                                                                                                </div>
+                    | [`Theme By`] <a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
+                </p>                                                                                                                                                                                
+            </div>
             <div class="social pull-right flip">
                 {if $theme_settings.facebook_url}
                     <a href="{$theme_settings.facebook_url}" target="_blank">
@@ -155,7 +156,6 @@
             </div>
         </div>
         <div class="bottom-row">
-
             {if $theme_settings.footer_text}
                 <div class="custom-text text-center">
                     {$theme_settings.footer_text}                 
@@ -167,7 +167,7 @@
                 <div class="payments_types">
                     {foreach $availabe_options as $option}
                         {if $option.logo}
-                            <img data-toggle="tooltip" src="{$option.logo}" alt="{$option.name}" title="{$option.name}">
+                            <img data-toggle="tooltip" src="{rtrim($wa_url,'/')}{$option.logo}" alt="{$option.name}" title="{$option.name}">
                         {/if}
                     {/foreach}
                 </div>
@@ -175,4 +175,4 @@
         </div>
     </div>
 </div>
-<div id="back-top"><a data-toggle="tooltip" title="Back to Top" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+<div id="back-top"><a data-toggle="tooltip" title="[`Back to Top`]" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
