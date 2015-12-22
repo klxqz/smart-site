@@ -280,7 +280,9 @@
         <setting var="bg_position" control_type="text">
             <value>left top</value>
             <name locale="en_US">background position</name>
-            <name locale="ru_RU">Положение фонового изображения. Формат: Значение по X, Значение по Y. Возможные значения: [left | center | right], [top | center | bottom]</name>
+            <name locale="ru_RU">Положение фонового изображения.</name>
+            <description locale="en_US">Format: The value of X, Y. Value Possible values: [left | center | right], [top | center | bottom]</description>
+            <description locale="ru_RU">Формат: Значение по X, Значение по Y. Возможные значения: [left | center | right], [top | center | bottom]</description>
         </setting>
         <setting var="repeat_bg_image" control_type="select">
             <value>no-repeat</value>
@@ -337,6 +339,8 @@
 </li>]]></value>
             <name locale="en_US">Custom link</name>
             <name locale="ru_RU">Пользовательские ссылки</name>
+            <description locale="en_US">You can specify any links</description>
+            <description locale="ru_RU">Вы можете указать любые ссылки</description>
         </setting>
         <setting var="top_menu_links" control_type="radio">
             <value></value>
@@ -671,7 +675,7 @@
         </setting>
         
         <setting var="footer_text" control_type="text">
-            <value><![CDATA[Этот текстовый блок можно отредактировать в админ. панели управления сайта в настройках темы дизайна. Вы можете разместить любой контент: текст, HTML, изображения. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.]]></value>
+            <value><![CDATA[Этот текстовый блок можно отредактировать в админ. панели управления сайта в настройках темы дизайна. Вы можете разместить любой контент: текст, HTML, изображения.]]></value>
             <name locale="en_US">Text</name>
             <name locale="ru_RU">Текст</name>
         </setting>

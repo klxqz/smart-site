@@ -34,7 +34,7 @@ ol,ul
     margin: 0 0 20px;
     text-rendering: optimizelegibility;
 }
-#container h2,#container h3
+#container h2,#container h3,#dialog h2,#dialog h3
 {
     border-bottom: 2px solid #ddd;
     color: #000;
@@ -43,6 +43,9 @@ ol,ul
     margin: 0 0 20px;
     padding: 0 0 3px;
     position: relative;
+}
+#dialog h2,#dialog h3{
+    font-size: 18px;
 }
 #container h3 .viewall
 {
@@ -1762,7 +1765,7 @@ div.required .control-label:before
     float: none;
     margin-bottom: 5px;
 }
-.owl-carousel .product-thumb .price-tax,.product-grid .product-thumb .description,.product-grid .product-thumb .price-tax
+.owl-carousel .product-thumb .price-tax,.product-grid .product-thumb .description,.owl-carousel .product-thumb .description,.product-grid .product-thumb .price-tax
 {
     display: none;
 }

@@ -78,13 +78,13 @@
                 </header>     
                 {include file="nav-menu.html"}
             </div>
-            <div id="container">
+            <div id="container" itemtype="http://schema.org/WebPage" itemscope>
                 {if $wa->currentUrl() == $wa_app_url && $theme_settings.homepage_infobanners == 'top'}
                     {include file="home-banners.html"}
                 {/if}
                 <div class="container">
                     {if !empty($breadcrumbs)}
-                        <ul class="breadcrumb">
+                        <ul class="breadcrumb" itemprop="breadcrumb">
                             <li>
                                 <a href="{$wa_app_url}"><i class="fa fa-home"><dd>{$wa->accountName()}</dd></i></a>
                             </li>
