@@ -71,6 +71,12 @@
                         <a href="{$page.url}">{$page.name}</a>
                     </li>
                 {/foreach}
+            {elseif $theme_settings.top_menu_links == 'apps'}
+                {foreach $wa->apps() as $app}
+                    <li>
+                        <a href="{$app.url}">{$app.name}</a>
+                    </li>
+                {/foreach}
             {/if}
             {if $wa->shop}
                 {if $theme_settings.top_menu_show_favorites}

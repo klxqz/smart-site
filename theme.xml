@@ -110,22 +110,54 @@
             <name locale="en_US">Decor</name>
             <name locale="ru_RU">Оформление</name>
         </setting>
-        <setting var="page_maket" control_type="select">
+        <setting var="font_family" control_type="radio">
             <value></value>
             <name locale="en_US">
-                Page maket
+                Font family
             </name>
             <name locale="ru_RU">
-                Макет страницы
+                Семейство шрифтов
             </name>
             <options>
                 <option value="">
-                    <name locale="en_US">The full width</name>
-                    <name locale="ru_RU">На всю ширину</name>
+                    <name locale="en_US"><![CDATA[<span style="font-family: OpenSansRegular;">OpenSansRegular</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: OpenSansRegular">OpenSansRegular</span><br/>]]></name>
+                </option>
+                <option value="Tahoma">
+                    <name locale="en_US"><![CDATA[<span style="font-family: Tahoma;">Tahoma</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: Tahoma;">Tahoma</span><br/>]]></name>
+                </option>
+                <option value="Arial">
+                    <name locale="en_US"><![CDATA[<span style="font-family: Arial;">Arial</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: Arial;">Arial</span><br/>]]></name>
+                </option>
+                <option value="Verdana">
+                    <name locale="en_US"><![CDATA[<span style="font-family: Verdana;">Verdana</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: Verdana;">Verdana</span><br/>]]></name>
+                </option>
+                <option value="'Times New Roman'">
+                    <name locale="en_US"><![CDATA[<span style="font-family: 'Times New Roman'">Times New Roman</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: 'Times New Roman'">Times New Roman</span><br/>]]></name>
+                </option>
+                <option value="Georgia">
+                    <name locale="en_US"><![CDATA[<span style="font-family: Georgia">Georgia</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: Georgia">Georgia</span><br/>]]></name>
+                </option>
+                
+            </options>
+        </setting>
+        <setting var="page_maket" control_type="radio">
+            <value></value>
+            <name locale="en_US">Page maket</name>
+            <name locale="ru_RU">Макет страницы</name>
+            <options>
+                <option value="">
+                    <name locale="en_US">The full width<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">На всю ширину<![CDATA[<br/>]]></name>
                 </option>
                 <option value="limited">
-                    <name locale="en_US">Limited</name>
-                    <name locale="ru_RU">Ограниченный</name>
+                    <name locale="en_US">Limited<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Ограниченный<![CDATA[<br/>]]></name>
                 </option>
             </options>
         </setting>
@@ -172,49 +204,17 @@
         </setting>
         
         <setting var="bg_texture" control_type="image_select">
-            <value>img/bg/no_bg.png</value>
+            <value>img/no_img.png</value>
             <name locale="en_US">background texture</name>
             <name locale="ru_RU">Фоновая текстура</name>
             <options>
-                <option value="img/bg/no_bg.png"></option>
-                <option value="img/texture/water.jpg"></option>
-                <option value="img/texture/lava3.jpg"></option>
-                <option value="img/texture/lava2.jpg"></option>
-                <option value="img/texture/lava.jpg"></option>
-                <option value="img/texture/stars2.jpg"></option>
-                <option value="img/texture/stars.jpg"></option>
-                <option value="img/texture/gravel4.jpg"></option>
-                <option value="img/texture/gravel3.jpg"></option>
-                <option value="img/texture/gravel2.jpg"></option>
-                <option value="img/texture/gravel.jpg"></option>
-                <option value="img/texture/rose.jpg"></option>
-                <option value="img/texture/graffiti2.jpg"></option>
-                <option value="img/texture/graffiti.jpg"></option>
-                <option value="img/texture/protector.jpg"></option>
-                <option value="img/texture/parket.jpg"></option>
-                <option value="img/texture/wood.jpg"></option>
-                <option value="img/texture/carbon2.jpg"></option>
-                <option value="img/texture/carbon.jpg"></option>
-                <option value="img/texture/bg-style2.gif"></option>
-                <option value="img/texture/bg-style3.jpg"></option>
-                <option value="img/texture/bg-style4.jpg"></option>
-                <option value="img/texture/bg-style5.jpg"></option>
-                <option value="img/texture/9d75dau-m.jpg"></option>
-                <option value="img/texture/2475dau-m.jpg"></option>
-                <option value="img/texture/4275dau-m.jpg"></option>
-                <option value="img/texture/5875dau-m.jpg"></option>
-                <option value="img/texture/6175dau-m.jpg"></option>
-                <option value="img/texture/6375dau-m.jpg"></option>
-                <option value="img/texture/7675dau-m.jpg"></option>
-                <option value="img/texture/a1d44cu-m.jpg"></option>
-                <option value="img/texture/e4g4cu-m.jpg"></option>
-                <option value="img/texture/cloth.jpg"></option>
-                <option value="img/texture/grey.jpg"></option>
-                <option value="img/texture/red.jpg"></option>
-                <option value="img/texture/blue.jpg"></option>
-                <option value="img/texture/green.jpg"></option>
-                <option value="img/texture/purple.jpg"></option>
-                <option value="img/texture/yellow.jpg"></option>
+                <option value="img/no_img.png"></option>
+                <option value="img/texture/texture1.jpg"></option>
+                <option value="img/texture/texture2.jpg"></option>
+                <option value="img/texture/texture3.jpg"></option>
+                <option value="img/texture/texture4.jpg"></option>
+                <option value="img/texture/texture5.jpg"></option>
+                <option value="img/texture/texture6.jpg"></option>
             </options>
         </setting>
         <setting var="custom_texture_image" control_type="image">
@@ -224,39 +224,16 @@
             <name locale="ru_RU">Пользовательская текстура</name>
         </setting>
         <setting var="bg_image" control_type="image_select">
-            <value>img/bg/no_bg.png</value>
+            <value>img/no_img.png</value>
             <name locale="en_US">background image</name>
             <name locale="ru_RU">Фоновое изображение</name>
             <options>
-                <option value="img/bg/no_bg.png"></option>
-                <option value="img/bg/winter.jpg"></option>
-                <option value="img/bg/beautiful-blue.jpg"></option>
-                <option value="img/bg/windows.jpg"></option>
-                <option value="img/bg/sky.jpg"></option>
-                <option value="img/bg/tulips.jpg"></option>
-                <option value="img/bg/abstract-colors.jpg"></option>
-                <option value="img/bg/rainbow_color_swirl.jpg"></option>
-                <option value="img/bg/maxresdefault13.jpg"></option>
-                <option value="img/bg/anypics.ru-29910.jpg"></option>
-                <option value="img/bg/look.com.ua-31155.jpg"></option>
+                <option value="img/no_img.png"></option>
+                <option value="img/bg/bg1.jpg"></option>
+                <option value="img/bg/bg2.jpg"></option>
                 <option value="img/bg/bg3.jpg"></option>
-                <option value="img/bg/motto.net.ua-9597.jpg"></option>
-                <option value="img/bg/abstraction3d_14998.jpg"></option>
-                <option value="img/bg/1282497095_0037.jpg"></option>
-                <option value="img/bg/reWalls.com-5145.jpg"></option>
-                <option value="img/bg/niceimage.ru-11104.jpg"></option>
-                <option value="img/bg/nastol.com.ua-2213.jpg"></option>
-                <option value="img/bg/race-driver-grid.jpg"></option>
-                <option value="img/bg/cartoon-design.jpg"></option>
-                <option value="img/bg/motto.net.ua-8881.jpg"></option>
-                <option value="img/bg/abstraction3d_60596.jpg"></option>
-                <option value="img/bg/1306093318_E4EEF0EEE3E0.jpg"></option>
-                <option value="img/bg/texture4.jpg"></option>
-                <option value="img/bg/wwalls.ru-60245.jpg"></option>
-                <option value="img/bg/1354035175_1-10.jpg"></option>
-                <option value="img/bg/reWalls.com-8867.jpg"></option>
-                <option value="img/bg/zwalls.ru-18631.jpg"></option>
-                <option value="img/bg/1263279.jpg"></option>
+                <option value="img/bg/bg4.jpg"></option>
+                <option value="img/bg/bg5.jpg"></option>
             </options>
         </setting>
         
@@ -333,15 +310,6 @@
             <name locale="en_US">Show news</name>
             <name locale="ru_RU">Показывать Новости</name>
         </setting>
-        <setting var="top_menu_custom_link" control_type="text">
-            <value><![CDATA[<li>
-    <a href="#">Пользовательская ссылка</a>
-</li>]]></value>
-            <name locale="en_US">Custom link</name>
-            <name locale="ru_RU">Пользовательские ссылки</name>
-            <description locale="en_US">You can specify any links</description>
-            <description locale="ru_RU">Вы можете указать любые ссылки</description>
-        </setting>
         <setting var="top_menu_links" control_type="radio">
             <value></value>
             <name locale="en_US">Block links</name>
@@ -355,11 +323,24 @@
                     <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
                     <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
                 </option>
+                <option value="apps">
+                    <name locale="en_US">Aplications<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Приложения<![CDATA[<br/>]]></name>
+                </option>
                 <option value="">
                     <name locale="en_US">Hide<![CDATA[<br/>]]></name>
                     <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
                 </option>
             </options>
+        </setting>
+        <setting var="top_menu_custom_link" control_type="text">
+            <value><![CDATA[<li>
+    <a href="#">Пользовательская ссылка</a>
+</li>]]></value>
+            <name locale="en_US">Custom link</name>
+            <name locale="ru_RU">Пользовательские ссылки</name>
+            <description locale="en_US">You can specify any links</description>
+            <description locale="ru_RU">Вы можете указать любые ссылки</description>
         </setting>
         <setting var="top_menu_show_favorites" control_type="checkbox">
             <value>1</value>
@@ -456,6 +437,26 @@
                 </option>
             </options>
         </setting>
+        <setting var="main_menu_information" control_type="radio">
+            <value>shop_pages</value>
+            <name locale="en_US">Information</name>
+            <name locale="ru_RU">Информация</name>
+            <options>
+                <option value="shop_pages">
+                    <name locale="en_US">Shop pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы магазина<![CDATA[<br/>]]></name>
+                </option>
+                <option value="site_pages">
+                    <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
+                </option>
+                <option value="">
+                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
+                </option>
+            </options>
+        </setting>
+        
         <setting var="main_menu_brands_plugin" control_type="radio">
             <value>productbrands</value>
             <name locale="en_US">Brands plugin (Only store)</name>
@@ -475,26 +476,7 @@
                 </option>
             </options>
         </setting>
-        
-        <setting var="main_menu_information" control_type="radio">
-            <value>shop_pages</value>
-            <name locale="en_US">Information</name>
-            <name locale="ru_RU">Информации</name>
-            <options>
-                <option value="shop_pages">
-                    <name locale="en_US">Shop pages<![CDATA[<br/>]]></name>
-                    <name locale="ru_RU">Страницы магазина<![CDATA[<br/>]]></name>
-                </option>
-                <option value="site_pages">
-                    <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
-                    <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
-                </option>
-                <option value="">
-                    <name locale="en_US">Hide<![CDATA[<br/>]]></name>
-                    <name locale="ru_RU">Не показывать<![CDATA[<br/>]]></name>
-                </option>
-            </options>
-        </setting>
+
         <setting var="main_menu_show_news" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">Show news</name>
@@ -513,6 +495,10 @@
                 <option value="site_pages">
                     <name locale="en_US">Site pages<![CDATA[<br/>]]></name>
                     <name locale="ru_RU">Страницы сайта<![CDATA[<br/>]]></name>
+                </option>
+                <option value="apps">
+                    <name locale="en_US">Applications<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Приложения<![CDATA[<br/>]]></name>
                 </option>
                 <option value="">
                     <name locale="en_US">Hide<![CDATA[<br/>]]></name>
@@ -578,7 +564,7 @@
             <value locale="en_US"><![CDATA[<div class="title">Free Shipping</div>
 <p>Free shipping on order over $1000</p>]]></value>
             <value locale="ru_RU"><![CDATA[<div class="title">Бесплатная доставка</div>
-<p>Бесплатная доставка при заказе от 5000 руб.</p>]]></value>
+<p>Бесплатная доставка по городу</p>]]></value>
             <name locale="en_US">Info banner 1</name>
             <name locale="ru_RU">Информационный баннер №1</name>
         </setting>
@@ -586,7 +572,7 @@
             <value locale="en_US"><![CDATA[<div class="title">Free Return</div>
 <p>Free return in 24 hour after purchasing</p>]]></value>
             <value locale="ru_RU"><![CDATA[<div class="title">Возврат</div>
-<p>Бесплатный возврат в течение 7 дней</p>]]></value>
+<p>Бесплатный возврат товара</p>]]></value>
             <name locale="en_US">Info banner 2</name>
             <name locale="ru_RU">Информационный баннер №2</name>
         </setting>
@@ -817,6 +803,10 @@
             <msgstr locale="ru_RU">Избранные товары</msgstr>
         </locale>
         <locale>
+            <msgid>Compare products</msgid>
+            <msgstr locale="ru_RU">Сравнить товары</msgstr>
+        </locale>
+        <locale>
             <msgid>Remove</msgid>
             <msgstr locale="ru_RU">Удалить</msgstr>
         </locale>
@@ -827,6 +817,11 @@
         <locale>
             <msgid>Find products</msgid>
             <msgstr locale="ru_RU">Поиск товаров</msgstr>
+        </locale>
+        
+        <locale>
+            <msgid>Tags</msgid>
+            <msgstr locale="ru_RU">Теги</msgstr>
         </locale>
         <locale>
             <msgid>Brands</msgid>
@@ -844,5 +839,19 @@
             <msgid>Menu</msgid>
             <msgstr locale="ru_RU">Меню</msgstr>
         </locale>
+        <locale>
+            <msgid>Search</msgid>
+            <msgstr locale="ru_RU">Поиск</msgstr>
+        </locale>
+        <locale>
+            <msgid>My orders</msgid>
+            <msgstr locale="ru_RU">Мои заказы</msgstr>
+        </locale>
+        <locale>
+            <msgid>Affiliate program</msgid>
+            <msgstr locale="ru_RU">Партнерская программа</msgstr>
+        </locale>
+       
+        
     </locales>
 </theme>

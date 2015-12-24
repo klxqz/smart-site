@@ -3,9 +3,9 @@
     {if $menu_type == 4}
         {$categories = $wa->shop->categories(0, 0)}
         {foreach $categories as $category}
-            <li class="categories_hor dropdown sub"> 
+            {$subcategories = $wa->shop->categories($category.id, 1)}
+            <li class="categories_hor dropdown{if $subcategories} sub{/if}"> 
                 <a href="{$category.url}">{$category.name}</a>
-                {$subcategories = $wa->shop->categories($category.id, 1)}
                 {if $subcategories}
                     <span class="submore"></span>
                     <div class="dropdown-menu">
@@ -86,9 +86,9 @@
     {elseif $menu_type == 2}
         {$categories = $wa->shop->categories(0, 0)}
         {foreach $categories as $category}
-            <li class="categories_defu dropdown sub">
+            {$subcategories = $wa->shop->categories($category.id, 1)}
+            <li class="categories_defu dropdown{if $subcategories} sub{/if}">
                 <a href="{$category.url}" class="dropdown-toggle">{$category.name}</a>
-                {$subcategories = $wa->shop->categories($category.id, 1)}
                 {if $subcategories}
                     <span class="submore"></span>
                     <div class="dropdown-menu">

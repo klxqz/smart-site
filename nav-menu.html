@@ -20,7 +20,7 @@
                     {include file="nav-menu-information.html"}
                     {include file="nav-menu-brands.html"}
                     {if $theme_settings.main_menu_show_news && $wa->blog && $wa->blog->posts()}
-                        <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a>[`News`]</a>
+                        <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a href="{$wa->blog->url()}">[`News`]</a>
                             <div class="dropdown-menu custom_block">
                                 <ul>
                                     <li>
@@ -92,6 +92,12 @@
                                         </ul>
                                     </div>
                                 {/if}
+                            </li>
+                        {/foreach}
+                    {elseif $theme_settings.main_menu_links == 'apps'}
+                        {foreach $wa->apps() as $app}
+                            <li>
+                                <a href="{$app.url}">{$app.name}</a>
                             </li>
                         {/foreach}
                     {/if}

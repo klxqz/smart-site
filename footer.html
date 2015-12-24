@@ -67,11 +67,18 @@
                 <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <h5>[s`My account`]</h5>
                     <ul>
+                        {if $wa->shop}
+                            <li>
+                                {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
+                                <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
+                            </li>
+                            <li>
+                                {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
+                                <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                            </li>
+                        {/if}
                         {if $wa->user()->isAuth()}
                             {if $wa->shop}
-                                <li>
-                                    <a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`]</a>
-                                </li>
                                 <li>
                                     <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
                                 </li>

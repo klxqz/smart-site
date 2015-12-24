@@ -1,0 +1,452 @@
+{if !strpos($wa->server('HTTP_USER_AGENT'), 'Google Page Speed')}
+    <div class="settings-panel">
+        <a class="settings-button" href="#"><i class="fa fa-cogs"></i></a>
+        <h3>Настройки</h3>
+        <form id="settings-theme-form" method="post">
+            <div class="settings-scroll">
+
+                <div class="panel-group" id="settings-accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-decor" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Оформление <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-decor" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Семейство шрифтов:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.font_family == ''} checked{/if} type="radio" name="theme_settings[font_family]" value="OpenSansRegular" /> - <span style="font-family: OpenSansRegular;">OpenSansRegular</span><br/>
+                                        <input{if $theme_settings.font_family == 'Tahoma'} checked{/if} type="radio" name="theme_settings[font_family]" value="Tahoma" /> - <span style="font-family: Tahoma;">Tahoma</span><br/>
+                                        <input{if $theme_settings.font_family == 'Arial'} checked{/if} type="radio" name="theme_settings[font_family]" value="Arial" /> - <span style="font-family: Arial;">Arial</span><br/>
+                                        <input{if $theme_settings.font_family == 'Verdana'} checked{/if} type="radio" name="theme_settings[font_family]" value="Verdana" /> - <span style="font-family: Verdana;">Verdana</span><br/>
+                                        <input{if $theme_settings.font_family == "'Times New Roman'"} checked{/if} type="radio" name="theme_settings[font_family]" value="'Times New Roman'" /> - <span style="font-family: 'Times New Roman';">Verdana</span><br/>
+                                        <input{if $theme_settings.font_family == 'Georgia'} checked{/if} type="radio" name="theme_settings[font_family]" value="Georgia" /> - <span style="font-family: Georgia;">Georgia</span><br/>
+                                    </div>
+                                </div>
+                                    
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Цветовая схема:</div>
+                                    <div class="theme-setting-value">
+                                        <select name="theme_settings[color_scheme]">
+                                            <option{if $theme_settings.color_scheme == ''} selected{/if} value="">theme1</option>
+                                            <option{if $theme_settings.color_scheme == '2'} selected{/if} value="2">theme2</option>
+                                            <option{if $theme_settings.color_scheme == '3'} selected{/if} value="3">theme3</option>
+                                            <option{if $theme_settings.color_scheme == '4'} selected{/if} value="4">theme4</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Макет страницы:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.page_maket == ''} checked{/if} type="radio" name="theme_settings[page_maket]" value="" /> - На всю ширину<br/>
+                                        <input{if $theme_settings.page_maket == 'limited'} checked{/if} type="radio" name="theme_settings[page_maket]" value="limited" /> - Ограниченный<br/>
+                                    </div>
+                                </div>
+
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Структура Header'а:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.header_struct == '1'} checked{/if} type="radio" name="theme_settings[header_struct]" value="1" /> - Логотип - Корзина - Поиск<br/>
+                                        <input{if $theme_settings.header_struct == '2'} checked{/if} type="radio" name="theme_settings[header_struct]" value="2" /> - Логотип - Поиск - Корзина<br/>
+                                        <input{if $theme_settings.header_struct == '3'} checked{/if} type="radio" name="theme_settings[header_struct]" value="3" /> - Корзина - Логотип - Поиск<br/>
+                                        <input{if $theme_settings.header_struct == '4'} checked{/if} type="radio" name="theme_settings[header_struct]" value="4" /> - Поиск - Логотип - Корзина<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Широкое главное меню:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[main_menu_wide]" value="0" />
+                                        <input{if $theme_settings.main_menu_wide == '1'} checked{/if} type="checkbox" name="theme_settings[main_menu_wide]" value="1" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-background" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Фон <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-background" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Цвет фона:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="text" name="theme_settings[background_color]" value="{$theme_settings.background_color|escape}" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Фоновая текстура:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[bg_texture]" value="{$theme_settings.bg_texture}" />
+                                        {for $i = 1 to 6}
+                                            {$texture = "img/texture/texture`$i`.jpg"}
+                                            <a href="#" data-name="theme_settings[bg_texture]" data-value="{$texture}" class="select-img{if $theme_settings.bg_texture == $texture} selected{/if}">
+                                                <img src="{$wa_parent_theme_url}{$texture}" />
+                                            </a>
+                                        {/for}
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Фоновое изображение:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[bg_image]" value="{$theme_settings.bg_image}" />
+                                        {for $i = 1 to 5}
+                                            {$bg_image = "img/bg/bg`$i`.jpg"}
+                                            <a href="#" data-name="theme_settings[bg_image]" data-value="{$bg_image}" class="select-img{if $theme_settings.bg_image == $bg_image} selected{/if}">
+                                                <img src="{$wa_parent_theme_url}{$bg_image}" />
+                                            </a>
+                                        {/for}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-top-menu" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Верхнее меню <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-top-menu" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать телефон:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_phone]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_phone == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_phone]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать дополнительный телефон:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_additional_phone]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_additional_phone == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_additional_phone]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать Email:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_email]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_email == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_email]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать Новости:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_news]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_news == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_news]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Блок ссылок:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.top_menu_links == 'shop_pages'} checked{/if} type="radio" name="theme_settings[top_menu_links]" value="shop_pages" /> - Страницы магазина<br/>
+                                        <input{if $theme_settings.top_menu_links == 'site_pages'} checked{/if} type="radio" name="theme_settings[top_menu_links]" value="site_pages" /> - Страницы сайта<br/>
+                                        <input{if $theme_settings.top_menu_links == 'apps'} checked{/if} type="radio" name="theme_settings[top_menu_links]" value="apps" /> - Приложения<br/>
+                                        <input{if $theme_settings.top_menu_links == ''} checked{/if} type="radio" name="theme_settings[top_menu_links]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Пользовательские ссылки:</div>
+                                    <div class="theme-setting-value">
+                                        <textarea cols="30" rows="4" name="theme_settings[top_menu_custom_link]">{$theme_settings.top_menu_custom_link|escape}</textarea>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать избранное:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_favorites]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_favorites == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_favorites]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать сравнение:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_compare]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_compare == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_compare]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать валюту:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[top_menu_show_currency]" value="0" />
+                                        <input{if $theme_settings.top_menu_show_currency == '1'} checked{/if} type="checkbox" name="theme_settings[top_menu_show_currency]" value="1" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-main-menu" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Главное меню <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-main-menu" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать «Домой»:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[main_menu_show_homepage]" value="0" />
+                                        <input{if $theme_settings.main_menu_show_homepage == '1'} checked{/if} type="checkbox" name="theme_settings[main_menu_show_homepage]" value="1" />
+                                    </div>
+                                </div>
+
+
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Тип меню каталога:</div>
+                                    <div class="theme-setting-value">
+                                        <select name="theme_settings[main_menu_category_type]">
+                                            <option{if $theme_settings.main_menu_category_type == '1'} selected{/if} value="1">1</option>
+                                            <option{if $theme_settings.main_menu_category_type == '2'} selected{/if} value="2">2</option>
+                                            <option{if $theme_settings.main_menu_category_type == '3'} selected{/if} value="3">3</option>
+                                            <option{if $theme_settings.main_menu_category_type == '4'} selected{/if} value="4">4</option>
+                                            <option{if $theme_settings.main_menu_category_type == ''} selected{/if} value="">Не показывать</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Информация:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.main_menu_information == 'shop_pages'} checked{/if} type="radio" name="theme_settings[main_menu_information]" value="shop_pages" /> - Страницы магазина<br/>
+                                        <input{if $theme_settings.main_menu_information == 'site_pages'} checked{/if} type="radio" name="theme_settings[main_menu_information]" value="site_pages" /> - Страницы сайта<br/>
+                                        <input{if $theme_settings.main_menu_information == ''} checked{/if} type="radio" name="theme_settings[main_menu_information]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Плагин брендов:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.main_menu_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[main_menu_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
+                                        <input{if $theme_settings.main_menu_brands_plugin == 'brands'} checked{/if} type="radio" name="theme_settings[main_menu_brands_plugin]" value="brands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>
+                                        <input{if $theme_settings.main_menu_brands_plugin == ''} checked{/if} type="radio" name="theme_settings[main_menu_brands_plugin]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать Новости:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[main_menu_show_news]" value="0" />
+                                        <input{if $theme_settings.main_menu_show_news == '1'} checked{/if} type="checkbox" name="theme_settings[main_menu_show_news]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Блок ссылок:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.main_menu_links == 'shop_pages'} checked{/if} type="radio" name="theme_settings[main_menu_links]" value="shop_pages" /> - Страницы магазина<br/>
+                                        <input{if $theme_settings.main_menu_links == 'site_pages'} checked{/if} type="radio" name="theme_settings[main_menu_links]" value="site_pages" /> - Страницы сайта<br/>
+                                        <input{if $theme_settings.main_menu_links == 'apps'} checked{/if} type="radio" name="theme_settings[main_menu_links]" value="apps" /> - Приложения<br/>
+                                        <input{if $theme_settings.main_menu_links == ''} checked{/if} type="radio" name="theme_settings[main_menu_links]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Пользовательские ссылки:</div>
+                                    <div class="theme-setting-value">
+                                        <textarea cols="30" rows="4" name="theme_settings[main_menu_custom_links]">{$theme_settings.main_menu_custom_links|escape}</textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-home-page" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Главная страница <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-home-page" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Боковое меню на главной:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[homepage_sidebar]" value="0" />
+                                        <input{if $theme_settings.homepage_sidebar == '1'} checked{/if} type="checkbox" name="theme_settings[homepage_sidebar]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Информационные баннеры:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.homepage_infobanners == 'top'} checked{/if} type="radio" name="theme_settings[homepage_infobanners]" value="top" /> - Сверху<br/>
+                                        <input{if $theme_settings.homepage_infobanners == 'bottom'} checked{/if} type="radio" name="theme_settings[homepage_infobanners]" value="bottom" /> - Снизу<br/>
+                                        <input{if $theme_settings.homepage_infobanners == ''} checked{/if} type="radio" name="theme_settings[homepage_infobanners]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Прочие настройки:</div>
+                                    <div class="theme-setting-value">
+                                        В админ. панели можно настроить списки товаров, слайдер и баннеры
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a href="#collapse-settings-shop-sidebar" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                    Магазин. Сайдбар <i class="fa fa-caret-down"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-settings-shop-sidebar" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать каталог:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[shop_sidebar_show_catalog]" value="0" />
+                                        <input{if $theme_settings.shop_sidebar_show_catalog == '1'} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_catalog]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать «Информацию»:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[shop_sidebar_show_information]" value="0" />
+                                        <input{if $theme_settings.shop_sidebar_show_information == '1'} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_information]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Показывать теги:</div>
+                                    <div class="theme-setting-value">
+                                        <input type="hidden" name="theme_settings[show_tags]" value="0" />
+                                        <input{if $theme_settings.show_tags == '1'} checked{/if} type="checkbox" name="theme_settings[show_tags]" value="1" />
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Бренды:</div>
+                                    <div class="theme-setting-value">
+                                        <input{if $theme_settings.sidebar_brands_plugin == 'brands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="brands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>
+                                        <input{if $theme_settings.sidebar_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
+                                        <input{if $theme_settings.sidebar_brands_plugin == ''} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="" /> - Не показывать<br/>
+                                    </div>
+                                </div>
+                                <div class="theme-setting-field">
+                                    <div class="theme-setting-name">Прочие настройки:</div>
+                                    <div class="theme-setting-value">
+                                        В админ. панели можно настроить списки товаров, пользовательский контент и баннеры
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+            <input type="submit" value="Применить" />
+            <input type="submit" name="reset" value="По умолчанию" />
+        </form>
+
+
+        <script>
+            $(function () {
+                $('.settings-button').click(function () {
+                    if ($(this).hasClass('active')) {
+                        $('.settings-panel').animate({
+                            left: '-303px'
+                        });
+                        $(this).removeClass('active');
+                    } else {
+                        $('.settings-panel').animate({
+                            left: '0px'
+                        });
+                        $(this).addClass('active');
+                    }
+                    $('#settings-accordion .panel:first .panel-title a').click();
+                    return false;
+                });
+                $('.select-img').click(function () {
+                    var name = $(this).data('name');
+                    var value = $(this).data('value');
+                    $('input[name="' + name + '"]').val(value);
+                    $(this).closest('form').submit();
+                    return false;
+                });
+            });
+        </script>
+        <style>
+            .select-img{
+                display: inline-block;
+                border: 3px solid #fff;
+            }
+            .select-img.selected{
+                border: 3px solid #FDDA3B;
+            }
+            .select-img img{
+                width: 58px;
+                height: 58px;
+                max-width: 100%;
+            }
+            .settings-scroll{
+                border: 1px solid #000;
+                height: 500px;
+                overflow-y: scroll;
+                padding: 10px;
+            }
+            .settings-panel{
+                position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; box-shadow: 2px 0px 10px grey; border-width: 1px 1px 1px 0; 
+                border-style: solid; border-color: grey; border-radius: 0 0 3px 0; padding: 10px;
+            }
+            .settings-panel h4{
+                font-weight: bold;
+            }
+            .settings-panel hr{
+                margin-bottom: 10px;
+                margin-top: 5px;
+            }
+            .settings-block{
+                margin: 10px 0px;
+            }
+            .settings-panel h3{
+                text-align: center;
+            }
+            a.settings-button{
+                background: #f4f4f4; box-shadow: 2px 0px 10px grey; border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0 0 3px 0;
+                font-size: 46px; display: block; position: absolute; right: -54px; top: -1px;
+            }
+            @media only screen and (max-width:400px){
+                .settings-panel{
+                    left: -303px;
+                    width: 300px;
+                }
+            }
+
+            .settings-scroll{
+                /*height: 200px;*/
+
+            }
+            .theme-setting-field{
+                clear: left;
+                margin-bottom: 10px;
+            }
+            .theme-setting-name{
+                /*width: 95px;
+                float: left;*/
+                font-weight: bold;
+            }
+            .theme-setting-value{
+                /*margin-left: 105px;
+                position: relative;*/
+            }
+        </style>
+    </div>
+{/if}
