@@ -1,4 +1,6 @@
 {if !strpos($wa->server('HTTP_USER_AGENT'), 'Google Page Speed')}
+    <link rel="stylesheet" href="{$wa_url}wa-content/js/farbtastic/farbtastic.css" type="text/css" />
+    <script src="{$wa_url}wa-content/js/farbtastic/farbtastic.js" type="text/javascript"></script>
     <div class="settings-panel">
         <a class="settings-button" href="#"><i class="fa fa-cogs"></i></a>
         <h3>Настройки</h3>
@@ -27,18 +29,73 @@
                                         <input{if $theme_settings.font_family == 'Georgia'} checked{/if} type="radio" name="theme_settings[font_family]" value="Georgia" /> - <span style="font-family: Georgia;">Georgia</span><br/>
                                     </div>
                                 </div>
-                                    
+
                                 <div class="theme-setting-field">
                                     <div class="theme-setting-name">Цветовая схема:</div>
                                     <div class="theme-setting-value">
                                         <select name="theme_settings[color_scheme]">
-                                            <option{if $theme_settings.color_scheme == ''} selected{/if} value="">theme1</option>
-                                            <option{if $theme_settings.color_scheme == '2'} selected{/if} value="2">theme2</option>
-                                            <option{if $theme_settings.color_scheme == '3'} selected{/if} value="3">theme3</option>
-                                            <option{if $theme_settings.color_scheme == '4'} selected{/if} value="4">theme4</option>
+                                            <option{if $theme_settings.color_scheme == ''} selected{/if} value="">Тема1</option>
+                                            <option{if $theme_settings.color_scheme == '2'} selected{/if} value="2">Тема2</option>
+                                            <option{if $theme_settings.color_scheme == '3'} selected{/if} value="3">Тема3</option>
+                                            <option{if $theme_settings.color_scheme == '4'} selected{/if} value="4">Тема4</option>
+                                            <option{if $theme_settings.color_scheme == '5'} selected{/if} value="5">Тема5</option>
+                                            <option{if $theme_settings.color_scheme == '5'} selected{/if} value="6">Тема6</option>
+                                            <option{if $theme_settings.color_scheme == 'custom_color_scheme'} selected{/if} value="custom_color_scheme">Пользовательская схема</option>
                                         </select>
                                     </div>
                                 </div>
+
+                                <div class="theme-setting-field custom-color-scheme">
+                                    <div class="theme-setting-name">Пользовательская цветовая схема:</div>
+                                    <div class="theme-setting-value">
+                                        <p>
+                                            Цвет1:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_color1]" value="{$theme_settings.custom_color1|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет2:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_color2]" value="{$theme_settings.custom_color2|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет главного меню:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_menu_color]" value="{$theme_settings.custom_menu_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет верхнего меню:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_top_menu_color]" value="{$theme_settings.custom_top_menu_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет текста в верхнем меню:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_top_menu_text_color]" value="{$theme_settings.custom_top_menu_text_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет футера:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_footer_first_color]" value="{$theme_settings.custom_footer_first_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет текста футер:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_footer_first_text_color]" value="{$theme_settings.custom_footer_first_text_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет текста заголовков футер:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_footer_first_text_color_title]" value="{$theme_settings.custom_footer_first_text_color_title|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет футера2:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_footer_second_color]" value="{$theme_settings.custom_footer_second_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет текста футер2:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_footer_second_text_color]" value="{$theme_settings.custom_footer_second_text_color|escape}" />
+                                        </p>
+                                        <p>
+                                            Цвет кнопок при наведение:<br/>
+                                            <input class="color-settings" type="text" name="theme_settings[custom_hover_color]" value="{$theme_settings.custom_hover_color|escape}" />
+                                        </p>
+
+                                    </div>
+                                </div>
+
 
                                 <div class="theme-setting-field">
                                     <div class="theme-setting-name">Макет страницы:</div>
@@ -81,7 +138,7 @@
                                 <div class="theme-setting-field">
                                     <div class="theme-setting-name">Цвет фона:</div>
                                     <div class="theme-setting-value">
-                                        <input type="text" name="theme_settings[background_color]" value="{$theme_settings.background_color|escape}" />
+                                        <input class="color-settings" type="text" name="theme_settings[background_color]" value="{$theme_settings.background_color|escape}" />
                                     </div>
                                 </div>
                                 <div class="theme-setting-field">
@@ -357,8 +414,50 @@
         </form>
 
 
-        <script>
+        <script type="text/javascript">
             $(function () {
+
+                // colorpickers
+                $('.color-settings').each(function () {
+                    var input = $(this);
+                    var replacer = $('<span class="color-replacer">' +
+                            '<i class="icon16 color" style="background: #' + input.val().substr(1) + '"></i>' +
+                            '</span>').insertAfter(input);
+                    var picker = $('<div style="display:none;" class="color-picker"></div>').
+                            insertAfter(replacer);
+                    var farbtastic = $.farbtastic(picker, function (color) {
+                        replacer.find('i').css('background', color);
+                        input.val(color);
+                    });
+                    farbtastic.setColor(input.val());
+                    replacer.click(function () {
+                        picker.slideToggle(200);
+                        return false;
+                    });
+
+                    var timer_id;
+                    input.unbind('keydown').bind('keydown', function () {
+                        if (timer_id) {
+                            clearTimeout(timer_id);
+                        }
+                        timer_id = setTimeout(function () {
+                            farbtastic.setColor(input.val());
+                        }, 250);
+                    });
+
+                });
+
+
+                $('select[name="theme_settings[color_scheme]"]').change(function () {
+                    if ($(this).val() == 'custom_color_scheme') {
+                        $('.custom-color-scheme').show();
+                    } else {
+                        $('.custom-color-scheme').hide();
+                    }
+                });
+                $('select[name="theme_settings[color_scheme]"]').change();
+
+
                 $('.settings-button').click(function () {
                     if ($(this).hasClass('active')) {
                         $('.settings-panel').animate({
@@ -403,7 +502,7 @@
                 padding: 10px;
             }
             .settings-panel{
-                position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; box-shadow: 2px 0px 10px grey; border-width: 1px 1px 1px 0; 
+                position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; /*box-shadow: 2px 0px 10px grey;*/ border-width: 1px 1px 1px 0; 
                 border-style: solid; border-color: grey; border-radius: 0 0 3px 0; padding: 10px;
             }
             .settings-panel h4{
@@ -420,8 +519,11 @@
                 text-align: center;
             }
             a.settings-button{
-                background: #f4f4f4; box-shadow: 2px 0px 10px grey; border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0 0 3px 0;
-                font-size: 46px; display: block; position: absolute; right: -54px; top: -1px;
+                padding: 10px;
+                background: #f4f4f4; /*box-shadow: 2px 0px 10px grey;*/ border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0;
+                font-size: 46px; display: block; position: absolute; right: -70px; top: -1px;
+                border-left: #f4f4f4;
+                outline: none;
             }
             @media only screen and (max-width:400px){
                 .settings-panel{

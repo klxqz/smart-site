@@ -1,0 +1,14 @@
+html{
+    background-color: {$theme_settings.background_color};
+    {if $theme_settings.custom_texture_image}background-image: url('{$wa_theme_url}{$theme_settings.custom_texture_image}');
+    {elseif $theme_settings.bg_texture != 'img/no_img.png'}background-image: url('{$wa_theme_url}{$theme_settings.bg_texture}');{/if}
+}
+body {
+    {if $theme_settings.font_family}font-family: {$theme_settings.font_family};{/if}
+    {if $theme_settings.custom_bg_image}background-image: url('{$wa_theme_url}{$theme_settings.custom_bg_image}');
+    {elseif $theme_settings.bg_image != 'img/no_img.png'}background-image: url('{$wa_theme_url}{$theme_settings.bg_image}');{/if}
+    background-repeat: {$theme_settings.repeat_bg_image};
+    {if $theme_settings.fixed_bg_image}background-attachment: fixed;{/if}
+    {if $theme_settings.size_bg_image}background-size: cover;{/if}
+    {if !empty($theme_settings.bg_position)}background-position: {$theme_settings.bg_position};{/if}
+}
