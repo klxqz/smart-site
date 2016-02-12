@@ -3,7 +3,7 @@
 {else}
     {$selected = null}
 {/if}
-{include file="sidebar-menu.html" items=$wa->site->pages() menu_title='[`Information`]' selected=$selected}
+{include file="sidebar.menu.html" items=$wa->site->pages() menu_title='[`Information`]' selected=$selected}
 
 {if $theme_settings.sidebar_site_custom_content}
     <div class="list-group">

@@ -1,0 +1,38 @@
+{if $theme_settings.main_menu_show_news && $wa->blog && $wa->blog->posts()}
+    <li class="dropdown wrap_custom_block hidden-sm hidden-xs"><a href="{$wa->blog->url()}">[`News`]</a>
+        <div class="dropdown-menu custom_block">
+            <ul>
+                <li>
+                    <table align="left" border="0" cellpadding="10" cellspacing="10">	
+                        <tbody>	
+                            {foreach $wa->blog->posts() as $post}
+                                {$img = ''}
+                                {if preg_match('/<img.*src=\"(.*?)\"[^>]*>/', $post.text, $img)}
+                                    <tr>			
+                                        <td>
+                                            <a href="{$post.link}">
+                                                <img alt="" src="{$img[1]}" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;">
+                                            </a>
+                                        </td>			
+                                    </tr>
+                                {/if}
+                                <tr>			
+                                    <td><h2>{$post.title}</h2></td>				
+                                </tr>		
+                                <tr>			
+                                    <td>{$post.text|strip_tags|truncate:255}</td>					
+                                </tr>		
+                                <tr>			
+                                    <td><strong><a href="{$post.link}">[`Read more`]</a></strong></td>				
+                                </tr>	
+                                {if $post@iteration == 2}
+                                    {break}
+                                {/if}
+                            {/foreach}	
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
+        </div>
+    </li>
+{/if}

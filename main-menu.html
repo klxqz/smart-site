@@ -1,0 +1,30 @@
+{$wide_menu = !empty($theme_settings.main_menu_wide)}
+{if !$wide_menu}<div class="container">{/if}
+    <nav id="menu" class="navbar">
+        {if $wide_menu}<div class="container">{/if}
+            <div class="navbar-header"> 
+                <span class="visible-xs visible-sm">
+                    [`Menu`]<b></b>
+                </span>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    {if $theme_settings.main_menu_show_homepage}
+                        <li>
+                            <a class="home_link" title="{$wa->accountName()}" href="{$wa_url}">
+                                <span>{$wa->accountName()}</span>
+                            </a>
+                        </li>    
+                    {/if}
+                    {include file="main-menu.categories.html"}
+                    {include file="main-menu.information.html"}
+                    {include file="main-menu.brands.html"}
+                    {include file="main-menu.news.html"}
+                    {include file="main-menu.links.html"}
+
+                    {$theme_settings.main_menu_custom_links}
+                </ul>
+            </div>
+            {if $wide_menu}</div>{/if}      
+    </nav>
+{if !$wide_menu}</div>{/if}

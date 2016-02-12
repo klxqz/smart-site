@@ -134,29 +134,29 @@
             <div class="social pull-right flip">
                 {if $theme_settings.facebook_url}
                     <a href="{$theme_settings.facebook_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/facebook.png" alt="Facebook" title="Facebook">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/facebook.png" alt="Facebook" title="Facebook">
                     </a>
                 {/if}
                 {if $theme_settings.twitter_url}
                     <a href="{$theme_settings.twitter_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/twitter.png" alt="Twitter" title="Twitter"> 
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/twitter.png" alt="Twitter" title="Twitter"> 
                     </a>
                 {/if}
                 {if $theme_settings.google_plus_url}
                     <a href="{$theme_settings.google_plus_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/google_plus.png" alt="Google+" title="Google+">
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/google_plus.png" alt="Google+" title="Google+">
                     </a>
                 {/if}
                 {if $theme_settings.pinterest_url}
                     <a href="{$theme_settings.pinterest_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/pinterest.png" alt="Pinterest" title="Pinterest"> 
+                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/pinterest.png" alt="Pinterest" title="Pinterest"> 
                     </a>
                 {/if}
                 {if $wa->blog && $theme_settings.rss}
                     {$rss_url = $wa->blog->rssUrl()}
                     {if $rss_url}
                         <a href="{$rss_url}" target="_blank">
-                            <img data-toggle="tooltip" src="{$wa_theme_url}img/rss.png" alt="RSS" title="RSS">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/rss.png" alt="RSS" title="RSS">
                         </a>
                     {/if}
                 {/if}

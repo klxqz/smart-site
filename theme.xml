@@ -1,58 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="smart" system="0" vendor="webasyst" author="Webasyst" app="site" version="1.0.0">
+<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.0.0">
     <name locale="en_US">Smart</name>
     <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
-        <file path="index.html">
-            <description locale="en_US">Core layout of the CUSTOM theme family</description>
-            <description locale="ru_RU">Основной макет тем дизайна семейства CUSTOM</description>
+        <file path="_css/head.css">
+            <description locale="en_US">The basic part of the  CSS in the HEAD</description>
+            <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD</description>
         </file>
-        <file path="custom.css">
-            <description locale="en_US">Core CSS of the CUSTOM theme family</description>
-            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна CUSTOM</description>
+        <file path="_css/head.min.css" modified="1">
+            <description locale="en_US">The basic part of the  CSS in the HEAD. Compressed</description>
+            <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD. Сжатый</description>
         </file>
+        <file path="_css/skin2.min.css">
+            <description locale="en_US">Skin 2. Compressed</description>
+            <description locale="ru_RU">Цветовая схема 2. Сжатый</description>
+        </file>
+        <file path="_css/skin3.min.css">
+            <description locale="en_US">Skin 3. Compressed</description>
+            <description locale="ru_RU">Цветовая схема 3. Сжатый</description>
+        </file>
+        <file path="_css/skin4.min.css">
+            <description locale="en_US">Skin 4. Compressed</description>
+            <description locale="ru_RU">Цветовая схема 4. Сжатый</description>
+        </file>
+        <file path="_css/skin5.min.css">
+            <description locale="en_US">Skin 5. Compressed</description>
+            <description locale="ru_RU">Цветовая схема 5. Сжатый</description>
+        </file>
+        <file path="_css/skin6.min.css">
+            <description locale="en_US">Skin 6. Compressed</description>
+            <description locale="ru_RU">Цветовая схема 6. Сжатый</description>
+        </file>
+        <file path="_css/smart.css">
+            <description locale="en_US">Core CSS of the Smart theme family</description>
+            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart</description>
+        </file>
+        <file path="_css/smart.min.css" modified="1">
+            <description locale="en_US">Core CSS of the Smart theme family. Compressed</description>
+            <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart. Сжатый</description>
+        </file>
+        <file path="_css/skin-custom.css">
+            <description locale="en_US">Custom skin</description>
+            <description locale="ru_RU">Пользовательская цветовая схема</description>
+        </file>
+        <file path="_css/theme-settings.css">
+            <description locale="en_US">Settings design theme</description>
+            <description locale="ru_RU">Настройки темы дизайна</description>
+        </file>
+        
+        <file path="_js/smart.js" custom="0">
+            <description locale="en_US">JS</description>
+            <description locale="ru_RU">JS</description>
+        </file>
+        <file path="_js/smart.min.js" custom="0">
+            <description locale="en_US">JS. Compressed</description>
+            <description locale="ru_RU">JS. Сжатый</description>
+        </file>
+        <file path="_js/script.min.js" custom="0">
+            <description locale="en_US">JS. Compressed</description>
+            <description locale="ru_RU">JS. Сжатый</description>
+        </file>
+   
         <file path="content.html" custom="0">
             <description locale="en_US">Main layout for the Site app content</description>
             <description locale="ru_RU">Основной вывод приложения «Сайт»</description>
-        </file>
-        <file path="head.html" custom="0">
-            <description locale="en_US">Site app's &lt;head&gt; instructions</description>
-            <description locale="ru_RU">Блок &lt;head&gt; приложения «Сайт»</description>
-        </file>
-        <file path="page.html">
-            <description locale="en_US">Static page content and navigation</description>
-            <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
-        </file>
-        <file path="login.html" custom="0">
-            <description locale="en_US">Login page</description>
-            <description locale="ru_RU">Страница входа для пользователей</description>
-        </file>
-        <file path="signup.html" custom="0">
-            <description locale="en_US">Sign up page</description>
-            <description locale="ru_RU">Страница регистрации пользователей</description>
-        </file>
-        <file path="forgotpassword.html" custom="0">
-            <description locale="en_US">Forgot password page</description>
-            <description locale="ru_RU">Страница сброса пароля</description>
-        </file>
-        <file path="my.profile.html">
-            <description locale="en_US">My profile: contact info editing form</description>
-            <description locale="ru_RU">Мой профиль: редактирование контактной информации</description>
-        </file>
-        <file path="my.nav.html">
-            <description locale="en_US">My profile navigation</description>
-            <description locale="ru_RU">Навигационное меню внутри личного кабинета</description>
         </file>
         <file path="error.html">
             <description locale="en_US">404 and other errors</description>
             <description locale="ru_RU">404 и другие ошибки</description>
         </file>
-        <file path="custom.js" custom="0">
-            <description locale="en_US">JS</description>
-            <description locale="ru_RU">JS</description>
+        <file path="footer.html">
+            <description locale="en_US">Footer</description>
+            <description locale="ru_RU">Нижняя часть сайта. Footer</description>
         </file>
+        <file path="forgotpassword.html" custom="0">
+            <description locale="en_US">Forgot password page</description>
+            <description locale="ru_RU">Страница сброса пароля</description>
+        </file>
+        <file path="head.html" custom="0">
+            <description locale="en_US">Site app's &lt;head&gt; instructions</description>
+            <description locale="ru_RU">Блок &lt;head&gt; приложения «Сайт»</description>
+        </file>
+        <file path="header.html" custom="0">
+            <description locale="en_US">Header</description>
+            <description locale="ru_RU">Верхняя часть сайта. Header</description>
+        </file>
+        <file path="include.html" custom="0">
+            <description locale="en_US">Include-File css and js at the bottom of the site</description>
+            <description locale="ru_RU">Файл для подключения css и js в нижней части сайта</description>
+        </file>
+        <file path="index.html" modified="1">
+            <description locale="en_US">Core layout of the Smart theme family</description>
+            <description locale="ru_RU">Основной макет тем дизайна семейства Smart</description>
+        </file>
+        <file path="info-banners.html" custom="0">
+            <description locale="en_US">Information banners on the homepage</description>
+            <description locale="ru_RU">Информационные баннеры на главной странице</description>
+        </file>
+        <file path="login.html" custom="0">
+            <description locale="en_US">Login page</description>
+            <description locale="ru_RU">Страница входа для пользователей</description>
+        </file>
+        
+        <file path="main-menu.brands.html" custom="0">
+            <description locale="en_US">Main menu. Brands</description>
+            <description locale="ru_RU">Главное меню. Бренды</description>
+        </file>
+        <file path="main-menu.categories.html" custom="0">
+            <description locale="en_US">Main menu. Categories</description>
+            <description locale="ru_RU">Главное меню. Категории</description>
+        </file>
+        <file path="main-menu.html" custom="0" modified="1">
+            <description locale="en_US">Main menu</description>
+            <description locale="ru_RU">Главное меню</description>
+        </file>
+        <file path="main-menu.information.html" custom="0">
+            <description locale="en_US">Main menu. Information</description>
+            <description locale="ru_RU">Главное меню. Информация</description>
+        </file>
+        <file path="main-menu.links.html" custom="0">
+            <description locale="en_US">Main menu. Links</description>
+            <description locale="ru_RU">Главное меню. Ссылки</description>
+        </file>
+        <file path="main-menu.news.html" custom="0">
+            <description locale="en_US">Main menu. News</description>
+            <description locale="ru_RU">Главное меню. Новости</description>
+        </file>
+        
+        <file path="my.nav.html">
+            <description locale="en_US">My profile navigation</description>
+            <description locale="ru_RU">Навигационное меню внутри личного кабинета</description>
+        </file>
+        <file path="my.profile.html">
+            <description locale="en_US">My profile: contact info editing form</description>
+            <description locale="ru_RU">Мой профиль: редактирование контактной информации</description>
+        </file>
+        <file path="page.html">
+            <description locale="en_US">Static page content and navigation</description>
+            <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
+        </file>
+        <file path="sidebar.html" modified="1">
+            <description locale="en_US">Sidebar</description>
+            <description locale="ru_RU">Боковая часть сайта. Sidebar</description>
+        </file>
+        <file path="sidebar.menu.html">
+            <description locale="en_US">Sidebar. Menu</description>
+            <description locale="ru_RU">Генерация меню в сайдбаре</description>
+        </file>
+        <file path="signup.html" custom="0">
+            <description locale="en_US">Sign up page</description>
+            <description locale="ru_RU">Страница регистрации пользователей</description>
+        </file>
+        <file path="top-menu.html" custom="0" modified="1">
+            <description locale="en_US">Top menu</description>
+            <description locale="ru_RU">Верхнее меню</description>
+        </file>
+        
     </files>
     <settings>
         <setting var="main_come" control_type="group_divider">
