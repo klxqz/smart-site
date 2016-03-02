@@ -2098,7 +2098,6 @@ div.required .control-label:before
     text-decoration: none;
     transition: all .3s ease-in-out;
     webkit-transition: all .3s ease-in-out;
-    z-index: 98;
 }
 #menu .nav>li:hover>a
 {

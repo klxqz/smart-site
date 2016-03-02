@@ -25,7 +25,7 @@
                                         <input{if $theme_settings.font_family == 'Tahoma'} checked{/if} type="radio" name="theme_settings[font_family]" value="Tahoma" /> - <span style="font-family: Tahoma;">Tahoma</span><br/>
                                         <input{if $theme_settings.font_family == 'Arial'} checked{/if} type="radio" name="theme_settings[font_family]" value="Arial" /> - <span style="font-family: Arial;">Arial</span><br/>
                                         <input{if $theme_settings.font_family == 'Verdana'} checked{/if} type="radio" name="theme_settings[font_family]" value="Verdana" /> - <span style="font-family: Verdana;">Verdana</span><br/>
-                                        <input{if $theme_settings.font_family == "'Times New Roman'"} checked{/if} type="radio" name="theme_settings[font_family]" value="'Times New Roman'" /> - <span style="font-family: 'Times New Roman';">Verdana</span><br/>
+                                        <input{if $theme_settings.font_family == "'Times New Roman'"} checked{/if} type="radio" name="theme_settings[font_family]" value="'Times New Roman'" /> - <span style="font-family: 'Times New Roman';">Times New Roman</span><br/>
                                         <input{if $theme_settings.font_family == 'Georgia'} checked{/if} type="radio" name="theme_settings[font_family]" value="Georgia" /> - <span style="font-family: Georgia;">Georgia</span><br/>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                                         {for $i = 1 to 6}
                                             {$texture = "img/texture/texture`$i`.jpg"}
                                             <a href="#" data-name="theme_settings[bg_texture]" data-value="{$texture}" class="select-img{if $theme_settings.bg_texture == $texture} selected{/if}">
-                                                <img src="{$wa_parent_theme_url}{$texture}" />
+                                                <img src="{$wa_theme_url}{$texture}" />
                                             </a>
                                         {/for}
                                     </div>
@@ -160,7 +160,7 @@
                                         {for $i = 1 to 5}
                                             {$bg_image = "img/bg/bg`$i`.jpg"}
                                             <a href="#" data-name="theme_settings[bg_image]" data-value="{$bg_image}" class="select-img{if $theme_settings.bg_image == $bg_image} selected{/if}">
-                                                <img src="{$wa_parent_theme_url}{$bg_image}" />
+                                                <img src="{$wa_theme_url}{$bg_image}" />
                                             </a>
                                         {/for}
                                     </div>
@@ -356,58 +356,59 @@
                             </div>
                         </div>
                     </div>  
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a href="#collapse-settings-shop-sidebar" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
-                                    Магазин. Сайдбар <i class="fa fa-caret-down"></i>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapse-settings-shop-sidebar" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="theme-setting-field">
-                                    <div class="theme-setting-name">Показывать каталог:</div>
-                                    <div class="theme-setting-value">
-                                        <input type="hidden" name="theme_settings[shop_sidebar_show_catalog]" value="0" />
-                                        <input{if $theme_settings.shop_sidebar_show_catalog == '1'} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_catalog]" value="1" />
-                                    </div>
-                                </div>
-                                <div class="theme-setting-field">
-                                    <div class="theme-setting-name">Показывать «Информацию»:</div>
-                                    <div class="theme-setting-value">
-                                        <input type="hidden" name="theme_settings[shop_sidebar_show_information]" value="0" />
-                                        <input{if $theme_settings.shop_sidebar_show_information == '1'} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_information]" value="1" />
-                                    </div>
-                                </div>
-                                <div class="theme-setting-field">
-                                    <div class="theme-setting-name">Показывать теги:</div>
-                                    <div class="theme-setting-value">
-                                        <input type="hidden" name="theme_settings[show_tags]" value="0" />
-                                        <input{if $theme_settings.show_tags == '1'} checked{/if} type="checkbox" name="theme_settings[show_tags]" value="1" />
-                                    </div>
-                                </div>
-                                <div class="theme-setting-field">
-                                    <div class="theme-setting-name">Бренды:</div>
-                                    <div class="theme-setting-value">
-                                        <input{if $theme_settings.sidebar_brands_plugin == 'brands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="brands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>
-                                        <input{if $theme_settings.sidebar_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
-                                        <input{if $theme_settings.sidebar_brands_plugin == ''} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="" /> - Не показывать<br/>
-                                    </div>
-                                </div>
-                                <div class="theme-setting-field">
-                                    <div class="theme-setting-name">Прочие настройки:</div>
-                                    <div class="theme-setting-value">
-                                        В админ. панели можно настроить списки товаров, пользовательский контент и баннеры
-                                    </div>
-                                </div>
-
-
+                    {if $wa_app == 'shop'}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a href="#collapse-settings-shop-sidebar" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#settings-accordion">
+                                        Магазин. Сайдбар <i class="fa fa-caret-down"></i>
+                                    </a>
+                                </h4>
                             </div>
-                        </div>
-                    </div> 
-                </div>
+                            <div id="collapse-settings-shop-sidebar" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="theme-setting-field">
+                                        <div class="theme-setting-name">Показывать каталог:</div>
+                                        <div class="theme-setting-value">
+                                            <input type="hidden" name="theme_settings[shop_sidebar_show_catalog]" value="0" />
+                                            <input{if $theme_settings.shop_sidebar_show_catalog} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_catalog]" value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="theme-setting-field">
+                                        <div class="theme-setting-name">Показывать «Информацию»:</div>
+                                        <div class="theme-setting-value">
+                                            <input type="hidden" name="theme_settings[shop_sidebar_show_information]" value="0" />
+                                            <input{if $theme_settings.shop_sidebar_show_information == '1'} checked{/if} type="checkbox" name="theme_settings[shop_sidebar_show_information]" value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="theme-setting-field">
+                                        <div class="theme-setting-name">Показывать теги:</div>
+                                        <div class="theme-setting-value">
+                                            <input type="hidden" name="theme_settings[show_tags]" value="0" />
+                                            <input{if $theme_settings.show_tags == '1'} checked{/if} type="checkbox" name="theme_settings[show_tags]" value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="theme-setting-field">
+                                        <div class="theme-setting-name">Бренды:</div>
+                                        <div class="theme-setting-value">
+                                            <input{if $theme_settings.sidebar_brands_plugin == 'brands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="brands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>
+                                            <input{if $theme_settings.sidebar_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
+                                            <input{if $theme_settings.sidebar_brands_plugin == ''} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="" /> - Не показывать<br/>
+                                        </div>
+                                    </div>
+                                    <div class="theme-setting-field">
+                                        <div class="theme-setting-name">Прочие настройки:</div>
+                                        <div class="theme-setting-value">
+                                            В админ. панели можно настроить списки товаров, пользовательский контент и баннеры
+                                        </div>
+                                    </div>
 
+
+                                </div>
+                            </div>
+                        </div> 
+                    {/if}
+                </div>
             </div>
             <input type="submit" value="Применить" />
             <input type="submit" name="reset" value="По умолчанию" />

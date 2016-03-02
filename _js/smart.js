@@ -82,3 +82,59 @@ $(document).ready(function () {
         return false;
     });
 });
+
+jQuery(function ($) {
+    $(document).ready(function () {
+        if (!is_autocomplete) {
+            return false;
+        }
+        $('#filter_name').autocomplete({
+            delay: 500,
+            minLength: 3,
+            source: function (request, response) {
+                request.term = request.term.replace(/^\s+|\s+$/g, '');
+                var query = request.term.replace(/\s+/g, '+');
+                $.ajax({
+                    url: shop_search_url + '?query=' + encodeURIComponent(query),
+                    type: "GET",
+                    dataType: "html",
+                    success: function (data) {
+                        var container = $('<div></div>').append(data);
+                        var items = $.map(container.find('.products-category .product-layout:lt(' + 5 + ') .ajax_product_info'), function (item) {
+                            return {
+                                label: $(item).data('name'),
+                                value: $(item).data('name'),
+                                url: $(item).data('url'),
+                                text: '<div>\
+                                        <img src="' + $(item).data('img') + '" />\
+                                        <span class="item-name">' + $(item).data('name') + '</span>\
+                                        <span class="item-price">' + $(item).data('price') + '</span>\
+                                        </div>'
+                            }
+                        });
+                        
+                        if (container.find('.products-category .product-layout').length > 5) {
+                            items[items.length] = {
+                                label: '' + query,
+                                value: '' + query,
+                                url: shop_search_url + '?query=' + encodeURIComponent(query),
+                                text: show_all_text
+                            }
+                        }
+                        response(items);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                location.href = ui.item.url;
+            }
+        }).data("autocomplete")._renderMenu = function (ul, items) {
+            $.each(items, function (index, item) {
+                $('<li></li>')
+                        .data('item.autocomplete', item)
+                        .append('<a href="' + item.url + '">' + item.text + '</a>')
+                        .appendTo(ul);
+            });
+        };
+    });
+});

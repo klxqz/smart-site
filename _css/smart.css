@@ -28,7 +28,7 @@ ol,ul
 #container h1
 {
     color: #000;
-    font-size: 35px;
+    font-size: 26px;
     font-weight: 400;
     line-height: normal;
     margin: 0 0 20px;
@@ -646,7 +646,6 @@ div.required .control-label:before
     text-decoration: none;
     transition: all .3s ease-in-out;
     webkit-transition: all .3s ease-in-out;
-    z-index: 98;
 }
 #menu .nav>li:hover>a
 {
@@ -1820,6 +1819,7 @@ div.required .control-label:before
     float: left;
     margin-right: 15px;
     width: 160px;
+    position: relative;
 }
 #content .product-list .product-thumb .image a img{
     max-height: 160px;
