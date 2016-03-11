@@ -3,7 +3,7 @@
         {$cart = $wa->shop->cart()}
         {$cart_total = $wa->shop->cart->total()}
         <button type="button" data-toggle="dropdown" class="heading dropdown-toggle">
-            <div class="pull-left flip"><h4></h4></div>
+            <div class="pull-left flip"><div class="cart-icon"></div></div>
             <span id="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
         </button>
 

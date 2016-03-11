@@ -68,11 +68,11 @@ a:hover {
     border-color: transparent transparent {$theme_settings.custom_color1}
 }
 #header #cart .dropdown-menu,
-#header #cart .heading h4:after,
-#header #cart .heading h4:before {
+#header #cart .heading div.cart-icon:after,
+#header #cart .heading div.cart-icon:before {
     border-color: {$theme_settings.custom_color1}
 }
-#header #cart .heading h4 {
+#header #cart .heading div.cart-icon {
     background: {$theme_settings.custom_color1}
 }
 #menu {

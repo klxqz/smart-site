@@ -347,15 +347,16 @@ div.required .control-label:before
     position: relative;
     text-align: right;
 }
-#header #cart .heading h4
+#header #cart .heading div.cart-icon
 {
+    margin-top: 9px;
     background: #3e7cb4;
     height: 16px;
     margin-right: 5px;
     position: relative;
     width: 20px;
 }
-#header #cart .heading h4:before
+#header #cart .heading div.cart-icon:before
 {
     border: 2px solid #3e7cb4;
     border-bottom: none;
@@ -369,7 +370,7 @@ div.required .control-label:before
     top: -8px;
     width: 14px;
 }
-#header #cart .heading h4:after
+#header #cart .heading div.cart-icon:after
 {
     border: 1px solid #3e7cb4;
     border-top: none;
@@ -2348,7 +2349,7 @@ div.required .control-label:before
     moz-transition: all .3s ease-in-out;
     ms-transition: all .3s ease-in-out;
     o-transition: all .3s ease-in-out;
-    padding: 3px 0;
+    margin: 3px 0;
     text-decoration: none;
     transition: all .3s ease-in-out;
     webkit-transition: all .3s ease-in-out;
@@ -3017,3 +3018,4 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 #container{
     visibility: visible;
 }
+

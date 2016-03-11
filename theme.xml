@@ -2,63 +2,63 @@
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
 <theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.0.0">
     <name locale="en_US">Smart</name>
-    <name locale="ru_RU">Smart</name>
+    <name locale="ru_RU">Умный магазин</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
-        <file path="_css/head.css">
+        <file path="!css/head.css">
             <description locale="en_US">The basic part of the  CSS in the HEAD</description>
             <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD</description>
         </file>
-        <file path="_css/head.min.css" modified="1">
+        <file path="!css/head.min.css" >
             <description locale="en_US">The basic part of the  CSS in the HEAD. Compressed</description>
             <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD. Сжатый</description>
         </file>
-        <file path="_css/skin2.min.css">
+        <file path="!css/skin2.min.css">
             <description locale="en_US">Skin 2. Compressed</description>
             <description locale="ru_RU">Цветовая схема 2. Сжатый</description>
         </file>
-        <file path="_css/skin3.min.css">
+        <file path="!css/skin3.min.css">
             <description locale="en_US">Skin 3. Compressed</description>
             <description locale="ru_RU">Цветовая схема 3. Сжатый</description>
         </file>
-        <file path="_css/skin4.min.css">
+        <file path="!css/skin4.min.css">
             <description locale="en_US">Skin 4. Compressed</description>
             <description locale="ru_RU">Цветовая схема 4. Сжатый</description>
         </file>
-        <file path="_css/skin5.min.css">
+        <file path="!css/skin5.min.css">
             <description locale="en_US">Skin 5. Compressed</description>
             <description locale="ru_RU">Цветовая схема 5. Сжатый</description>
         </file>
-        <file path="_css/skin6.min.css">
+        <file path="!css/skin6.min.css">
             <description locale="en_US">Skin 6. Compressed</description>
             <description locale="ru_RU">Цветовая схема 6. Сжатый</description>
         </file>
-        <file path="_css/smart.css">
+        <file path="!css/smart.css">
             <description locale="en_US">Core CSS of the Smart theme family</description>
             <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart</description>
         </file>
-        <file path="_css/smart.min.css" modified="1">
+        <file path="!css/smart.min.css" >
             <description locale="en_US">Core CSS of the Smart theme family. Compressed</description>
             <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart. Сжатый</description>
         </file>
-        <file path="_css/skin-custom.css">
+        <file path="!css/skin-custom.css">
             <description locale="en_US">Custom skin</description>
             <description locale="ru_RU">Пользовательская цветовая схема</description>
         </file>
-        <file path="_css/theme-settings.css">
+        <file path="!css/theme-settings.css">
             <description locale="en_US">Settings design theme</description>
             <description locale="ru_RU">Настройки темы дизайна</description>
         </file>
         
-        <file path="_js/smart.js" custom="0">
+        <file path="!js/smart.js" custom="0">
             <description locale="en_US">JS</description>
             <description locale="ru_RU">JS</description>
         </file>
-        <file path="_js/smart.min.js" custom="0">
+        <file path="!js/smart.min.js" custom="0">
             <description locale="en_US">JS. Compressed</description>
             <description locale="ru_RU">JS. Сжатый</description>
         </file>
-        <file path="_js/script.min.js" custom="0">
+        <file path="!js/script.min.js" custom="0">
             <description locale="en_US">JS. Compressed</description>
             <description locale="ru_RU">JS. Сжатый</description>
         </file>
@@ -91,7 +91,7 @@
             <description locale="en_US">Include-File css and js at the bottom of the site</description>
             <description locale="ru_RU">Файл для подключения css и js в нижней части сайта</description>
         </file>
-        <file path="index.html" modified="1">
+        <file path="index.html" >
             <description locale="en_US">Core layout of the Smart theme family</description>
             <description locale="ru_RU">Основной макет тем дизайна семейства Smart</description>
         </file>
@@ -112,7 +112,7 @@
             <description locale="en_US">Main menu. Categories</description>
             <description locale="ru_RU">Главное меню. Категории</description>
         </file>
-        <file path="main-menu.html" custom="0" modified="1">
+        <file path="main-menu.html" custom="0" >
             <description locale="en_US">Main menu</description>
             <description locale="ru_RU">Главное меню</description>
         </file>
@@ -141,7 +141,7 @@
             <description locale="en_US">Static page content and navigation</description>
             <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
         </file>
-        <file path="sidebar.html" modified="1">
+        <file path="sidebar.html" >
             <description locale="en_US">Sidebar</description>
             <description locale="ru_RU">Боковая часть сайта. Sidebar</description>
         </file>
@@ -153,12 +153,29 @@
             <description locale="en_US">Sign up page</description>
             <description locale="ru_RU">Страница регистрации пользователей</description>
         </file>
-        <file path="top-menu.html" custom="0" modified="1">
+        <file path="top-menu.html" custom="0" >
             <description locale="en_US">Top menu</description>
             <description locale="ru_RU">Верхнее меню</description>
         </file>
-        
     </files>
+    <about locale="en_US">
+<![CDATA[
+<p><b>Smart</b> - is the universal family of design themes for all base application framework WebAsyst: Site, Blog, Photo, Shop-Script.</p>
+<p>Theme Smart design optimized for all modern browsers and mobile devices based on iOS and Android.</p>
+
+<p>Theme design uses icons font  <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 4.1.0. 
+<a href="http://fontawesome.io/icons/" target="_blank">Here is a complete</a> list of supported icons that can be used in the subject design</p>
+]]>
+    </about>
+    <about locale="ru_RU">
+<![CDATA[
+<p><b>Smart</b> - это универсальное семейство тем дизайна для всех базовых приложений фреймворка Вебасист: Сайт, Блог, Фото, Shop-Script.</p>
+<p>Тема дизайна Smart оптимизированы для всех современных браузеров и мобильных устройств на основе iOS и Android.</p>
+
+<p>Тема дизайна использует иконочный шрифт <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> версии 4.1.0. 
+<a href="http://fontawesome.io/icons/" target="_blank">Тут представлен</a> полный список поддерживаемых иконок, которые можно использовать в теме дизайна</p>
+]]>
+    </about>
     <settings>
         <setting var="main_come" control_type="group_divider">
             <value/>
@@ -1064,22 +1081,4 @@
             <msgstr locale="ru_RU">смотреть все</msgstr>
         </locale>
     </locales>
-    <about locale="en_US">
-<![CDATA[
-<p><b>MarketShop</b> - is the universal family of design themes for all base application framework WebAsyst: Site, Blog, Photo, Shop-Script.</p>
-<p>Theme MarketShop design optimized for all modern browsers and mobile devices based on iOS and Android.</p>
-
-<p>Theme design uses icons font  <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> 4.1.0. 
-<a href="http://fontawesome.io/icons/" target="_blank">Here is a complete</a> list of supported icons that can be used in the subject design</p>
-]]>
-    </about>
-    <about locale="ru_RU">
-<![CDATA[
-<p><b>MarketShop</b> - это универсальное семейство тем дизайна для всех базовых приложений фреймворка Вебасист: Сайт, Блог, Фото, Shop-Script.</p>
-<p>Тема дизайна MarketShop оптимизированы для всех современных браузеров и мобильных устройств на основе iOS и Android.</p>
-
-<p>Тема дизайна использует иконочный шрифт <a href="http://fontawesome.io/" target="_blank">Font Awesome</a> версии 4.1.0. 
-<a href="http://fontawesome.io/icons/" target="_blank">Тут представлен</a> полный список поддерживаемых иконок, которые можно использовать в теме дизайна</p>
-]]>
-    </about>
 </theme>

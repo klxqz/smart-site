@@ -3,13 +3,13 @@
     <div class="links">
         <ul>
             {if $theme_settings.top_menu_show_phone && $theme_settings.phone}
-                <li class="mobile">
+                <li>
                     <a href="tel:{$theme_settings.phone}"><i class="fa fa-phone"></i>{$theme_settings.phone}</a>
                 </li>
             {/if}
 
             {if $theme_settings.top_menu_show_additional_phone && $theme_settings.additional_phone}
-                <li class="mobile">
+                <li>
                     <a href="tel:{$theme_settings.additional_phone}"><i class="fa fa-phone"></i>{$theme_settings.additional_phone}</a>
                 </li>
             {/if}

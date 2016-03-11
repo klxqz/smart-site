@@ -37,25 +37,25 @@
 
         {if $theme_settings.css_optimization}
             <style>
-                {include file="_css/head.min.css"}
+                {include file="!css/head.min.css"}
                 i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; background-image: url("{$wa_theme_url}img/icons/icons.png"); background-size: 260px 160px; }
                 .icon32.loading { background-image: url('{$wa_theme_url}img/icons/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
             </style>
         {else}
             <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}_css/smart.min.css" />
+            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
             {if $wa_app == 'shop'}
-                <link href="{$wa_theme_url}_css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
+                <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
             {/if}
             {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
-                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}_css/skin{$theme_settings.color_scheme}.min.css" />
+                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
             {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
                 <style>
-                    {include file="`_css/skin-custom.css"}
+                    {include file="`!css/skin-custom.css"}
                 </style>
             {/if}
             <style>
-                {include file="_css/theme-settings.css"}
+                {include file="!css/theme-settings.css"}
             </style>
         {/if}
 
@@ -153,41 +153,41 @@
 
         {if $theme_settings.css_optimization}
             <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}_css/smart.min.css" />
+            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
             {if $wa_app == 'shop'}
-                <link href="{$wa_theme_url}_css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
+                <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
             {/if}
             {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
-                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}_css/skin{$theme_settings.color_scheme}.min.css" />
+                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
             {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
                 <style>
-                    {include file="_css/skin-custom.css"}
+                    {include file="!css/skin-custom.css"}
                 </style>
             {/if}
             <style>
-                {include file="_css/theme-settings.css"}
+                {include file="!css/theme-settings.css"}
             </style>
         {/if}
 
         <link href="{$wa_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-        <link href="{$wa_theme_url}_css/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-        <link href="{$wa_theme_url}_js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-        <link rel="stylesheet" type="text/css" href="{$wa_theme_url}_css/responsive.min.css" />
+        <link href="{$wa_theme_url}!css/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+        <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css" />
         {if $wa->shop}
             <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css">
         {/if}
 
-        <script type="text/javascript" src="{$wa_theme_url}_js/jquery.dcjqaccordion.min.js?v{$wa_theme_version}"></script> 
+        <script type="text/javascript" src="{$wa_theme_url}!js/jquery.dcjqaccordion.min.js?v{$wa_theme_version}"></script> 
         <script src="{$wa_theme_url}bootstrap/js/bootstrap.min.js?v{$wa_theme_version}" type="text/javascript"></script>
-        <script src="{$wa_theme_url}_js/jquery.easing-1.3.min.js?v{$wa_theme_version}" type="text/javascript" ></script>
-        <script type="text/javascript" src="{$wa_theme_url}_js/script.min.js?v{$wa_theme_version}"></script>
-        <script src="{$wa_theme_url}_js/jquery/owl-carousel/owl.carousel.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+        <script src="{$wa_theme_url}!js/jquery.easing-1.3.min.js?v{$wa_theme_version}" type="text/javascript" ></script>
+        <script type="text/javascript" src="{$wa_theme_url}!js/script.min.js?v{$wa_theme_version}"></script>
+        <script src="{$wa_theme_url}!js/jquery/owl-carousel/owl.carousel.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
         {if $theme_settings.is_autocomplete && $wa->shop}
-            <link href="{$wa_theme_url}_css/jquery-ui/jquery.ui.theme.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
-            <link href="{$wa_theme_url}_css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
+            <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.theme.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
+            <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa_theme_version}"></script>
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa_theme_version}"></script>
             <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa_theme_version}"></script>
@@ -199,7 +199,7 @@
             var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
             var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
         </script>
-        <script src="{$wa_theme_url}_js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+        <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
         {include file="`$wa_active_theme_path`/include.html"}

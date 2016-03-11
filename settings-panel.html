@@ -417,7 +417,6 @@
 
         <script type="text/javascript">
             $(function () {
-
                 // colorpickers
                 $('.color-settings').each(function () {
                     var input = $(this);
@@ -448,7 +447,6 @@
 
                 });
 
-
                 $('select[name="theme_settings[color_scheme]"]').change(function () {
                     if ($(this).val() == 'custom_color_scheme') {
                         $('.custom-color-scheme').show();
@@ -457,7 +455,6 @@
                     }
                 });
                 $('select[name="theme_settings[color_scheme]"]').change();
-
 
                 $('.settings-button').click(function () {
                     if ($(this).hasClass('active')) {
@@ -503,7 +500,7 @@
                 padding: 10px;
             }
             .settings-panel{
-                position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; /*box-shadow: 2px 0px 10px grey;*/ border-width: 1px 1px 1px 0; 
+                position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; border-width: 1px 1px 1px 0; 
                 border-style: solid; border-color: grey; border-radius: 0 0 3px 0; padding: 10px;
             }
             .settings-panel h4{
@@ -521,7 +518,7 @@
             }
             a.settings-button{
                 padding: 10px;
-                background: #f4f4f4; /*box-shadow: 2px 0px 10px grey;*/ border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0;
+                background: #f4f4f4; border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0;
                 font-size: 46px; display: block; position: absolute; right: -70px; top: -1px;
                 border-left: #f4f4f4;
                 outline: none;
@@ -532,23 +529,22 @@
                     width: 300px;
                 }
             }
-
-            .settings-scroll{
-                /*height: 200px;*/
-
+            @media (max-height:665px){
+                .settings-scroll{
+                    height: 275px;
+                }
+            }
+            @media (max-height:435px){
+                .settings-scroll{
+                    height: 125px;
+                }
             }
             .theme-setting-field{
                 clear: left;
                 margin-bottom: 10px;
             }
             .theme-setting-name{
-                /*width: 95px;
-                float: left;*/
                 font-weight: bold;
-            }
-            .theme-setting-value{
-                /*margin-left: 105px;
-                position: relative;*/
             }
         </style>
     </div>
