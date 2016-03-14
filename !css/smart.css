@@ -1,11 +1,3 @@
-@font-face
-{
-    font-family: OpenSansRegular;
-    font-style: normal;
-    font-weight: 400;
-    src: url(../fonts/OpenSans-Regular-webfont.eot);
-    src: url(../fonts/OpenSans-Regular-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/OpenSans-Regular-webfont.woff) format('woff'),url(../fonts/OpenSans-Regular-webfont.ttf) format('truetype'),url(../fonts/OpenSans-Regular-webfont.svg#OpenSansRegular) format('svg');
-}
 html
 {
     margin: 0;
@@ -16,7 +8,7 @@ html
 body
 {
     color: #222;
-    font-family: OpenSansRegular;
+    font-family: Verdana;
     font-size: 12px;
     line-height: 18px;
 }
@@ -2938,7 +2930,7 @@ ul.menu-h li.selected ul * { background: #fff !important; }
 .wa-captcha { padding: 7px 0 10px; }
 .wa-captcha p { clear: left; margin: 0; }
 .wa-captcha strong { font-size: 1.2em; }
-.wa-captcha p img { float: left !important; margin-right: 5px; margin-top: -8px; }
+.wa-captcha p img { float: left !important; margin-right: 5px; margin-top: -8px;  margin-bottom: 10px; }
 .wa-captcha .wa-captcha-refresh { font-size: 0.8em; text-decoration: underline; color: #aaa; }
 .wa-captcha .wa-captcha-input { display: inline !important; }
 .wa-captcha .errormsg { display: inline; margin-left: 10px; }
@@ -2988,13 +2980,24 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 
 .dialog { display: none; }
 .dialog-background { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; opacity: 0.8; filter: alpha(opacity=80); z-index: 99; }
-.dialog-window .content { position: fixed; top: 15%; left: 0; right: 0; opacity: 1; z-index: 9999; overflow-x: hidden; box-shadow: 0 3px 15px #ddd; margin: 0 auto; text-align: left; width: 420px; background: #fff; padding: 25px; }
+.dialog-window .content { position: relative; top: 15%; left: 0; right: 0; opacity: 1; z-index: 9999; overflow-x: hidden; box-shadow: 0 3px 15px #ddd; margin: 0 auto; text-align: left; width: 90%; max-width: 450px; background: #fff; padding: 15px; }
 .dialog-window .content .added2cart { font-size: 1.1em; font-style: italic; }
 .dialog-window .dialog-close { float: right; color: #656565; text-decoration: none; font-size: 200%; margin-top: -3px; }
 .dialog-window .content h1, 
 .dialog-window .content h2, 
 .dialog-window .content h3{ margin-top:0px; }
 
+.dialog-window {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.dialog-background, .dialog-window {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
 .dialog-window .content .wa-form .wa-field .wa-name { float: none; padding-bottom: 0; }
 .dialog-window .content .wa-form .wa-field .wa-value { margin-left: 0; }
 .dialog-window .content .wa-form .wa-field .wa-value p span { display: block; }
@@ -3002,6 +3005,10 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 .dialog-window .content .wa-form .wa-field .wa-value input[type="email"],
 .dialog-window .content .wa-form .wa-field .wa-value input[type="password"] { min-width: 200px; }
 .dialog-window .content .wa-auth-adapters p { width: 100%; }
+
+html.dialog-open{
+    overflow: hidden;
+}
 
 @media screen and (max-width: 760px) {
     .wa-form .wa-field .wa-name { float: none; padding-bottom: 0; }
@@ -3015,6 +3022,35 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 #loading-container{
     display: none;
 }
+
+.blog-photo-block ul{
+    list-style: none;
+}
+.blog-photo-block ul li{
+    width: 33%;
+    float: left;
+    padding: 10px;
+}
+.blog-photo-block ul li div.image{
+    height: 115px;
+    widows: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blog-photo-block .post{
+    margin-bottom: 20px;
+}
+.blog-photo-block .post .post-img:after{
+    clear: both;
+}
+.blog-photo-block .post .post-img{
+    max-width: 22%;
+    float: left;
+    margin-right: 10px;
+}
+
 #container{
     visibility: visible;
 }

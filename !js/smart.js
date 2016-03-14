@@ -1,7 +1,11 @@
 $("[data-toggle='tooltip']").tooltip({
     container: "body"
 });
-
+$('.dialog').on('click', 'a.dialog-close', function () {
+    $(this).closest('.dialog').hide().find('.content').empty();
+    $('html').removeClass('dialog-open');
+    return false;
+});
 function initFormControl(selector) {
     selector.find('input[type=text],input[type=email],input[type=password],select,textarea').addClass('form-control');
     selector.find('input[type=submit]').addClass('btn btn-primary');
@@ -77,6 +81,7 @@ $(document).ready(function () {
         if (url) {
             var d = $('#dialog');
             loadDialogContent(d, url);
+            $('html').addClass('dialog-open');
             return false;
         }
         return false;
@@ -105,14 +110,10 @@ jQuery(function ($) {
                                 label: $(item).data('name'),
                                 value: $(item).data('name'),
                                 url: $(item).data('url'),
-                                text: '<div>\
-                                        <img src="' + $(item).data('img') + '" />\
-                                        <span class="item-name">' + $(item).data('name') + '</span>\
-                                        <span class="item-price">' + $(item).data('price') + '</span>\
-                                        </div>'
+                                text: '<div><img src="' + $(item).data('img') + '" /><span class="item-name">' + $(item).data('name') + '</span><span class="item-price">' + $(item).data('price') + '</span></div>'
                             }
                         });
-                        
+
                         if (container.find('.products-category .product-layout').length > 5) {
                             items[items.length] = {
                                 label: '' + query,

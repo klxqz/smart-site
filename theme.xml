@@ -242,8 +242,8 @@
             </name>
             <options>
                 <option value="">
-                    <name locale="en_US"><![CDATA[<span style="font-family: OpenSansRegular;">OpenSansRegular</span><br/>]]></name>
-                    <name locale="ru_RU"><![CDATA[<span style="font-family: OpenSansRegular">OpenSansRegular</span><br/>]]></name>
+                    <name locale="en_US"><![CDATA[<span style="font-family: Verdana;">Verdana</span><br/>]]></name>
+                    <name locale="ru_RU"><![CDATA[<span style="font-family: Verdana">Verdana</span><br/>]]></name>
                 </option>
                 <option value="Tahoma">
                     <name locale="en_US"><![CDATA[<span style="font-family: Tahoma;">Tahoma</span><br/>]]></name>
@@ -252,10 +252,6 @@
                 <option value="Arial">
                     <name locale="en_US"><![CDATA[<span style="font-family: Arial;">Arial</span><br/>]]></name>
                     <name locale="ru_RU"><![CDATA[<span style="font-family: Arial;">Arial</span><br/>]]></name>
-                </option>
-                <option value="Verdana">
-                    <name locale="en_US"><![CDATA[<span style="font-family: Verdana;">Verdana</span><br/>]]></name>
-                    <name locale="ru_RU"><![CDATA[<span style="font-family: Verdana;">Verdana</span><br/>]]></name>
                 </option>
                 <option value="'Times New Roman'">
                     <name locale="en_US"><![CDATA[<span style="font-family: 'Times New Roman'">Times New Roman</span><br/>]]></name>
@@ -558,7 +554,7 @@
             <name locale="ru_RU">Header</name>
         </setting>
         <setting var="header_struct" control_type="radio">
-            <value>1</value>
+            <value>2</value>
             <name locale="en_US">
                 Header structure
             </name>
