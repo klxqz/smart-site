@@ -82,13 +82,20 @@
                 {if $theme_settings.top_menu_show_favorites}
                     <li>
                         {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
+                        {$wishlist = array_diff($wishlist,[0])}
                         <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
                     </li>
                 {/if}
                 {if $theme_settings.top_menu_show_compare}
                     <li>
                         {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
-                        <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                        {$compare = array_diff($compare,[0])}
+                        {if !empty($compare)}
+                            {$compare_url = $wa->getUrl('/frontend/compare', ['id' => implode(',', $compare) ])}
+                        {else}
+                            {$compare_url = $wa->getUrl('/frontend/compare')}
+                        {/if}
+                        <a href="{$compare_url}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
                     </li>
                 {/if}
             {/if}

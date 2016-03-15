@@ -11,6 +11,16 @@
     </div>
 {/if}
 
+{if $theme_settings.sidebar_site_vk_widget}
+    <div class="list-group">
+        {$theme_settings.sidebar_site_vk_widget_code}
+    </div>
+{/if}
+{if $theme_settings.sidebar_site_facebook_widget}
+    <div class="list-group">
+        {$theme_settings.sidebar_site_facebook_widget_code}
+    </div>
+{/if}
 {$count_banners = 0}
 {for $i = 1 to 3}
     {if $theme_settings["sidebar_site_banner`$i`"]}

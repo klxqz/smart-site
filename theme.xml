@@ -768,7 +768,7 @@
         <setting var="homepage_infobanner3" control_type="text">
             <value locale="en_US"><![CDATA[<div class="title">Gift Cards</div>
 <p>Give the special perfect gift</p>]]></value>
-            <value locale="ru_RU"><![CDATA[<div class="title">Податочные карты</div>
+            <value locale="ru_RU"><![CDATA[<div class="title">Подарочные карты</div>
 <p>Специальные подарочные карты</p>]]></value>
             <name locale="en_US">Info banner 3</name>
             <name locale="ru_RU">Информационный баннер №3</name>
@@ -784,8 +784,8 @@
         
         <setting var="divider_sidebar_site" control_type="group_divider">
             <value/>
-            <name locale="en_US">Sidebar application «Site»<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Сайдбар. Приложение «Сайт»<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Sidebar<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Сайдбар<![CDATA[<div class="hidden-site"></div>]]></name>
         </setting>
         
         <setting var="sidebar_site_custom_content" control_type="text">
@@ -794,11 +794,57 @@
             <name locale="en_US">Custom Content<![CDATA[<div class="hidden-site"></div>]]></name>
             <name locale="ru_RU">Пользовательский контент<![CDATA[<div class="hidden-site"></div>]]></name>
         </setting>
-        
-        <setting var="divider_sidebar_site" control_type="group_divider">
+
+        <setting var="divider_sidebar_site_widgets" control_type="group_divider">
             <value/>
-            <name locale="en_US">Sidebar application «Site». Banners<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Сайдбар. Приложение «Сайт». Баннеры<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Sidebar. Widgets<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Сайдбар. Виджеты<![CDATA[<div class="hidden-site"></div>]]></name>
+        </setting>
+        <setting var="sidebar_site_vk_widget" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show VK widget<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Показывать Виджет ВКонтакте<![CDATA[<div class="hidden-site"></div>]]></name>
+        </setting>
+        <setting var="sidebar_site_vk_widget_code" control_type="text">
+            <value><![CDATA[<h2>Мы ВКонтакте</h2>
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+<!-- VK Widget -->
+<div id="vk_groups"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 20003922);
+</script>]]></value>
+            <name locale="en_US">VK widget<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Виджет ВКонтакте<![CDATA[<div class="hidden-site"></div>]]></name>
+            <description locale="en_US">Place the widget code in this field. The code can be found here <![CDATA[<a target="_blank" href="https://vk.com/dev/Community">VK widget</a>]]></description>
+            <description locale="ru_RU">Поместите код виджета в это поле. Код пожно получить по ссылке <![CDATA[<a target="_blank" href="https://vk.com/dev/Community">Виджет ВКонтакте</a>]]></description>
+        </setting>
+        <setting var="sidebar_site_facebook_widget" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Show FaceBook widget<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Показывать Виджет FaceBook<![CDATA[<div class="hidden-site"></div>]]></name>
+        </setting>
+        <setting var="sidebar_site_facebook_widget_code" control_type="text">
+            <value><![CDATA[<h2>Мы на FaceBook</h2>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=167596066655267";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-page" data-href="https://www.facebook.com/Webasyst.RU" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Webasyst.RU"><a href="https://www.facebook.com/Webasyst.RU">Webasyst RU</a></blockquote></div></div>]]></value>
+            <name locale="en_US">FaceBook widget<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Виджет FaceBook<![CDATA[<div class="hidden-site"></div>]]></name>
+            <description locale="en_US">Place the widget code in this field. The code can be found here <![CDATA[<a target="_blank" href="https://developers.facebook.com/docs/plugins/page-plugin">FaceBook widget</a>]]></description>
+            <description locale="ru_RU">Поместите код виджета в это поле. Код пожно получить по ссылке <![CDATA[<a target="_blank" href="https://developers.facebook.com/docs/plugins/page-plugin">Виджет FaceBook</a>]]></description>
+        </setting>
+
+        <setting var="divider_sidebar_site_banners" control_type="group_divider">
+            <value/>
+            <name locale="en_US">Sidebar. Banners<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="ru_RU">Сайдбар. Баннеры<![CDATA[<div class="hidden-site"></div>]]></name>
         </setting>
         
         <setting var="sidebar_site_banner1" control_type="image">

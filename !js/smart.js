@@ -55,6 +55,11 @@ function loadDialogContent(d, url) {
     d.show();
 }
 $(document).ready(function () {
+    $(document).on('click', '.toggle-menu', function () {
+        $(this).parent().next().slideToggle('slow');
+        return false;
+    });
+
     initFormControl($('#content'));
 
     $("#cart").on('click', '.remove', function () {
