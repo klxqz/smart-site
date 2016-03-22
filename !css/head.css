@@ -151,7 +151,6 @@ a {
     color: #428bca;
     text-decoration: none
 }
-a:focus,
 a:hover {
     color: #2a6496;
     text-decoration: underline

@@ -85,6 +85,10 @@
             <div class="container" id="loading-container">
                 <i class="icon32 loading"></i>
             </div>
+            {if file_exists("`$wa_active_theme_path`/slider.html")}
+                {include file="`$wa_active_theme_path`/slider.html"}
+            {/if}
+            {*include file="slider.html"*}
             <div id="container" itemtype="http://schema.org/WebPage" itemscope>
                 {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'top'}
                     {include file="info-banners.html"}
@@ -127,9 +131,9 @@
                         </div>
                     {else}
                         <div class="row">
-                            <column id="column-left" class="col-sm-3 hidden-xs">
+                            <div id="column-left" class="col-sm-3">
                                 {include file="`$wa_active_theme_path`/sidebar.html"}
-                            </column>
+                            </div>
                             <div id="content" class="col-sm-9">
                                 {include file="`$wa_active_theme_path`/content.html"}
                             </div>

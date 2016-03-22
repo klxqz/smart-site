@@ -8,7 +8,7 @@ $('.dialog').on('click', 'a.dialog-close', function () {
 });
 function initFormControl(selector) {
     selector.find('input[type=text],input[type=email],input[type=password],select,textarea').addClass('form-control');
-    selector.find('input[type=submit]').addClass('btn btn-primary');
+    selector.find('input[type=submit],input[type=button]').addClass('btn btn-primary');
 }
 
 function initDialogHendler(d, url) {

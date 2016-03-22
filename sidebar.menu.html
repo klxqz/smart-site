@@ -2,7 +2,10 @@
     {if empty($selected)}
         {$selected = null}
     {/if}
-    <h3>{$menu_title}</h3>
+    <h3>
+        {$menu_title}
+        <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+    </h3>
     {$rand = rand()}
     {$menu_id = "menu_accordion_`$rand`"}
     <div class="box-category">

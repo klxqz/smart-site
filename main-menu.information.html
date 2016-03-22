@@ -1,13 +1,35 @@
 {if $theme_settings.main_menu_information == 'site_pages' && $wa->site->pages()}
-    <li class="dropdown information-link"><a>[`Information`]</a>
-        <div class="dropdown-menu">
-            {wa_print_tree tree=$wa->site->pages() unfolded=false elem ='<a href=":url" title=":name">:name</a>'}
-        </div>
-    </li>
+    {$pages = $wa->site->pages()}
 {elseif $theme_settings.main_menu_information == 'shop_pages' && $wa->shop && $wa->shop->pages()}
+    {$pages = $wa->shop->pages()}
+{/if}
+
+{if !empty($pages)}
     <li class="dropdown information-link"><a>[`Information`]</a>
         <div class="dropdown-menu">
-            {wa_print_tree tree=$wa->shop->pages() unfolded=false elem ='<a href=":url" title=":name">:name</a>'}
+            <ul>
+                {foreach $wa->shop->pages() as $page}
+                    <li>
+                        <a href="{$page.url}">
+                            {$page.name}
+                            {if !empty($page.childs)}
+                                <span>›</span>
+                            {/if}
+                        </a>
+                        {if !empty($page.childs)}
+                            <div class="submenu">
+                                <ul>
+                                    {foreach $page.childs as $child}
+                                        <li>
+                                            <a href="{$child.url}">{$child.name}</a>
+                                        </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                        {/if}
+                    </li>
+                {/foreach}
+            </ul>
         </div>
     </li>
 {/if}

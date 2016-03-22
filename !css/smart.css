@@ -3059,8 +3059,16 @@ a.toggle-menu{
 a.toggle-menu:hover{
     color: #000;
 }
-#column-left .toggle-menu{
-    display: none;
+@media screen and (max-width: 767px) {
+    #column-left .adv_ajaxfilter,
+    #column-left .box-category{
+        display: none;
+    }
+}
+@media screen and (min-width: 768px) {
+    #column-left .toggle-menu{
+        display: none;
+    }
 }
 
 #container{
