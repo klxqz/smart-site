@@ -1,188 +1,191 @@
-<span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
-<div class="pull-left flip left-top">
-    <div class="links">
-        <ul>
-            {if $theme_settings.top_menu_show_phone && $theme_settings.phone}
-                <li>
-                    <a href="tel:{$theme_settings.phone}"><i class="fa fa-phone"></i>{$theme_settings.phone}</a>
-                </li>
-            {/if}
+{strip}
+    <span class="drop-icon visible-sm visible-xs"><i class="fa fa-align-justify"></i></span>
+    <div class="pull-left flip left-top">
+        <div class="links">
+            <ul>
+                {if $theme_settings.top_menu_show_phone && $theme_settings.phone}
+                    <li>
+                        <a href="tel:{$theme_settings.phone}"><i class="fa fa-phone"></i>{$theme_settings.phone}</a>
+                    </li>
+                {/if}
 
-            {if $theme_settings.top_menu_show_additional_phone && $theme_settings.additional_phone}
-                <li>
-                    <a href="tel:{$theme_settings.additional_phone}"><i class="fa fa-phone"></i>{$theme_settings.additional_phone}</a>
-                </li>
-            {/if}
+                {if $theme_settings.top_menu_show_additional_phone && $theme_settings.additional_phone}
+                    <li>
+                        <a href="tel:{$theme_settings.additional_phone}"><i class="fa fa-phone"></i>{$theme_settings.additional_phone}</a>
+                    </li>
+                {/if}
 
-            {if $theme_settings.top_menu_show_email && $theme_settings.email}
-                <li class="email">
-                    <a href="mailto:{$theme_settings.email}"><i class="fa fa-envelope"></i>{$theme_settings.email}</a>
-                </li>
-            {/if}
+                {if $theme_settings.top_menu_show_email && $theme_settings.email}
+                    <li class="email">
+                        <a href="mailto:{$theme_settings.email}"><i class="fa fa-envelope"></i>{$theme_settings.email}</a>
+                    </li>
+                {/if}
 
-            {if $theme_settings.top_menu_show_news && $wa->blog && $wa->blog->posts()}
-                <li class="wrap_custom_block hidden-sm hidden-xs"><a>[`News`]<b></b></a>
-                    <div class="custom_block">
-                        <ul>
-                            <li>
-                                <table align="left" border="0" cellpadding="10" cellspacing="10">	
-                                    <tbody>	
-                                        {foreach $wa->blog->posts() as $post}
-                                            {$img = ''}
-                                            {if preg_match('/<img.*src=\"(.*?)\"[^>]*>/', $post.text, $img)}
+                {if $theme_settings.top_menu_show_news && $wa->blog && $wa->blog->posts()}
+                    <li class="wrap_custom_block hidden-sm hidden-xs"><a>[`News`]<b></b></a>
+                        <div class="custom_block">
+                            <ul>
+                                <li>
+                                    <table align="left" border="0" cellpadding="10" cellspacing="10">	
+                                        <tbody>	
+                                            {foreach $wa->blog->posts() as $post}
+                                                {$img = ''}
+                                                {if preg_match('/<img.*src=\"(.*?)\"[^>]*>/', $post.text, $img)}
+                                                    <tr>			
+                                                        <td>
+                                                            <a href="{$post.link}">
+                                                                <img alt="" src="{$img[1]}" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;">
+                                                            </a>
+                                                        </td>			
+                                                    </tr>
+                                                {/if}
                                                 <tr>			
-                                                    <td>
-                                                        <a href="{$post.link}">
-                                                            <img alt="" src="{$img[1]}" style="width: 250px; height: 130px; border-width: 0px; border-style: solid; margin: 0px; float: left;">
-                                                        </a>
-                                                    </td>			
-                                                </tr>
-                                            {/if}
-                                            <tr>			
-                                                <td><h2>{$post.title}</h2></td>				
-                                            </tr>		
-                                            <tr>			
-                                                <td>{$post.text|strip_tags|truncate:255}</td>					
-                                            </tr>		
-                                            <tr>			
-                                                <td><strong><a href="{$post.link}">[`Read more`]</a></strong></td>				
-                                            </tr>	
-                                            {if $post@iteration == 2}
-                                                {break}
-                                            {/if}
-                                        {/foreach}	
-                                    </tbody>
-                                </table>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            {/if}
-            {$theme_settings.top_menu_custom_link}
-            {if $theme_settings.top_menu_links == 'shop_pages'}
-                {foreach $wa->shop->pages() as $page}
-                    <li>
-                        <a href="{$page.url}">{$page.name}</a>
-                    </li>
-                {/foreach}
-            {elseif $theme_settings.top_menu_links == 'site_pages'}
-                {foreach $wa->site->pages() as $page}
-                    <li>
-                        <a href="{$page.url}">{$page.name}</a>
-                    </li>
-                {/foreach}
-            {elseif $theme_settings.top_menu_links == 'apps'}
-                {foreach $wa->apps() as $app}
-                    <li>
-                        <a href="{$app.url}">{$app.name}</a>
-                    </li>
-                {/foreach}
-            {/if}
-            {if $wa->shop}
-                {if $theme_settings.top_menu_show_favorites}
-                    <li>
-                        {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
-                        {$wishlist = array_diff($wishlist,[0])}
-                        <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
+                                                    <td><h2>{$post.title}</h2></td>				
+                                                </tr>		
+                                                <tr>			
+                                                    <td>{$post.text|strip_tags|truncate:255}</td>					
+                                                </tr>		
+                                                <tr>			
+                                                    <td><strong><a href="{$post.link}">[`Read more`]</a></strong></td>				
+                                                </tr>	
+                                                {if $post@iteration == 2}
+                                                    {break}
+                                                {/if}
+                                            {/foreach}	
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 {/if}
-                {if $theme_settings.top_menu_show_compare}
-                    <li>
-                        {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
-                        {$compare = array_diff($compare,[0])}
-                        {if !empty($compare)}
-                            {$compare_url = $wa->getUrl('/frontend/compare', ['id' => implode(',', $compare) ])}
-                        {else}
-                            {$compare_url = $wa->getUrl('/frontend/compare')}
-                        {/if}
-                        <a href="{$compare_url}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
-                    </li>
-                {/if}
-            {/if}
-        </ul>
-    </div>
-
-    {if $wa->shop && !empty($currencies) && count($currencies) > 1 && $theme_settings.top_menu_show_currency}
-        {$currency = $wa->shop->currency(true)}
-        <div id="currency">
-            <div class="btn-group">
-                <div class="btn-link dropdown-toggle" data-toggle="dropdown">
-                    <span>
-                        [`Currency`]: 
-                        {if !empty($currency.sign_html)}
-                            {$currency.sign_html}
-                        {else}
-                            {$currency.sign}
-                        {/if}
-                        <i class="fa fa-caret-down"></i>
-                    </span>
-                </div>
-                <ul class="dropdown-menu">
-                    {foreach $currencies as $c_code => $c}
+                {$theme_settings.top_menu_custom_link}
+                {if $theme_settings.top_menu_links == 'shop_pages'}
+                    {foreach $wa->shop->pages() as $page}
                         <li>
-                            <a data-code="{$c_code}" href="#" rel="nofollow" title="{$c.title}">
-                                {if !empty($c.sign_html)}
-                                    {$c.sign_html}
-                                {else}
-                                    {$c.sign}
-                                {/if}
-                                {$c.title}
-                            </a>
+                            <a href="{$page.url}">{$page.name}</a>
                         </li>
                     {/foreach}
-                </ul>
-            </div>
-        </div>
-    {/if}
-</div>
-
-{if $wa->isAuthEnabled()}
-    <div id="top-links" class="nav pull-right flip">
-        <ul>
-            {if $wa->user()->isAuth()}
+                {elseif $theme_settings.top_menu_links == 'site_pages'}
+                    {foreach $wa->site->pages() as $page}
+                        <li>
+                            <a href="{$page.url}">{$page.name}</a>
+                        </li>
+                    {/foreach}
+                {elseif $theme_settings.top_menu_links == 'apps'}
+                    {foreach $wa->apps() as $app}
+                        <li>
+                            <a href="{$app.url}">{$app.name}</a>
+                        </li>
+                    {/foreach}
+                {/if}
                 {if $wa->shop}
-                    <li class="dropdown" id="my_account">
-                        <a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`] <i class="fa fa-caret-down"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-right">
+                    {if $theme_settings.top_menu_show_favorites}
+                        <li>
+                            {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
+                            {$wishlist = array_diff($wishlist,[0])}
+                            <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
+                        </li>
+                    {/if}
+                    {if $theme_settings.top_menu_show_compare}
+                        <li>
+                            {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
+                            {$compare = array_diff($compare,[0])}
+                            {if !empty($compare)}
+                                {$compare_url = $wa->getUrl('/frontend/compare', ['id' => implode(',', $compare) ])}
+                            {else}
+                                {$compare_url = $wa->getUrl('/frontend/compare')}
+                            {/if}
+                            <a href="{$compare_url}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                        </li>
+                    {/if}
+                {/if}
+            </ul>
+        </div>
+
+        {if $wa->shop && !empty($currencies) && count($currencies) > 1 && $theme_settings.top_menu_show_currency}
+            {$currency = $wa->shop->currency(true)}
+            <div id="currency">
+                <div class="btn-group">
+                    <div class="btn-link dropdown-toggle" data-toggle="dropdown">
+                        <span>
+                            [`Currency`]:&nbsp;
+                            {if !empty($currency.sign_html)}
+                                {$currency.sign_html}
+                            {else}
+                                {$currency.sign}
+                            {/if}
+                            &nbsp;
+                            <i class="fa fa-caret-down"></i>
+                        </span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        {foreach $currencies as $c_code => $c}
                             <li>
-                                <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
+                                <a data-code="{$c_code}" href="#" rel="nofollow" title="{$c.title}">
+                                    {if !empty($c.sign_html)}
+                                        {$c.sign_html}
+                                    {else}
+                                        {$c.sign}
+                                    {/if}&nbsp;
+                                    {$c.title}
+                                </a>
                             </li>
-                            <li>
-                                <a href="{$wa->getUrl('shop/frontend/myProfile')}">[`My profile`]</a>
-                            </li>
-                            {if shopAffiliate::isEnabled()}
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        {/if}
+    </div>
+
+    {if $wa->isAuthEnabled()}
+        <div id="top-links" class="nav pull-right flip">
+            <ul>
+                {if $wa->user()->isAuth()}
+                    {if $wa->shop}
+                        <li class="dropdown" id="my_account">
+                            <a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`] <i class="fa fa-caret-down"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                    <a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a>
+                                    <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
                                 </li>
-                            {/if}
-                            {if $wa->mailer}
                                 <li>
-                                    <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
+                                    <a href="{$wa->getUrl('shop/frontend/myProfile')}">[`My profile`]</a>
                                 </li>
-                            {/if}
-                            {if $wa->helpdesk}
-                                <li>
-                                    <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
-                                </li>
-                            {/if}
-                        </ul>
+                                {if shopAffiliate::isEnabled()}
+                                    <li>
+                                        <a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a>
+                                    </li>
+                                {/if}
+                                {if $wa->mailer}
+                                    <li>
+                                        <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
+                                    </li>
+                                {/if}
+                                {if $wa->helpdesk}
+                                    <li>
+                                        <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
+                                    </li>
+                                {/if}
+                            </ul>
+                        </li>
+                    {else}
+                        <li>
+                            <span>{$wa->user('name')}</span>
+                        </li>
+                    {/if}
+                    <li>
+                        <a href="?logout">[s`Log out`]</a>
                     </li>
                 {else}
                     <li>
-                        <span>{$wa->user('name')}</span>
+                        <a class="modal-dialog-url" href="{$wa->loginUrl()}">[s`Log in`]</a>
+                    </li>
+                    <li>
+                        <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
                     </li>
                 {/if}
-                <li>
-                    <a href="?logout">[s`Log out`]</a>
-                </li>
-            {else}
-                <li>
-                    <a class="modal-dialog-url" href="{$wa->loginUrl()}">[s`Log in`]</a>
-                </li>
-                <li>
-                    <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
-                </li>
-            {/if}
-        </ul>
-    </div>
-{/if}
+            </ul>
+        </div>
+    {/if}
+{/strip}

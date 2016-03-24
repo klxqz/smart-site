@@ -1,27 +1,34 @@
-{if $items}
-    {if empty($selected)}
-        {$selected = null}
+{strip}
+    {if $items}
+        {if empty($selected)}
+            {$selected = null}
+        {/if}
+        <h3>
+            {$menu_title}
+            <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
+        </h3>
+        {$rand = rand()}
+        {$menu_id = "menu_accordion_`$rand`"}
+        <div class="box-category">
+            {wa_print_tree tree=$items selected=$selected unfolded=true class="" attrs="id='`$menu_id`'" elem ='<a href=":url" title=":name">:name</a>'}
+        </div>
+        <script type="text/javascript">
+            var delayed_function = function () {
+                $('#{$menu_id} ul').parents('li').find('>a').after('<span class="down"></span>');
+                $('#{$menu_id}').cutomAccordion({
+                    classExpand: 'selected',
+                    menuClose: false,
+                    autoClose: true,
+                    saveState: false,
+                    disableLink: false,
+                    autoExpand: true
+                });
+            };
+            {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+            window.delayJsFunctions.push(delayed_function);
+            {else}
+            $(delayed_function());
+            {/if}
+        </script>        
     {/if}
-    <h3>
-        {$menu_title}
-        <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
-    </h3>
-    {$rand = rand()}
-    {$menu_id = "menu_accordion_`$rand`"}
-    <div class="box-category">
-        {wa_print_tree tree=$items selected=$selected unfolded=true class="" attrs="id='`$menu_id`'" elem ='<a href=":url" title=":name">:name</a>'}
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#{$menu_id} ul').parents('li').find('>a').after('<span class="down"></span>');
-            $('#{$menu_id}').cutomAccordion({
-                classExpand: 'selected',
-                menuClose: false,
-                autoClose: true,
-                saveState: false,
-                disableLink: false,
-                autoExpand: true
-            });
-        });
-    </script>
-{/if}
+{/strip}

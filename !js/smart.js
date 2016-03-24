@@ -1,11 +1,22 @@
 $("[data-toggle='tooltip']").tooltip({
     container: "body"
 });
+
+$(document).keyup(function (e) {
+    if (e.keyCode == 27) {
+        $(".dialog:visible").trigger('close');
+    }
+});
+
 $('.dialog').on('click', 'a.dialog-close', function () {
-    $(this).closest('.dialog').hide().find('.content').empty();
-    $('html').removeClass('dialog-open');
+    $(this).closest('.dialog').trigger('close');
     return false;
 });
+$(document).on('close', '.dialog', function () {
+    $(this).closest('.dialog').hide().find('.content').empty();
+    $('html').removeClass('dialog-open');
+});
+
 function initFormControl(selector) {
     selector.find('input[type=text],input[type=email],input[type=password],select,textarea').addClass('form-control');
     selector.find('input[type=submit],input[type=button]').addClass('btn btn-primary');

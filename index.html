@@ -1,112 +1,120 @@
-<!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
-<!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html dir="ltr">
-    <!--<![endif]-->
-    <head>
-        {if $wa->post('theme_settings') && !$wa->post('reset')}
-            {foreach $wa->post('theme_settings') as $theme_setting => $value}
-                {$theme_settings[$theme_setting] = $value}
-            {/foreach}
-            {$wa->session('theme_settings', $theme_settings)}
-        {/if}
-        {if $wa->post('reset')}
-            {$wa->session('theme_settings', [])}
-        {/if}
-        {$storage = $wa->session('theme_settings')}
-        {foreach $storage as $key => $value}
-            {$theme_settings[$key] = $value}
-        {/foreach}
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{$wa->title()|escape}</title>
-        <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
-        <meta name="Description" content="{$wa->meta('description')|escape}" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
-        <link rel="shortcut icon" href="/favicon.ico"/>
-        {if $wa->blog}
-            <!-- rss -->
-            {$rss=$wa->blog->rssUrl()}
-            {if $rss}<link rel="alternate" type="application/rss+xml" title="[s`RSS`] &mdash; {$wa->accountName()}" href="{$rss}">{/if}
-        {/if}
-
-
-        {if $theme_settings.css_optimization}
-            <style>
-                {include file="!css/head.min.css"}
-                i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; background-image: url("{$wa_theme_url}img/icons/icons.png"); background-size: 260px 160px; }
-                .icon32.loading { background-image: url('{$wa_theme_url}img/icons/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
-            </style>
-        {else}
-            <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
-            {if $wa_app == 'shop'}
-                <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
+{strip}
+    <!DOCTYPE html>
+    <!--[if IE]><![endif]-->
+    <!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
+    <!--[if IE 9 ]><html dir="ltr" lang="en" class="ie9"><![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <html dir="ltr">
+        <!--<![endif]-->
+        <head>
+            {if $wa->post('theme_settings') && !$wa->post('reset')}
+                {foreach $wa->post('theme_settings') as $theme_setting => $value}
+                    {$theme_settings[$theme_setting] = $value}
+                {/foreach}
+                {$wa->session('theme_settings', $theme_settings)}
             {/if}
-            {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
-                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
-            {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
+            {if $wa->post('reset')}
+                {$wa->session('theme_settings', [])}
+            {/if}
+            {$storage = $wa->session('theme_settings')}
+            {foreach $storage as $key => $value}
+                {$theme_settings[$key] = $value}
+            {/foreach}
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>{$wa->title()|escape}</title>
+            <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
+            <meta name="Description" content="{$wa->meta('description')|escape}" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+            {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
+            <link rel="shortcut icon" href="/favicon.ico"/>
+            {if $wa->blog}
+                <!-- rss -->
+                {$rss=$wa->blog->rssUrl()}
+                {if $rss}<link rel="alternate" type="application/rss+xml" title="[s`RSS`] &mdash; {$wa->accountName()}" href="{$rss}">{/if}
+            {/if}
+
+
+            {if $theme_settings.css_optimization}
                 <style>
-                    {include file="`!css/skin-custom.css"}
+                    {include file="!css/head.min.css"}
+                    i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; background-image: url("{$wa_theme_url}img/icons/icons.png"); background-size: 260px 160px; }
+                    .icon32.loading { background-image: url('{$wa_theme_url}img/icons/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
+                </style>
+            {else}
+                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
+                {if $wa_app == 'shop'}
+                    <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
+                {/if}
+                {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
+                    <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
+                {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
+                    <style>
+                        {include file="`!css/skin-custom.css"}
+                    </style>
+                {/if}
+                <style>
+                    {include file="!css/theme-settings.css"}
                 </style>
             {/if}
-            <style>
-                {include file="!css/theme-settings.css"}
-            </style>
-        {/if}
 
-        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-        {if !$theme_settings.delayed_plugins_loading}
-            {$wa->css()} {* links active plugins CSS *}
-            {$wa->js()} {* links active plugins JS *}
-        {/if}
-        {include file="`$wa_active_theme_path`/head.html" inline}
-        {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
-    </head>
-    <body>
-        <section class="wrapper-wide{if $theme_settings.page_maket == 'limited'} limited{/if}">
-            <div id="header">
-                <nav class="htop" id="top">
-                    <div class="container">
-                        <div class="row"> 
-                            {include file="top-menu.html"}
-                        </div>
-                    </div>
-                </nav>
-                <header class="header-row">
-                    {include file="header.html"}
-                </header>     
-                {include file="main-menu.html"}
-            </div>
-            <div class="container" id="loading-container">
-                <i class="icon32 loading"></i>
-            </div>
-            {if file_exists("`$wa_active_theme_path`/slider.html")}
-                {include file="`$wa_active_theme_path`/slider.html"}
+            {if !$theme_settings.jquery_delayed_loading}
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+            {else}
+                <script type="text/javascript">
+                    window.delayJs = [];
+                    window.delayJsFunctions = [];
+                </script>
             {/if}
-            {*include file="slider.html"*}
-            <div id="container" itemtype="http://schema.org/WebPage" itemscope>
-                {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'top'}
-                    {include file="info-banners.html"}
+
+            {if !$theme_settings.delayed_plugins_loading}
+                {$wa->css()} {* links active plugins CSS *}
+                {$wa->js()} {* links active plugins JS *}
+            {/if}
+            {include file="`$wa_active_theme_path`/head.html" inline}
+            {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
+        </head>
+        <body>
+            <section class="wrapper-wide{if $theme_settings.page_maket == 'limited'} limited{/if}">
+                <div id="header">
+                    <nav class="htop" id="top">
+                        <div class="container">
+                            <div class="row"> 
+                                {include file="top-menu.html"}
+                            </div>
+                        </div>
+                    </nav>
+                    <header class="header-row">
+                        {include file="header.html"}
+                    </header>     
+                    {include file="main-menu.html"}
+                </div>
+                <div class="container" id="loading-container">
+                    <i class="icon32 loading"></i>
+                </div>
+                {if $wa->currentUrl() == $wa_url && !empty($theme_settings.homepage_slider_fullwidth) && file_exists("`$wa_active_theme_path`/slider.html")}
+                    {include file="`$wa_active_theme_path`/slider.html"}
                 {/if}
-                <div class="container">
-                    {if !empty($breadcrumbs)}
-                        <ul class="breadcrumb" itemprop="breadcrumb">
-                            <li>
-                                <a href="{$wa_app_url}"><i class="fa fa-home"><dd>{$wa->accountName()}</dd></i></a>
-                            </li>
-                            {foreach $breadcrumbs as $breadcrumb}
-                                <li>
-                                    <a href="{$breadcrumb.url}">{$breadcrumb.name}</a>
-                                </li>
-                            {/foreach}
-                        </ul>
+                <div id="container" itemtype="http://schema.org/WebPage" itemscope>
+                    {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'top'}
+                        {include file="info-banners.html"}
                     {/if}
-                    {$without_sidebar_urls = [  $wa->getUrl('shop/frontend/cart'), 
+                    <div class="container">
+                        {if !empty($breadcrumbs)}
+                            <ul class="breadcrumb" itemprop="breadcrumb">
+                                <li>
+                                    <a href="{$wa_app_url}"><i class="fa fa-home"><dd>{$wa->accountName()}</dd></i></a>
+                                </li>
+                                {foreach $breadcrumbs as $breadcrumb}
+                                    <li>
+                                        <a href="{$breadcrumb.url}">{$breadcrumb.name}</a>
+                                    </li>
+                                {/foreach}
+                            </ul>
+                        {/if}
+                        {$without_sidebar_urls = [  $wa->getUrl('shop/frontend/cart'), 
                                                 $wa->getUrl('shop/frontend/checkout'), 
                                                 $wa->getUrl('shop/frontend/checkout',['step'=>'contactinfo']),
                                                 $wa->getUrl('shop/frontend/checkout',['step'=>'shipping']),
@@ -119,100 +127,123 @@
                                                 $wa->getUrl('shop/frontend/myOrders'),
                                                 $wa->getUrl('shop/frontend/myProfile'),
                                                 $wa->getUrl('shop/frontend/myAffiliate')]}
-                    {if empty($theme_settings.homepage_sidebar)}
-                        {$without_sidebar_urls[] = $wa_url}
-                    {/if}
-                    {$current_url = $wa->currentUrl()}
-                    {if in_array($current_url, $without_sidebar_urls) || preg_match('/compare\/?\//', $current_url) || !empty($error_code)}
-                        <div class="row">
-                            <div id="content" class="col-sm-12">
-                                {include file="`$wa_active_theme_path`/content.html"}
+                        {if empty($theme_settings.homepage_sidebar)}
+                            {$without_sidebar_urls[] = $wa_url}
+                        {/if}
+                        {$current_url = $wa->currentUrl()}
+                        {if in_array($current_url, $without_sidebar_urls) || preg_match('/compare\/?\//', $current_url) || !empty($error_code)}
+                            <div class="row">
+                                <div id="content" class="col-sm-12">
+                                    {include file="`$wa_active_theme_path`/content.html"}
+                                </div>
                             </div>
-                        </div>
-                    {else}
-                        <div class="row">
-                            <div id="column-left" class="col-sm-3">
-                                {include file="`$wa_active_theme_path`/sidebar.html"}
+                        {else}
+                            <div class="row">
+                                <div id="column-left" class="col-sm-3">
+                                    {include file="`$wa_active_theme_path`/sidebar.html"}
+                                </div>
+                                <div id="content" class="col-sm-9">
+                                    {include file="`$wa_active_theme_path`/content.html"}
+                                </div>
                             </div>
-                            <div id="content" class="col-sm-9">
-                                {include file="`$wa_active_theme_path`/content.html"}
-                            </div>
-                        </div>
+                        {/if}
+                    </div>
+                    {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'bottom'}
+                        {include file="info-banners.html"}
                     {/if}
                 </div>
-                {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'bottom'}
-                    {include file="info-banners.html"}
-                {/if}
-            </div>
-            <footer id="footer">
-                {include file="footer.html"}
-            </footer>
-            <div id="dialog" class="dialog">
-                <div class="dialog-background"></div>
-                <div class="dialog-window">
-                    <div class="content"></div>
+                <footer id="footer">
+                    {include file="footer.html"}
+                </footer>
+                <div id="dialog" class="dialog">
+                    <div class="dialog-background"></div>
+                    <div class="dialog-window">
+                        <div class="content"></div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        {if $theme_settings.css_optimization}
-            <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
-            {if $wa_app == 'shop'}
-                <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
-            {/if}
-            {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
-                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
-            {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
+            {if $theme_settings.css_optimization}
+                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+                <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
+                {if $wa_app == 'shop'}
+                    <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" media="screen" />
+                {/if}
+                {if !empty($theme_settings.color_scheme) && $theme_settings.color_scheme != 'custom_color_scheme'}
+                    <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/skin{$theme_settings.color_scheme}.min.css" />
+                {elseif $theme_settings.color_scheme == 'custom_color_scheme'}
+                    <style>
+                        {include file="!css/skin-custom.css"}
+                    </style>
+                {/if}
                 <style>
-                    {include file="!css/skin-custom.css"}
+                    {include file="!css/theme-settings.css"}
                 </style>
             {/if}
-            <style>
-                {include file="!css/theme-settings.css"}
-            </style>
-        {/if}
 
-        <link href="{$wa_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+            <link href="{$wa_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-        <link href="{$wa_theme_url}!css/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
-        <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
-        <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css" />
-        {if $wa->shop}
-            <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css">
-        {/if}
+            <link href="{$wa_theme_url}!css/owl.carousel.css" type="text/css" rel="stylesheet" media="screen" />
+            <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" media="screen" />
+            <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css" />
+            {if $wa->shop}
+                <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" type="text/css">
+            {/if}
 
-        <script type="text/javascript" src="{$wa_theme_url}!js/jquery.dcjqaccordion.min.js?v{$wa_theme_version}"></script> 
-        <script src="{$wa_theme_url}bootstrap/js/bootstrap.min.js?v{$wa_theme_version}" type="text/javascript"></script>
-        <script src="{$wa_theme_url}!js/jquery.easing-1.3.min.js?v{$wa_theme_version}" type="text/javascript" ></script>
-        <script type="text/javascript" src="{$wa_theme_url}!js/script.min.js?v{$wa_theme_version}"></script>
-        <script src="{$wa_theme_url}!js/jquery/owl-carousel/owl.carousel.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+            {if $theme_settings.jquery_delayed_loading}
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+                <script type="text/javascript">
+                    for (var i in window.delayJs) {
+                        var js = document.createElement("script");
+                        js.type = "text/javascript";
+                        js.src = window.delayJs[i];
+                        var head = document.getElementsByTagName("head")[0].firstChild;
+                        document.getElementsByTagName("head")[0].insertBefore(js, head);
+                    }
+                    $(document).ready(function () {
+                        for (var i in window.delayJsFunctions) {
+                            if (typeof window.delayJsFunctions[i] == 'string') {
+                                $.globalEval(window.delayJsFunctions[i]);
+                            } else if (typeof window.delayJsFunctions[i] == 'function') {
+                                window.delayJsFunctions[i]();
+                            }
+                        }
+                    });
+                </script>
+            {/if}
+
+            <script type="text/javascript" src="{$wa_theme_url}!js/jquery.dcjqaccordion.min.js?v{$wa_theme_version}"></script> 
+            <script src="{$wa_theme_url}bootstrap/js/bootstrap.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+            <script src="{$wa_theme_url}!js/jquery.easing-1.3.min.js?v{$wa_theme_version}" type="text/javascript" ></script>
+            <script type="text/javascript" src="{$wa_theme_url}!js/script.min.js?v{$wa_theme_version}"></script>
+            <script src="{$wa_theme_url}!js/jquery/owl-carousel/owl.carousel.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
-        {if $theme_settings.is_autocomplete && $wa->shop}
-            <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.theme.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
-            <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
-            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa_theme_version}"></script>
-            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa_theme_version}"></script>
-            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa_theme_version}"></script>
-            <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa_theme_version}"></script>
-        {/if}
-        <script type="text/javascript">
-            var show_all_text = '[`view all`]';
-            var is_autocomplete = '{$theme_settings.is_autocomplete && $wa->shop}';
-            var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
-            var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
-        </script>
+            {if $theme_settings.is_autocomplete && $wa->shop}
+                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.theme.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
+                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa_theme_version}" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa_theme_version}"></script>
+                <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa_theme_version}"></script>
+                <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa_theme_version}"></script>
+                <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa_theme_version}"></script>
+            {/if}
+            <script type="text/javascript">
+                    var show_all_text = '[`view all`]';
+                    var is_autocomplete = '{$theme_settings.is_autocomplete && $wa->shop}';
+                    var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
+                    var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
+            </script>
         <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
-        {include file="`$wa_active_theme_path`/include.html"}
+            {include file="`$wa_active_theme_path`/include.html"}
 
-        {if $theme_settings.delayed_plugins_loading}
-            {$wa->css()} {* links active plugins CSS *}
-            {$wa->js()} {* links active plugins JS *}
-        {/if}
+            {if $theme_settings.delayed_plugins_loading}
+                {$wa->css()} {* links active plugins CSS *}
+                {$wa->js()} {* links active plugins JS *}
+            {/if}
 
-        {include file="settings-panel.html"}
-    </body>
-</html>
+            {include file="settings-panel.html"}
+        </body>
+    </html>
+{/strip}

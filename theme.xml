@@ -325,21 +325,27 @@
             <name locale="ru_RU">Пользовательская цветовая схема</name>
         </setting>
         
-        <setting var="custom_color1" control_type="color">
+        <setting var="custom_base_color" control_type="color">
             <value>#01a161</value>
-            <name locale="en_US">Color1</name>
-            <name locale="ru_RU">Цвет1</name>
-        </setting>
-        <setting var="custom_color2" control_type="color">
-            <value>#62b959</value>
-            <name locale="en_US">Color2</name>
-            <name locale="ru_RU">Цвет2</name>
+            <name locale="en_US">Base color</name>
+            <name locale="ru_RU">Базовый цвет</name>
         </setting>
         <setting var="custom_menu_color" control_type="color">
             <value>#555</value>
             <name locale="en_US">Color main menu</name>
             <name locale="ru_RU">Цвет главного меню</name>
         </setting>
+        <setting var="custom_text_menu_color" control_type="color">
+            <value>#fff</value>
+            <name locale="en_US">Color text main menu</name>
+            <name locale="ru_RU">Цвет текста в главном меню</name>
+        </setting>
+        <setting var="custom_header_color" control_type="color">
+            <value>#fff</value>
+            <name locale="en_US">Header color</name>
+            <name locale="ru_RU">Цвет верхней части Header</name>
+        </setting>
+        
         <setting var="custom_top_menu_color" control_type="color">
             <value>#eee</value>
             <name locale="en_US">Color top menu</name>
@@ -378,7 +384,17 @@
         <setting var="custom_hover_color" control_type="color">
             <value>#555</value>
             <name locale="en_US">Hover button</name>
-            <name locale="ru_RU">Цвет кнопок при наведение</name>
+            <name locale="ru_RU">Цвет кнопок при наведении</name>
+        </setting>
+        <setting var="custom_color_price" control_type="color">
+            <value>#01a161</value>
+            <name locale="en_US">Price color</name>
+            <name locale="ru_RU">Цвет цены</name>
+        </setting>
+        <setting var="custom_label_color" control_type="color">
+            <value>#62b959</value>
+            <name locale="en_US">Label color</name>
+            <name locale="ru_RU">Цвет ярлыков</name>
         </setting>
         
         <setting var="divider_background" control_type="group_divider">
@@ -1014,6 +1030,14 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <name locale="ru_RU">Отложенная загрузка CSS и JS плагинов</name>
             <description locale="en_US">Move CSS and JS plugins from HEAD to the lower part of the site to plugin scripts are loaded at the end and do not block the first page load</description>
             <description locale="ru_RU">Перенести CSS и JS плагинов из HEAD в нижнюю часть сайта для того чтобы скрипты плагинов загружались в конце и не блокировали страницу вначале загрузки</description>
+        </setting>   
+        
+        <setting var="jquery_delayed_loading" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Delayed loading JQuery</name>
+            <name locale="ru_RU">Отложенная загрузка библиотеки JQuery</name>
+            <description locale="en_US"></description>
+            <description locale="ru_RU"></description>
         </setting>     
         
         <setting var="divider_additional_functionality" control_type="group_divider">

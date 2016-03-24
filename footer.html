@@ -1,185 +1,187 @@
-<div class="fpart-first">
-    <div class="container">
-        <div class="row">
-            <div class="contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <h5>[`Contact Information`]</h5>
-                <ul>
-                    {if !empty($theme_settings.address)}
-                        <li class="address">
-                            <i class="fa fa-map-marker"></i>{$theme_settings.address}
-                        </li>
-                    {/if}
-                    {if !empty($theme_settings.phone)}
-                        <li class="mobile">
-                            <i class="fa fa-phone"></i>{$theme_settings.phone}
-                        </li>
-                    {elseif $wa->shop}
-                        <li class="mobile">
-                            <i class="fa fa-phone"></i>{$wa->shop->settings('phone')}
-                        </li>
-                    {/if}
-
-                    {if !empty($theme_settings.additional_phone)}
-                        <li class="mobile">
-                            <i class="fa fa-phone"></i>{$theme_settings.additional_phone}
-                        </li>
-                    {/if}
-
-                    {if !empty($theme_settings.email)}
-                        <li class="email">
-                            <i class="fa fa-envelope"></i>
-                            {$theme_settings.email}
-                        </li>
-                    {elseif $wa->shop}
-                        <li class="email">
-                            <i class="fa fa-envelope"></i>{$wa->shop->settings('email')}
-                        </li>
-                    {/if}
-                </ul>
-            </div>
-            {if $theme_settings.source_footer_info}
-                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                    <h5>[`Information`]</h5>
-                    {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages'}
-                        {$footer_pages = $wa->shop->pages()}
-                    {else}
-                        {$footer_pages = $wa->site->pages()}   
-                    {/if}
-                    {wa_print_tree  unfolded=false tree=$footer_pages elem ='<a href=":url" title=":title">:name</a>'}
-                </div>
-            {/if}
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                <h5>[`Applications`]</h5>
-                <ul>
-                    {foreach $wa->apps() as $app}
-                        <li>
-                            <a href="{$app.url}">{$app.name}</a>
-                        </li>
-                    {/foreach}
-                </ul>
-            </div>
-            {if $theme_settings.footer_extra}
-                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                    {$theme_settings.footer_extra}
-                </div>
-            {/if}
-            {if $wa->isAuthEnabled()}
-                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                    <h5>[s`My account`]</h5>
+{strip}
+    <div class="fpart-first">
+        <div class="container">
+            <div class="row">
+                <div class="contact col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h5>[`Contact Information`]</h5>
                     <ul>
-                        {if $wa->shop}
-                            <li>
-                                {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
-                                <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
-                            </li>
-                            <li>
-                                {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
-                                <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                        {if !empty($theme_settings.address)}
+                            <li class="address">
+                                <i class="fa fa-map-marker"></i>{$theme_settings.address}
                             </li>
                         {/if}
-                        {if $wa->user()->isAuth()}
-                            {if $wa->shop}
-                                <li>
-                                    <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
-                                </li>
-                                <li>
-                                    <a href="{$wa->getUrl('shop/frontend/myProfile')}">[`My profile`]</a>
-                                </li>
-                                {if shopAffiliate::isEnabled()}
-                                    <li>
-                                        <a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a>
-                                    </li>
-                                {/if}
-                                {if $wa->mailer}
-                                    <li>
-                                        <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
-                                    </li>
-                                {/if}
-                                {if $wa->helpdesk}
-                                    <li>
-                                        <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
-                                    </li>
-                                {/if}
-                            {else}
-                                <li>
-                                    <span>{$wa->user('name')}</span>
-                                </li>
-                            {/if}
-                            <li>
-                                <a href="?logout">[s`Log out`]</a>
+                        {if !empty($theme_settings.phone)}
+                            <li class="mobile">
+                                <i class="fa fa-phone"></i>{$theme_settings.phone}
                             </li>
-                        {else}
-                            <li>
-                                <a href="{$wa->loginUrl()}">[s`Log in`]</a>
+                        {elseif $wa->shop}
+                            <li class="mobile">
+                                <i class="fa fa-phone"></i>{$wa->shop->settings('phone')}
                             </li>
-                            <li>
-                                <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
+                        {/if}
+
+                        {if !empty($theme_settings.additional_phone)}
+                            <li class="mobile">
+                                <i class="fa fa-phone"></i>{$theme_settings.additional_phone}
+                            </li>
+                        {/if}
+
+                        {if !empty($theme_settings.email)}
+                            <li class="email">
+                                <i class="fa fa-envelope"></i>
+                                {$theme_settings.email}
+                            </li>
+                        {elseif $wa->shop}
+                            <li class="email">
+                                <i class="fa fa-envelope"></i>{$wa->shop->settings('email')}
                             </li>
                         {/if}
                     </ul>
                 </div>
-            {/if}
+                {if $theme_settings.source_footer_info}
+                    <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                        <h5>[`Information`]</h5>
+                        {if $wa->shop && $theme_settings.source_footer_info == 'shop_pages'}
+                            {$footer_pages = $wa->shop->pages()}
+                        {else}
+                            {$footer_pages = $wa->site->pages()}   
+                        {/if}
+                        {wa_print_tree  unfolded=false tree=$footer_pages elem ='<a href=":url" title=":title">:name</a>'}
+                    </div>
+                {/if}
+                <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    <h5>[`Applications`]</h5>
+                    <ul>
+                        {foreach $wa->apps() as $app}
+                            <li>
+                                <a href="{$app.url}">{$app.name}</a>
+                            </li>
+                        {/foreach}
+                    </ul>
+                </div>
+                {if $theme_settings.footer_extra}
+                    <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                        {$theme_settings.footer_extra}
+                    </div>
+                {/if}
+                {if $wa->isAuthEnabled()}
+                    <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                        <h5>[s`My account`]</h5>
+                        <ul>
+                            {if $wa->shop}
+                                <li>
+                                    {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
+                                    <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
+                                </li>
+                                <li>
+                                    {$compare = waRequest::cookie('shop_compare', array(), waRequest::TYPE_ARRAY_INT)}
+                                    <a href="{$wa->getUrl('/frontend/compare/', ['id' => implode(',', $compare) ])}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                                </li>
+                            {/if}
+                            {if $wa->user()->isAuth()}
+                                {if $wa->shop}
+                                    <li>
+                                        <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
+                                    </li>
+                                    <li>
+                                        <a href="{$wa->getUrl('shop/frontend/myProfile')}">[`My profile`]</a>
+                                    </li>
+                                    {if shopAffiliate::isEnabled()}
+                                        <li>
+                                            <a href="{$wa->getUrl('/frontend/myAffiliate')}">[`Affiliate program`]</a>
+                                        </li>
+                                    {/if}
+                                    {if $wa->mailer}
+                                        <li>
+                                            <a href="{$wa->getUrl('mailer/frontend/my')}">[`My subscriptions`]</a>
+                                        </li>
+                                    {/if}
+                                    {if $wa->helpdesk}
+                                        <li>
+                                            <a href="{$wa->getUrl('helpdesk/frontend/myRequests')}">[`My requests`]</a>
+                                        </li>
+                                    {/if}
+                                {else}
+                                    <li>
+                                        <span>{$wa->user('name')}</span>
+                                    </li>
+                                {/if}
+                                <li>
+                                    <a href="?logout">[s`Log out`]</a>
+                                </li>
+                            {else}
+                                <li>
+                                    <a href="{$wa->loginUrl()}">[s`Log in`]</a>
+                                </li>
+                                <li>
+                                    <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
+                                </li>
+                            {/if}
+                        </ul>
+                    </div>
+                {/if}
+            </div>
         </div>
     </div>
-</div>
-<div class="fpart-second">
-    <div class="container">
-        <div id="powered" class="clearfix">
-            <div class="powered_text pull-left flip">
-                <p>
-                    <a href="{$wa_url}">{$wa->accountName()}</a>&nbsp;&copy;&nbsp;{time()|wa_datetime:"Y"}, <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/">[s`Powered by Webasyst`]</a>
-                    | [`Theme By`]:&nbsp;<a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
-                </p>                                                                                                                                                                                
-            </div>
-            <div class="social pull-right flip">
-                {if $theme_settings.facebook_url}
-                    <a href="{$theme_settings.facebook_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/facebook.png" alt="Facebook" title="Facebook">
-                    </a>
-                {/if}
-                {if $theme_settings.twitter_url}
-                    <a href="{$theme_settings.twitter_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/twitter.png" alt="Twitter" title="Twitter"> 
-                    </a>
-                {/if}
-                {if $theme_settings.google_plus_url}
-                    <a href="{$theme_settings.google_plus_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/google_plus.png" alt="Google+" title="Google+">
-                    </a>
-                {/if}
-                {if $theme_settings.pinterest_url}
-                    <a href="{$theme_settings.pinterest_url}" target="_blank">
-                        <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/pinterest.png" alt="Pinterest" title="Pinterest"> 
-                    </a>
-                {/if}
-                {if $wa->blog && $theme_settings.rss}
-                    {$rss_url = $wa->blog->rssUrl()}
-                    {if $rss_url}
-                        <a href="{$rss_url}" target="_blank">
-                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/rss.png" alt="RSS" title="RSS">
+    <div class="fpart-second">
+        <div class="container">
+            <div id="powered" class="clearfix">
+                <div class="powered_text pull-left flip">
+                    <p>
+                        <a href="{$wa_url}">{$wa->accountName()}</a>&nbsp;&nbsp&copy;{time()|wa_datetime:"Y"}, <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/">[s`Powered by Webasyst`]</a>
+                        &nbsp;|&nbsp;[`Theme By`]:&nbsp;<a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
+                    </p>                                                                                                                                                                                
+                </div>
+                <div class="social pull-right flip">
+                    {if $theme_settings.facebook_url}
+                        <a href="{$theme_settings.facebook_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/facebook.png" alt="Facebook" title="Facebook">
                         </a>
                     {/if}
+                    {if $theme_settings.twitter_url}
+                        <a href="{$theme_settings.twitter_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/twitter.png" alt="Twitter" title="Twitter"> 
+                        </a>
+                    {/if}
+                    {if $theme_settings.google_plus_url}
+                        <a href="{$theme_settings.google_plus_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/google_plus.png" alt="Google+" title="Google+">
+                        </a>
+                    {/if}
+                    {if $theme_settings.pinterest_url}
+                        <a href="{$theme_settings.pinterest_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/pinterest.png" alt="Pinterest" title="Pinterest"> 
+                        </a>
+                    {/if}
+                    {if $wa->blog && $theme_settings.rss}
+                        {$rss_url = $wa->blog->rssUrl()}
+                        {if $rss_url}
+                            <a href="{$rss_url}" target="_blank">
+                                <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/rss.png" alt="RSS" title="RSS">
+                            </a>
+                        {/if}
+                    {/if}
+                </div>
+            </div>
+            <div class="bottom-row">
+                {if $theme_settings.footer_text}
+                    <div class="custom-text text-center">
+                        {$theme_settings.footer_text}                 
+                    </div>
+                {/if}
+
+                {if $wa->shop && $theme_settings.footer_payments}
+                    {$availabe_options = $wa->shop->payment()}
+                    <div class="payments_types">
+                        {foreach $availabe_options as $option}
+                            {if $option.logo}
+                                <img data-toggle="tooltip" src="{rtrim($wa_url,'/')}{$option.logo}" alt="{$option.name}" title="{$option.name}">
+                            {/if}
+                        {/foreach}
+                    </div>
                 {/if}
             </div>
         </div>
-        <div class="bottom-row">
-            {if $theme_settings.footer_text}
-                <div class="custom-text text-center">
-                    {$theme_settings.footer_text}                 
-                </div>
-            {/if}
-
-            {if $wa->shop && $theme_settings.footer_payments}
-                {$availabe_options = $wa->shop->payment()}
-                <div class="payments_types">
-                    {foreach $availabe_options as $option}
-                        {if $option.logo}
-                            <img data-toggle="tooltip" src="{rtrim($wa_url,'/')}{$option.logo}" alt="{$option.name}" title="{$option.name}">
-                        {/if}
-                    {/foreach}
-                </div>
-            {/if}
-        </div>
     </div>
-</div>
-<div id="back-top"><a data-toggle="tooltip" title="[`Back to Top`]" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+    <div id="back-top"><a data-toggle="tooltip" title="[`Back to Top`]" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+{/strip}

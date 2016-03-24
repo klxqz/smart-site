@@ -1,17 +1,19 @@
-{$title = "[s`Error`]"}
-{if $error_code}
-    {$title = "`$title` `$error_code`"}
-{/if}
-{if $error_message}
-    {$title = "`$title`. `$error_message`"}
-{/if}
-{$wa->title($title)}
-<h1>
-    {if $error_code}[s`Error`] {$error_code}. {/if}
-    {if $error_message}
-        {$error_message}
-    {else}
-        [s`Error`]
+{strip}
+    {$title = "[s`Error`]"}
+    {if $error_code}
+        {$title = "`$title` `$error_code`"}
     {/if}
-</h1>
-[s`The requested resource is not available.`]
+    {if $error_message}
+        {$title = "`$title`. `$error_message`"}
+    {/if}
+    {$wa->title($title)}
+    <h1>
+        {if $error_code}[s`Error`] {$error_code}. {/if}
+        {if $error_message}
+            {$error_message}
+        {else}
+            [s`Error`]
+        {/if}
+    </h1>
+    [s`The requested resource is not available.`]
+{/strip}

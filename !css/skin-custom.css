@@ -2,7 +2,7 @@
 .pagination>li>a,
 a,
 a b {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 .pagination>.active>a,
 .pagination>.active>a:focus,
@@ -10,14 +10,14 @@ a b {
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-    background-color: {$theme_settings.custom_color1};
-    border-color: {$theme_settings.custom_color1}
+    background-color: {$theme_settings.custom_base_color};
+    border-color: {$theme_settings.custom_base_color}
 }
 .nivo-directionNav .nivo-nextNav:hover,
 .nivo-directionNav .nivo-prevNav:hover,
 .owl-carousel.slideshowhome .owl-controls .owl-buttons .owl-next:hover,
 .owl-carousel.slideshowhome .owl-controls .owl-buttons .owl-prev:hover {
-    background-color: {$theme_settings.custom_color1}
+    background-color: {$theme_settings.custom_base_color}
 }
 #blogArticle .articleHeader h1 a:hover,
 #blogCatArticles .articleHeader h3 a:hover,
@@ -32,7 +32,10 @@ a b {
 .tags-update .tags a:hover,
 a b:hover,
 a:hover {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
+}
+#header{
+    background: {$theme_settings.custom_header_color}
 }
 #header .htop {
     background-color: {$theme_settings.custom_top_menu_color}
@@ -59,21 +62,21 @@ a:hover {
 }
 #currency ul li .currency-select:hover,
 #top .dropdown-menu li a:hover {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #header #search input {
     background: #f6f6f6
 }
 #header #cart.open .heading span:after {
-    border-color: transparent transparent {$theme_settings.custom_color1}
+    border-color: transparent transparent {$theme_settings.custom_base_color}
 }
 #header #cart .dropdown-menu,
 #header #cart .heading div.cart-icon:after,
 #header #cart .heading div.cart-icon:before {
-    border-color: {$theme_settings.custom_color1}
+    border-color: {$theme_settings.custom_base_color}
 }
 #header #cart .heading div.cart-icon {
-    background: {$theme_settings.custom_color1}
+    background: {$theme_settings.custom_base_color}
 }
 #menu {
     background-color: {$theme_settings.custom_menu_color};
@@ -81,15 +84,15 @@ a:hover {
 }
 #menu .nav>li>a,
 #menu .navbar-header>span {
-    color: #fff;
+    color: {$theme_settings.custom_text_menu_color};
     font-size: 14px
 }
 #menu .nav>li>a.home_link {
-    background-color: {$theme_settings.custom_color1}
+    background-color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li>a.home_link:hover {
     background-color: #eee;
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li>a.home_link span:before {
     border-color: transparent transparent #fff
@@ -101,20 +104,20 @@ a:hover {
     background: #fff
 }
 #menu .nav>li>a.home_link:hover span:before {
-    border-color: transparent transparent {$theme_settings.custom_color1}
+    border-color: transparent transparent {$theme_settings.custom_base_color}
 }
 #menu .nav>li>a.home_link:hover span:after {
-    border-color: {$theme_settings.custom_color1}
+    border-color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li>a.home_link:hover span {
-    background: {$theme_settings.custom_color1}
+    background: {$theme_settings.custom_base_color}
 }
 #menu .nav>li.custom-link-right>a {
-    background-color: {$theme_settings.custom_color1}
+    background-color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li.custom-link-right:hover>a {
     background-color: #eee;
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li.categories>div,
 #menu .nav>li.categories>div>.column>div,
@@ -122,13 +125,13 @@ a:hover {
 #menu .nav>li.categories_hor>div .submenu,
 #menu .nav>li>.dropdown-menu,
 #menu .submenu {
-    border-color: {$theme_settings.custom_color1}
+    border-color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li.sub:hover>a:after {
-    border-bottom-color: {$theme_settings.custom_color1}
+    border-bottom-color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li:hover>a {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #menu .custom_block,
 #menu .custom_block a,
@@ -142,7 +145,7 @@ a:hover {
 #menu .nav>li.categories>div>.column:hover>a,
 #menu .nav>li.categories_hor>div>.column:hover>a,
 #menu .nav>li.menu_brands>div>div a:hover {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #menu .nav>li.categories_hor>div>.column>a {
     color: #222
@@ -152,19 +155,19 @@ a:hover {
 }
 .custom-feature-box .feature-box .title {
     font-size: 15px;
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 .custom-feature-box .feature-box p {
     font-size: 13px;
     color: #777
 }
 .saving {
-    background: {$theme_settings.custom_color2};
+    background: {$theme_settings.custom_label_color};
     color: #fff
 }
 .product-info .price,
 .product-thumb .price {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_color_price}
 }
 .product-thumb .price-old {
     color: #999
@@ -174,7 +177,7 @@ a:hover {
     color: #666
 }
 .product-thumb .button-group>button:hover {
-    background-color: {$theme_settings.custom_color1};
+    background-color: {$theme_settings.custom_base_color};
     color: #fff
 }
 .product-thumb .button-group .add-to-links button {
@@ -184,7 +187,7 @@ a:hover {
     color: #000
 }
 .btn-primary {
-    background-color: {$theme_settings.custom_color1}
+    background-color: {$theme_settings.custom_base_color}
 }
 .btn-primary.active,
 .btn-primary.disabled,
@@ -201,7 +204,7 @@ a:hover {
     color: {$theme_settings.custom_footer_first_text_color}
 }
 #footer .fpart-first a:hover {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 #footer h5 {
     color: {$theme_settings.custom_footer_first_text_color_title}
@@ -217,7 +220,7 @@ a:hover {
     color: {$theme_settings.custom_footer_second_text_color};
 }
 #footer .fpart-second a:hover {
-    color: {$theme_settings.custom_color1}
+    color: {$theme_settings.custom_base_color}
 }
 .drop-icon {
     color: #333

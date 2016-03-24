@@ -4,36 +4,38 @@
 {if $theme_settings.homepage_infobanner3}{$b_count=$b_count+1}{/if}
 {if $theme_settings.homepage_infobanner4}{$b_count=$b_count+1}{/if}
 {if $b_count}
-    <div class="container">
-        <div class="custom-feature-box row">
-            {if $theme_settings.homepage_infobanner1}
-                <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
-                    <div class="feature-box fbox_1">
-                        {$theme_settings.homepage_infobanner1}
+    {strip}
+        <div class="container">
+            <div class="custom-feature-box row">
+                {if $theme_settings.homepage_infobanner1}
+                    <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
+                        <div class="feature-box fbox_1">
+                            {$theme_settings.homepage_infobanner1}
+                        </div>
                     </div>
-                </div>
-            {/if}
-            {if $theme_settings.homepage_infobanner2}
-                <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
-                    <div class="feature-box fbox_2">
-                        {$theme_settings.homepage_infobanner2}
+                {/if}
+                {if $theme_settings.homepage_infobanner2}
+                    <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
+                        <div class="feature-box fbox_2">
+                            {$theme_settings.homepage_infobanner2}
+                        </div>
                     </div>
-                </div>
-            {/if}
-            {if $theme_settings.homepage_infobanner3}
-                <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
-                    <div class="feature-box fbox_3">
-                        {$theme_settings.homepage_infobanner3}
+                {/if}
+                {if $theme_settings.homepage_infobanner3}
+                    <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
+                        <div class="feature-box fbox_3">
+                            {$theme_settings.homepage_infobanner3}
+                        </div>
                     </div>
-                </div>
-            {/if}
-            {if $theme_settings.homepage_infobanner4}
-                <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
-                    <div class="feature-box fbox_4">
-                        {$theme_settings.homepage_infobanner4}
+                {/if}
+                {if $theme_settings.homepage_infobanner4}
+                    <div class="col-md-{12/$b_count} col-sm-6 col-xs-12">
+                        <div class="feature-box fbox_4">
+                            {$theme_settings.homepage_infobanner4}
+                        </div>
                     </div>
-                </div>
-            {/if}
+                {/if}
+            </div>
         </div>
-    </div>
+    {/strip}
 {/if}

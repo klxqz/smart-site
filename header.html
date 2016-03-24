@@ -1,126 +1,134 @@
 {function name = headerCart}
-    <div id="cart"{if !empty($style)} style="{$style}"{/if}>
-        {$cart = $wa->shop->cart()}
-        {$cart_total = $wa->shop->cart->total()}
-        <button type="button" data-toggle="dropdown" class="heading dropdown-toggle">
-            <div class="pull-left flip"><div class="cart-icon"></div></div>
-            <span id="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
-        </button>
+    {strip}
+        <div id="cart"{if !empty($style)} style="{$style}"{/if}>
+            {$cart = $wa->shop->cart()}
+            {$cart_total = $wa->shop->cart->total()}
+            <button type="button" data-toggle="dropdown" class="heading dropdown-toggle">
+                <div class="pull-left flip"><div class="cart-icon"></div></div>
+                <span id="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
+            </button>
 
-        <ul class="dropdown-menu">
-            {$cart_items = $cart->items()}
-            <li class="cart-items"{if !$cart_items} style="display: none;"{/if}>
-                <table class="table">
-                    <tbody>
-                        {foreach $cart_items as $item}
-                            <tr data-id="{$item.id}">
-                                <td class="text-center image">            
-                                    <a href="{$wa->shop->productUrl($item.product)}">
-                                        {$wa->shop->productImgHtml($item.product, '47', ['alt' => $item.name, 'title' => $item.name, 'default' => "`$wa_theme_url`img/dummy47.png"])}
-                                    </a>
-                                </td>
-                                <td class="text-left">
-                                    <a href="{$wa->shop->productUrl($item.product)}">{$item.name}</a>
-                                </td>
-                                <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
-                                <td class="text-right nowrap">{wa_currency_html($item.price, $wa->shop->currency())}</td>
-                                <td class="text-center">
-                                    <a class="btn btn-danger btn-xs remove" title="[`Remove`]"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        {/foreach}
-                    </tbody>
-                </table>
-            </li>
-            <li class="cart-buttons"{if !$cart_items} style="display: none;"{/if}>
-                <div>
-                    <p class="checkout">
-                        <a href="{$wa->getUrl('shop/frontend/cart')}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> [s`Shopping cart`]</a>
-                        <a href="{$wa->getUrl('shop/frontend/checkout')}" class="btn btn-primary"><i class="fa fa-share"></i> [`Checkout`]</a>
-                    </p>
-                </div>
-            </li>
-            <li  class="cart-empty"{if $cart_items} style="display: none;"{/if}>
-                <p class="text-center">[`Your shopping cart is empty!`]</p>
-            </li>
-        </ul>
-    </div>
+            <ul class="dropdown-menu">
+                {$cart_items = $cart->items()}
+                <li class="cart-items"{if !$cart_items} style="display: none;"{/if}>
+                    <table class="table">
+                        <tbody>
+                            {foreach $cart_items as $item}
+                                <tr data-id="{$item.id}">
+                                    <td class="text-center image">            
+                                        <a href="{$wa->shop->productUrl($item.product)}">
+                                            {$wa->shop->productImgHtml($item.product, '47', ['alt' => $item.name, 'title' => $item.name, 'default' => "`$wa_theme_url`img/dummy47.png"])}
+                                        </a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="{$wa->shop->productUrl($item.product)}">{$item.name}</a>
+                                    </td>
+                                    <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
+                                    <td class="text-right nowrap">{wa_currency_html($item.price, $wa->shop->currency())}</td>
+                                    <td class="text-center">
+                                        <a class="btn btn-danger btn-xs remove" title="[`Remove`]"><i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </li>
+                <li class="cart-buttons"{if !$cart_items} style="display: none;"{/if}>
+                    <div>
+                        <p class="checkout">
+                            <a href="{$wa->getUrl('shop/frontend/cart')}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> [s`Shopping cart`]</a>
+                            <a href="{$wa->getUrl('shop/frontend/checkout')}" class="btn btn-primary float-right"><i class="fa fa-share"></i> [`Checkout`]</a>
+                        </p>
+                    </div>
+                </li>
+                <li  class="cart-empty"{if $cart_items} style="display: none;"{/if}>
+                    <p class="text-center">[`Your shopping cart is empty!`]</p>
+                </li>
+            </ul>
+        </div>
+    {/strip}
 {/function}
 {function name = hearedSearch}
-    <div id="search" class="input-group"{if !empty($style)} style="{$style}"{/if}>
-        <form method="get" action="{$wa->getUrl('/frontend/search')}">
-            <input id="filter_name" type="text" name="query" value="" placeholder="[`Find products`]" class="form-control input-lg" />
-            <button class="button-search"><i class="fa fa-search"></i></button>
-        </form>
-    </div> 
+    {strip}
+        <div id="search" class="input-group"{if !empty($style)} style="{$style}"{/if}>
+            <form method="get" action="{$wa->getUrl('/frontend/search')}">
+                <input id="filter_name" type="text" name="query" value="" placeholder="[`Find products`]" class="form-control input-lg" />
+                <button class="button-search"><i class="fa fa-search"></i></button>
+            </form>
+        </div> 
+    {/strip}
 {/function}
 {function name = headerLogo}
-    <div id="logo"{if !empty($style)} style="{$style}"{/if}>
-        <a href="{$wa_url}">
-            <img class="img-responsive" src="{$wa_theme_url}{$theme_settings.logo}" title="{$theme_settings.logo_title|escape}" alt="{$theme_settings.logo_title|escape}" />
-        </a>
-    </div>
+    {strip}
+        <div id="logo"{if !empty($style)} style="{$style}"{/if}>
+            <a href="{$wa_url}">
+                <img class="img-responsive" src="{$wa_theme_url}{$theme_settings.logo}" title="{$theme_settings.logo_title|escape}" alt="{$theme_settings.logo_title|escape}" />
+            </a>
+        </div>
+    {/strip}
 {/function}
 
 {$header_struct = $theme_settings.header_struct}
-<div class="container">
-    <div class="table-container">
-        {if $header_struct == 1}
-            <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-                {headerLogo}
-            </div>
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12"> 
-                {if $wa->shop}
-                    {headerCart}
-                {/if}
-            </div>
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner"> 
-                {if $wa->shop}
-                    {hearedSearch}
-                {/if}
-            </div>
-        {elseif $header_struct == 2}
-            <div class="col-table-cell col-lg-4 col-md-4 col-sm-12 col-xs-12 inner">
-                {headerLogo}
-            </div>
-            <div class="col-table-cell col-lg-5 col-md-5 col-md-push-0 col-sm-6 col-sm-push-6 col-xs-12"> 
-                {if $wa->shop}
-                    {hearedSearch}
-                {/if}
-            </div>
-            <div class="col-table-cell col-lg-3 col-md-3 col-md-pull-0 col-sm-6 col-sm-pull-6 col-xs-12 inner"> 
-                {if $wa->shop}
-                    {headerCart}
-                {/if}
-            </div>
-        {elseif $header_struct == 3}
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner">
-                {if $wa->shop}
-                    {headerCart style="text-align: left;"}
-                {/if}
-            </div>
-            <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                {headerLogo style="text-align: center;"}
-            </div>
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner"> 
-                {if $wa->shop}
-                    {hearedSearch}
-                {/if}
-            </div>
-        {elseif $header_struct == 4}
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner">
-                {if $wa->shop}
-                    {hearedSearch}
-                {/if}
-            </div>
-            <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12" >
-                {headerLogo style="text-align: center;"}
-            </div>
-            <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner"> 
-                {if $wa->shop}
-                    {headerCart style="text-align: right;"}
-                {/if}
-            </div>
-        {/if}
+{strip}
+    <div class="container">
+        <div class="table-container">
+            {if $header_struct == 1}
+                <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
+                    {headerLogo}
+                </div>
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12"> 
+                    {if $wa->shop}
+                        {headerCart}
+                    {/if}
+                </div>
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner"> 
+                    {if $wa->shop}
+                        {hearedSearch}
+                    {/if}
+                </div>
+            {elseif $header_struct == 2}
+                <div class="col-table-cell col-lg-4 col-md-4 col-sm-12 col-xs-12 inner">
+                    {headerLogo}
+                </div>
+                <div class="col-table-cell col-lg-5 col-md-5 col-md-push-0 col-sm-6 col-sm-push-6 col-xs-12"> 
+                    {if $wa->shop}
+                        {hearedSearch}
+                    {/if}
+                </div>
+                <div class="col-table-cell col-lg-3 col-md-3 col-md-pull-0 col-sm-6 col-sm-pull-6 col-xs-12 inner"> 
+                    {if $wa->shop}
+                        {headerCart}
+                    {/if}
+                </div>
+            {elseif $header_struct == 3}
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner">
+                    {if $wa->shop}
+                        {headerCart style="text-align: left;"}
+                    {/if}
+                </div>
+                <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    {headerLogo style="text-align: center;"}
+                </div>
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner"> 
+                    {if $wa->shop}
+                        {hearedSearch}
+                    {/if}
+                </div>
+            {elseif $header_struct == 4}
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner">
+                    {if $wa->shop}
+                        {hearedSearch}
+                    {/if}
+                </div>
+                <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12" >
+                    {headerLogo style="text-align: center;"}
+                </div>
+                <div class="col-table-cell col-lg-3 col-md-3 col-sm-12 col-xs-12 inner"> 
+                    {if $wa->shop}
+                        {headerCart style="text-align: right;"}
+                    {/if}
+                </div>
+            {/if}
+        </div>
     </div>
-</div>
+{/strip}
