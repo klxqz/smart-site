@@ -45,7 +45,7 @@
             {/for}
         </div>
         <script type="text/javascript">
-            $(document).ready(function () {
+            var delayed_function = function () {
                 $('#banner0').owlCarousel({
                     items: 6,
                     autoPlay: 3000,
@@ -54,7 +54,12 @@
                     pagination: false,
                     transitionStyle: 'fade'
                 });
-            });
+            };
+            {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+            window.delayJsFunctions.push(delayed_function);
+            {else}
+            $(delayed_function());
+            {/if}
         </script>
     {/if}
 {/strip}

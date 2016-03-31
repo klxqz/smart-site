@@ -2980,9 +2980,9 @@ i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-
 
 .dialog { display: none; }
 .dialog-background { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; opacity: 0.8; filter: alpha(opacity=80); z-index: 99; }
-.dialog-window .content { position: relative; opacity: 1; z-index: 9999; overflow-x: hidden; box-shadow: 0 3px 15px #ddd; margin: 30px auto; text-align: left; width: 90%; max-width: 450px; background: #fff; padding: 15px; }
+.dialog-window .content { position: relative; opacity: 1; z-index: 9999; overflow-x: hidden; box-shadow: 0 3px 15px #ddd; margin: 30px auto; text-align: left; width: 90%; max-width: 450px; background: #fff; padding: 40px 15px 15px 15px; }
 .dialog-window .content .added2cart { font-size: 1.1em; font-style: italic; }
-.dialog-window .dialog-close { float: right; color: #656565; text-decoration: none; font-size: 200%; margin-top: -3px; }
+.dialog-window .dialog-close { position: absolute; top: 15px; right: 15px; color: #656565; text-decoration: none; font-size: 200%; margin-top: -3px; }
 .dialog-window .content h1, 
 .dialog-window .content h2, 
 .dialog-window .content h3{ margin-top:0px; }

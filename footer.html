@@ -128,9 +128,11 @@
             <div id="powered" class="clearfix">
                 <div class="powered_text pull-left flip">
                     <p>
-                        <a href="{$wa_url}">{$wa->accountName()}</a>&nbsp;&nbsp&copy;{time()|wa_datetime:"Y"}, <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/">[s`Powered by Webasyst`]</a>
-                        &nbsp;|&nbsp;[`Theme By`]:&nbsp;<a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
-                    </p>                                                                                                                                                                                
+                        &copy;&nbsp;<a href="{$wa_url}">{$wa->accountName()}</a>,&nbsp;{time()|wa_datetime:"Y"}&nbsp;|&nbsp;[`Theme By`]:&nbsp;<a href="http://wa-plugins.ru" target="_blank">wa-plugins.ru</a>
+                    </p>         
+                    <p>
+                        <a title="[s`Powered by Webasyst`]" href="http://www.webasyst.com/"><img src="//user48051.clients.cdnnow.ru/wa-data/public/site/themes/profitbuy/img/all-dots-default-order.png">&nbsp;&mdash;&nbsp;[s`Powered by Webasyst`]</a>
+                    </p>
                 </div>
                 <div class="social pull-right flip">
                     {if $theme_settings.facebook_url}

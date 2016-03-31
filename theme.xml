@@ -13,26 +13,6 @@
             <description locale="en_US">The basic part of the  CSS in the HEAD. Compressed</description>
             <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD. Сжатый</description>
         </file>
-        <file path="!css/skin2.min.css">
-            <description locale="en_US">Skin 2. Compressed</description>
-            <description locale="ru_RU">Цветовая схема 2. Сжатый</description>
-        </file>
-        <file path="!css/skin3.min.css">
-            <description locale="en_US">Skin 3. Compressed</description>
-            <description locale="ru_RU">Цветовая схема 3. Сжатый</description>
-        </file>
-        <file path="!css/skin4.min.css">
-            <description locale="en_US">Skin 4. Compressed</description>
-            <description locale="ru_RU">Цветовая схема 4. Сжатый</description>
-        </file>
-        <file path="!css/skin5.min.css">
-            <description locale="en_US">Skin 5. Compressed</description>
-            <description locale="ru_RU">Цветовая схема 5. Сжатый</description>
-        </file>
-        <file path="!css/skin6.min.css">
-            <description locale="en_US">Skin 6. Compressed</description>
-            <description locale="ru_RU">Цветовая схема 6. Сжатый</description>
-        </file>
         <file path="!css/smart.css">
             <description locale="en_US">Core CSS of the Smart theme family</description>
             <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart</description>
@@ -180,33 +160,113 @@
         <setting var="main_come" control_type="group_divider">
             <value/>
             <name locale="en_US">
-                <![CDATA[
+  <![CDATA[
                 <style>
+                .wa-theme-image-select li{
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                }
                 .wa-theme-image-select{
                     max-width: 750px;
                 }
                 .wa-theme-image-select a{
-                    height: 70px; width: 70px;
+                    border: 4px solid #EBEBEB;
                 }
                 .wa-theme-image-select a img{
-                    height: 70px; width: 70px;
+                    height: 50px; width: 50px; 
+                }
+                .heading, .heading a{
+                    color: #2875ab;
                 }
                 </style>
+<script type="text/javascript">
+    $(function(){        
+        $('.heading').each(function(){
+            var $fields = $('<div class="fields-block"></div>');
+            var fields = $(this).find('~ *'); 
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if ($(field).hasClass('field')) {
+                    $(field).appendTo($fields);
+                } else {
+                    break;
+                }
+            }
+            $(this).after($fields);
+            
+        });
+        $('.heading').click(function(){
+            $(this).next('.fields-block').slideToggle('slow');
+        });
+        
+
+        $('input[name="settings[color_scheme]"]').closest('.value').find('.wa-theme-image-select li a').click(function(){
+            var value = $(this).closest('li').data('value');
+            if (value == '!css/skins/skin_custom_color_scheme.png') {
+                $('.custom-color-scheme-field').closest('.field,.heading').show();
+            } else {
+                $('.custom-color-scheme-field').closest('.field,.heading').hide();
+            }
+            return false;
+        });
+        $('input[name="settings[color_scheme]"]').closest('.value').find('.wa-theme-image-select li.selected a').click();
+    });
+</script>
                 ]]>
             </name>
             <name locale="ru_RU">
                 <![CDATA[
                 <style>
+                .wa-theme-image-select li{
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                }
                 .wa-theme-image-select{
                     max-width: 750px;
                 }
                 .wa-theme-image-select a{
-                    height: 70px; width: 70px;
+                    border: 4px solid #EBEBEB;
                 }
                 .wa-theme-image-select a img{
-                    height: 70px; width: 70px;
+                    height: 50px; width: 50px; 
+                }
+                .heading, .heading a{
+                    color: #2875ab;
                 }
                 </style>
+<script type="text/javascript">
+    $(function(){        
+        $('.heading').each(function(){
+            var $fields = $('<div class="fields-block"></div>');
+            var fields = $(this).find('~ *'); 
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if ($(field).hasClass('field')) {
+                    $(field).appendTo($fields);
+                } else {
+                    break;
+                }
+            }
+            $(this).after($fields);
+            
+        });
+        $('.heading').click(function(){
+            $(this).next('.fields-block').slideToggle('slow');
+        });
+        
+
+        $('input[name="settings[color_scheme]"]').closest('.value').find('.wa-theme-image-select li a').click(function(){
+            var value = $(this).closest('li').data('value');
+            if (value == '!css/skins/skin_custom_color_scheme.png') {
+                $('.custom-color-scheme-field').closest('.field,.heading').show();
+            } else {
+                $('.custom-color-scheme-field').closest('.field,.heading').hide();
+            }
+            return false;
+        });
+        $('input[name="settings[color_scheme]"]').closest('.value').find('.wa-theme-image-select li.selected a').click();
+    });
+</script>
                 ]]>
             </name>
         </setting>
@@ -279,122 +339,111 @@
                 </option>
             </options>
         </setting>
-        <setting var="color_scheme" control_type="select">
-            <value></value>
-            <name locale="en_US">
-                Color scheme
-            </name>
-            <name locale="ru_RU">
-                Цветовая схема
-            </name>
+       
+        <setting var="color_scheme" control_type="image_select">
+            <value>!css/skins/skin1.png</value>
+            <name locale="en_US">Color scheme</name>
+            <name locale="ru_RU">Цветовая схема</name>
             <options>
-                <option value="">
-                    <name locale="en_US">theme1</name>
-                    <name locale="ru_RU">theme1</name>
-                </option>
-                <option value="2">
-                    <name locale="en_US">theme2</name>
-                    <name locale="ru_RU">theme2</name>
-                </option>
-                <option value="3">
-                    <name locale="en_US">theme3</name>
-                    <name locale="ru_RU">theme3</name>
-                </option>
-                <option value="4">
-                    <name locale="en_US">theme4</name>
-                    <name locale="ru_RU">theme4</name>
-                </option>
-                <option value="5">
-                    <name locale="en_US">theme5</name>
-                    <name locale="ru_RU">theme5</name>
-                </option>
-                <option value="6">
-                    <name locale="en_US">theme6</name>
-                    <name locale="ru_RU">theme6</name>
-                </option>
-                <option value="custom_color_scheme">
-                    <name locale="en_US">Custom color scheme</name>
-                    <name locale="ru_RU">Пользовательская цветовая схема</name>
-                </option>
+                <option value="!css/skins/skin1.png"></option>
+                <option value="!css/skins/skin2.png"></option>
+                <option value="!css/skins/skin3.png"></option>
+                <option value="!css/skins/skin4.png"></option>
+                <option value="!css/skins/skin5.png"></option>
+                <option value="!css/skins/skin6.png"></option>
+                <option value="!css/skins/skin7.png"></option>
+                <option value="!css/skins/skin8.png"></option>
+                <option value="!css/skins/skin9.png"></option>
+                <option value="!css/skins/skin10.png"></option>
+                <option value="!css/skins/skin11.png"></option>
+                <option value="!css/skins/skin12.png"></option>
+                <option value="!css/skins/skin13.png"></option>
+                <option value="!css/skins/skin14.png"></option>
+                <option value="!css/skins/skin15.png"></option>
+                <option value="!css/skins/skin16.png"></option>
+                <option value="!css/skins/skin17.png"></option>
+                <option value="!css/skins/skin18.png"></option>
+                <option value="!css/skins/skin19.png"></option>
+                <option value="!css/skins/skin_custom_color_scheme.png"></option>
             </options>
         </setting>
         
         <setting var="custom_color_scheme_title" control_type="group_divider">
             <value/>
-            <name locale="en_US">Custom Color Scheme</name>
-            <name locale="ru_RU">Пользовательская цветовая схема</name>
+            <name locale="en_US">Custom Color Scheme<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Пользовательская цветовая схема<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         
         <setting var="custom_base_color" control_type="color">
             <value>#01a161</value>
-            <name locale="en_US">Base color</name>
-            <name locale="ru_RU">Базовый цвет</name>
+            <name locale="en_US">Base color<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Базовый цвет<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_menu_color" control_type="color">
             <value>#555</value>
-            <name locale="en_US">Color main menu</name>
-            <name locale="ru_RU">Цвет главного меню</name>
+            <name locale="en_US">Color main menu<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет главного меню<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_text_menu_color" control_type="color">
             <value>#fff</value>
-            <name locale="en_US">Color text main menu</name>
-            <name locale="ru_RU">Цвет текста в главном меню</name>
+            <name locale="en_US">Color text main menu<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет текста в главном меню<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_header_color" control_type="color">
             <value>#fff</value>
-            <name locale="en_US">Header color</name>
-            <name locale="ru_RU">Цвет верхней части Header</name>
+            <name locale="en_US">Header color<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет верхней части Header<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         
         <setting var="custom_top_menu_color" control_type="color">
             <value>#eee</value>
-            <name locale="en_US">Color top menu</name>
-            <name locale="ru_RU">Цвет верхнего меню</name>
+            <name locale="en_US">Color top menu<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет верхнего меню<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_top_menu_text_color" control_type="color">
             <value>#333</value>
-            <name locale="en_US">The text color in the top menu</name>
-            <name locale="ru_RU">Цвет текста в верхнем меню</name>
+            <name locale="en_US">The text color in the top menu<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет текста в верхнем меню<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_footer_first_color" control_type="color">
             <value>#191919</value>
-            <name locale="en_US">Footer color</name>
-            <name locale="ru_RU">Цвет футера</name>
+            <name locale="en_US">Footer color<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет футера<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_footer_first_text_color" control_type="color">
             <value>#999</value>
-            <name locale="en_US">Text Color footer</name>
-            <name locale="ru_RU">Цвет текста футер</name>
+            <name locale="en_US">Text Color footer<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет текста футер<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_footer_first_text_color_title" control_type="color">
             <value>#fff</value>
-            <name locale="en_US">Text Color title footer</name>
-            <name locale="ru_RU">Цвет текста заголовков футер</name>
+            <name locale="en_US">Text Color title footer<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет текста заголовков футер<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_footer_second_color" control_type="color">
             <value>#111</value>
-            <name locale="en_US">Footer color2</name>
-            <name locale="ru_RU">Цвет футера2</name>
+            <name locale="en_US">Footer color2<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет футера2<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_footer_second_text_color" control_type="color">
             <value>#666</value>
-            <name locale="en_US">Text Color footer 2</name>
-            <name locale="ru_RU">Цвет текста футер2</name>
+            <name locale="en_US">Text Color footer 2<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет текста футер2<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_hover_color" control_type="color">
             <value>#555</value>
-            <name locale="en_US">Hover button</name>
-            <name locale="ru_RU">Цвет кнопок при наведении</name>
+            <name locale="en_US">Hover button<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет кнопок при наведении<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_color_price" control_type="color">
             <value>#01a161</value>
-            <name locale="en_US">Price color</name>
-            <name locale="ru_RU">Цвет цены</name>
+            <name locale="en_US">Price color<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет цены<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         <setting var="custom_label_color" control_type="color">
             <value>#62b959</value>
-            <name locale="en_US">Label color</name>
-            <name locale="ru_RU">Цвет ярлыков</name>
+            <name locale="en_US">Label color<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
+            <name locale="ru_RU">Цвет ярлыков<![CDATA[<div class="custom-color-scheme-field"></div>]]></name>
         </setting>
         
         <setting var="divider_background" control_type="group_divider">
@@ -414,12 +463,34 @@
             <name locale="ru_RU">Фоновая текстура</name>
             <options>
                 <option value="img/no_img.png"></option>
-                <option value="img/texture/texture1.jpg"></option>
-                <option value="img/texture/texture2.jpg"></option>
-                <option value="img/texture/texture3.jpg"></option>
-                <option value="img/texture/texture4.jpg"></option>
-                <option value="img/texture/texture5.jpg"></option>
-                <option value="img/texture/texture6.jpg"></option>
+                <option value="img/texture/texture1.png"></option>
+                <option value="img/texture/texture2.png"></option>
+                <option value="img/texture/texture3.png"></option>
+                <option value="img/texture/texture4.png"></option>
+                <option value="img/texture/texture5.png"></option>
+                <option value="img/texture/texture6.png"></option>
+                <option value="img/texture/texture7.png"></option>
+                <option value="img/texture/texture8.png"></option>
+                <option value="img/texture/texture9.png"></option>
+                <option value="img/texture/texture10.png"></option>
+                <option value="img/texture/texture11.png"></option>
+                <option value="img/texture/texture12.png"></option>
+                <option value="img/texture/texture13.png"></option>
+                <option value="img/texture/texture14.png"></option>
+                <option value="img/texture/texture15.png"></option>
+                <option value="img/texture/texture16.png"></option>
+                <option value="img/texture/texture17.png"></option>
+                <option value="img/texture/texture18.png"></option>
+                <option value="img/texture/texture19.png"></option>
+                <option value="img/texture/texture20.png"></option>
+                <option value="img/texture/texture21.png"></option>
+                <option value="img/texture/texture22.png"></option>
+                <option value="img/texture/texture23.png"></option>
+                <option value="img/texture/texture24.png"></option>
+                <option value="img/texture/texture25.png"></option>
+                <option value="img/texture/texture26.png"></option>
+                <option value="img/texture/texture27.png"></option>
+                <option value="img/texture/texture28.png"></option>
             </options>
         </setting>
         <setting var="custom_texture_image" control_type="image">
@@ -434,11 +505,32 @@
             <name locale="ru_RU">Фоновое изображение</name>
             <options>
                 <option value="img/no_img.png"></option>
-                <option value="img/bg/bg1.jpg"></option>
-                <option value="img/bg/bg2.jpg"></option>
-                <option value="img/bg/bg3.jpg"></option>
-                <option value="img/bg/bg4.jpg"></option>
-                <option value="img/bg/bg5.jpg"></option>
+                <option value="img/bg/bg1.png"></option>
+                <option value="img/bg/bg2.png"></option>
+                <option value="img/bg/bg3.png"></option>
+                <option value="img/bg/bg4.png"></option>
+                <option value="img/bg/bg5.png"></option>
+                <option value="img/bg/bg6.png"></option>
+                <option value="img/bg/bg7.png"></option>
+                <option value="img/bg/bg8.png"></option>
+                <option value="img/bg/bg9.png"></option>
+                <option value="img/bg/bg10.png"></option>
+                <option value="img/bg/bg11.png"></option>
+                <option value="img/bg/bg12.png"></option>
+                <option value="img/bg/bg13.png"></option>
+                <option value="img/bg/bg14.png"></option>
+                <option value="img/bg/bg15.png"></option>
+                <option value="img/bg/bg16.png"></option>
+                <option value="img/bg/bg17.png"></option>
+                <option value="img/bg/bg18.png"></option>
+                <option value="img/bg/bg19.png"></option>
+                <option value="img/bg/bg20.png"></option>
+                <option value="img/bg/bg21.png"></option>
+                <option value="img/bg/bg22.png"></option>
+                <option value="img/bg/bg23.png"></option>
+                <option value="img/bg/bg24.png"></option>
+                <option value="img/bg/bg25.png"></option>
+                <option value="img/bg/bg26.png"></option>
             </options>
         </setting>
         
