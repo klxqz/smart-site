@@ -703,35 +703,16 @@
             <name locale="en_US">Show Homepage</name>
             <name locale="ru_RU">Показывать «Домой»</name>
         </setting>
-        <setting var="main_menu_category_type" control_type="select">
-            <value>1</value>
-            <name locale="en_US">
-                Catalog menu type
-            </name>
-            <name locale="ru_RU">
-                Тип меню каталога
-            </name>
+        <setting var="main_menu_category_type" control_type="image_select">
+            <value>img/menu/1.png</value>
+            <name locale="en_US">Catalog menu type</name>
+            <name locale="ru_RU">Тип меню каталога</name>
             <options>
-                <option value="1">
-                    <name locale="en_US">1</name>
-                    <name locale="ru_RU">1</name>
-                </option>
-                <option value="2">
-                    <name locale="en_US">2</name>
-                    <name locale="ru_RU">2</name>
-                </option>
-                <option value="3">
-                    <name locale="en_US">3</name>
-                    <name locale="ru_RU">3</name>
-                </option>
-                <option value="4">
-                    <name locale="en_US">4</name>
-                    <name locale="ru_RU">4</name>
-                </option>
-                <option value="">
-                    <name locale="en_US">Hide</name>
-                    <name locale="ru_RU">Не показывать</name>
-                </option>
+                <option value="img/menu/1.png"></option>
+                <option value="img/menu/2.png"></option>
+                <option value="img/menu/3.png"></option>
+                <option value="img/menu/4.png"></option>
+                <option value="img/menu/no.png"></option>
             </options>
         </setting>
         <setting var="main_menu_information" control_type="radio">

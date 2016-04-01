@@ -1,7 +1,7 @@
 {strip}
     {if $wa->shop && $wa->shop->categories(0, 0)}
         {$menu_type = $theme_settings.main_menu_category_type}
-        {if $menu_type == 4}
+        {if $menu_type == 'img/menu/4.png'}
             {$categories = $wa->shop->categories(0, 0)}
             {foreach $categories as $category}
                 {$subcategories = $wa->shop->categories($category.id, 1)}
@@ -33,7 +33,7 @@
                     {/if}
                 </li>
             {/foreach}
-        {elseif $menu_type == 3}
+        {elseif $menu_type == 'img/menu/3.png'}
             {$categories = $wa->shop->categories(0, 0)}
             <li class="categories dropdown sub">
                 <a>[`Catalog`]</a>
@@ -84,7 +84,7 @@
                     {/foreach}
                 </div>
             </li>
-        {elseif $menu_type == 2}
+        {elseif $menu_type == 'img/menu/2.png'}
             {$categories = $wa->shop->categories(0, 0)}
             {foreach $categories as $category}
                 {$subcategories = $wa->shop->categories($category.id, 1)}
@@ -122,7 +122,7 @@
                     {/if}
                 </li>
             {/foreach}
-        {elseif $menu_type == 1}
+        {elseif $menu_type == 'img/menu/1.png'}
             {$categories = $wa->shop->categories(0, 0)}
             <li class="categories_hor dropdown">
                 <a>[`Catalog`]</a>

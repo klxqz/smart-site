@@ -18,7 +18,7 @@
             {/if}
             {foreach $theme_settings as $key => $value}
                 {$setting_key = "settings[$key]"}
-                {if $wa->globals($setting_key)}
+                {if $wa->globals($setting_key) !== null}
                     {$theme_settings[$key] = $wa->globals($setting_key)}
                 {/if}
             {/foreach}
@@ -170,6 +170,8 @@
                 </div>
             </section>
 
+            {include file="settings-panel/settings-panel.html"}
+
             {if $theme_settings.css_optimization}
                 <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
                 <link rel="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
@@ -284,7 +286,6 @@
                 {$wa->js()} {* links active plugins JS *}
             {/if}
 
-            {include file="settings-panel/settings-panel.html"}
         </body>
     </html>
 {/strip}
