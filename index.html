@@ -7,25 +7,6 @@
     <html dir="ltr">
         <!--<![endif]-->
         <head>
-            {if $wa->post('theme_settings') && !$wa->post('reset')}
-                {foreach $wa->post('theme_settings') as $theme_setting => $value}
-                    {$theme_settings[$theme_setting] = $value}
-                {/foreach}
-                {$wa->session('theme_settings', $theme_settings)}
-            {/if}
-            {if $wa->post('reset')}
-                {$wa->session('theme_settings', [])}
-            {/if}
-            {foreach $theme_settings as $key => $value}
-                {$setting_key = "settings[$key]"}
-                {if $wa->globals($setting_key) !== null}
-                    {$theme_settings[$key] = $wa->globals($setting_key)}
-                {/if}
-            {/foreach}
-            {$storage = $wa->session('theme_settings')}
-            {foreach $storage as $key => $value}
-                {$theme_settings[$key] = $value}
-            {/foreach}
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>{$wa->title()|escape}</title>
@@ -177,7 +158,6 @@
                 </div>
             </section>
 
-            {include file="settings-panel/settings-panel.html"}
 
             {if $theme_settings.css_optimization}
                 <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
