@@ -155,3 +155,61 @@ jQuery(function ($) {
         };
     });
 });
+
+function delayedLoading() {
+    var loadedJs = window.delayJs;
+    function evalJsFunction() {
+        for (var i in window.delayJsFunctions) {
+            if (typeof window.delayJsFunctions[i] == 'string') {
+                $.globalEval(window.delayJsFunctions[i]);
+            } else if (typeof window.delayJsFunctions[i] == 'function') {
+                window.delayJsFunctions[i]();
+            }
+        }
+    }
+    function callback(load) {
+        for (var i in loadedJs) {
+            var index = load.target.src.indexOf(loadedJs[i]);
+            if (index != -1) {
+                loadedJs.splice(i, 1);
+            }
+        }
+        if (!loadedJs.length) {
+            evalJsFunction();
+        }
+    }
+    if (window.delayJs.length) {
+        for (var i in window.delayJs) {
+            var js = document.createElement("script");
+
+            if (js.readyState && !js.onload) {
+                /*IE, Opera*/
+                js.onreadystatechange = function () {
+                    if (js.readyState == "loaded" || js.readyState == "complete") {
+                        js.onreadystatechange = null;
+                        callback();
+                    }
+                }
+            }
+            else {
+                js.onload = callback;
+            }
+            js.type = "text/javascript";
+            js.src = window.delayJs[i];
+            var head = document.getElementsByTagName("head")[0].firstChild;
+            document.getElementsByTagName("head")[0].insertBefore(js, head);
+        }
+    } else {
+        evalJsFunction();
+    }
+    if (window.delayCss.length) {
+        for (var i in window.delayCss) {
+            var link = document.createElement("link");
+            link.type = "text/css";
+            link.rel = "stylesheet";
+            link.href = window.delayCss[i];
+            var head = document.getElementsByTagName("head")[0].firstChild;
+            document.getElementsByTagName("head")[0].insertBefore(link, head);
+        }
+    }
+}

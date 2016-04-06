@@ -47,6 +47,12 @@
                     {include file="!css/head.min.css"}
                     i.icon16 { background-repeat:no-repeat; height:16px; width:16px; display:inline-block; text-indent:-9999px; text-decoration:none!important; background-image: url("{$wa_theme_url}img/icons/icons.png"); background-size: 260px 160px; }
                     .icon32.loading { background-image: url('{$wa_theme_url}img/icons/loading.gif'); background-size: 32px 32px; height:32px; width:32px; display:inline-block; }
+                    {$skin_id = $theme_settings.color_scheme|regex_replace:"/\!css\/skins\/skin(.*?)\.png/":"${1}"}
+                    {if $skin_id != 1 && $skin_id != '_custom_color_scheme'}
+                        {include file="!css/skins/skin{$skin_id}.min.css"}
+                    {elseif $skin_id == '_custom_color_scheme'}
+                        {include file="!css/skin-custom.css"}
+                    {/if}
                 </style>
             {else}
                 <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -73,6 +79,7 @@
                 <script type="text/javascript">
                     window.delayJs = [];
                     window.delayJsFunctions = [];
+                    window.delayCss = [];
                 </script>
             {/if}
 
@@ -232,51 +239,7 @@
 
             {if $theme_settings.jquery_delayed_loading}
                 <script type="text/javascript">
-                    var loadedJs = window.delayJs;
-                    function evalJsFunction() {
-                        for (var i in window.delayJsFunctions) {
-                            if (typeof window.delayJsFunctions[i] == 'string') {
-                                $.globalEval(window.delayJsFunctions[i]);
-                            } else if (typeof window.delayJsFunctions[i] == 'function') {
-                                window.delayJsFunctions[i]();
-                            }
-                        }
-                    }
-                    function callback(load) {
-                        for (var i in loadedJs) {
-                            var index = load.target.src.indexOf(loadedJs[i]);
-                            if (index != -1) {
-                                loadedJs.splice(i, 1);
-                            }
-                        }
-                        if (!loadedJs.length) {
-                            evalJsFunction();
-                        }
-                    }
-                    if (window.delayJs.length) {
-                        for (var i in window.delayJs) {
-                            var js = document.createElement("script");
-
-                            if (js.readyState && !js.onload) {
-                                /*IE, Opera*/
-                                js.onreadystatechange = function () {
-                                    if (js.readyState == "loaded" || js.readyState == "complete") {
-                                        js.onreadystatechange = null;
-                                        callback();
-                                    }
-                                }
-                            }
-                            else {
-                                js.onload = callback;
-                            }
-                            js.type = "text/javascript";
-                            js.src = window.delayJs[i];
-                            var head = document.getElementsByTagName("head")[0].firstChild;
-                            document.getElementsByTagName("head")[0].insertBefore(js, head);
-                        }
-                    } else {
-                        evalJsFunction();
-                    }
+                    delayedLoading();
                 </script>
             {/if}
             {include file="`$wa_active_theme_path`/include.html"}

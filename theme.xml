@@ -178,6 +178,9 @@
                 .heading, .heading a{
                     color: #2875ab;
                 }
+                .fields-block{
+                    display: none;
+                }
                 </style>
 <script type="text/javascript">
     $(function(){        
@@ -232,6 +235,9 @@
                 }
                 .heading, .heading a{
                     color: #2875ab;
+                }
+                .fields-block{
+                    display: none;
                 }
                 </style>
 <script type="text/javascript">
@@ -491,6 +497,7 @@
                 <option value="img/texture/texture26.png"></option>
                 <option value="img/texture/texture27.png"></option>
                 <option value="img/texture/texture28.png"></option>
+                <option value="img/texture/texture29.png"></option>
             </options>
         </setting>
         <setting var="custom_texture_image" control_type="image">
@@ -531,6 +538,9 @@
                 <option value="img/bg/bg24.png"></option>
                 <option value="img/bg/bg25.png"></option>
                 <option value="img/bg/bg26.png"></option>
+                <option value="img/bg/bg27.png"></option>
+                <option value="img/bg/bg28.png"></option>
+                <option value="img/bg/bg29.png"></option>
             </options>
         </setting>
         
@@ -801,7 +811,7 @@
 </div>
 </li>
 <li class="custom-link-right">
-    <a href="#">Обратный звонок</a>
+    <a id="call-back-button" href="#">Обратный звонок</a>
 </li>
 ]]></value>
             <name locale="en_US">Custom link</name>
@@ -873,26 +883,26 @@
         
         <setting var="divider_sidebar_site" control_type="group_divider">
             <value/>
-            <name locale="en_US">Sidebar<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Сайдбар<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Sidebar<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Сайдбар<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         
         <setting var="sidebar_site_custom_content" control_type="text">
             <value><![CDATA[<h2>Пользовательский контент</h2>
 <p>Этот текстовый блок можно отредактировать в админ. панели управления сайта в настройках темы дизайна. Вы можете разместить любой контент: текст, HTML, изображения.</p>]]></value>
-            <name locale="en_US">Custom Content<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Пользовательский контент<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Custom Content<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Пользовательский контент<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
 
         <setting var="divider_sidebar_site_widgets" control_type="group_divider">
             <value/>
-            <name locale="en_US">Sidebar. Widgets<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Сайдбар. Виджеты<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Sidebar. Widgets<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Сайдбар. Виджеты<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_vk_widget" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Show VK widget<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Показывать Виджет ВКонтакте<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Show VK widget<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Показывать Виджет ВКонтакте<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_vk_widget_code" control_type="text">
             <value><![CDATA[<h2>Мы ВКонтакте</h2>
@@ -902,15 +912,15 @@
 <script type="text/javascript">
 VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 20003922);
 </script>]]></value>
-            <name locale="en_US">VK widget<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Виджет ВКонтакте<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">VK widget<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Виджет ВКонтакте<![CDATA[<span class="hidden-site"></span>]]></name>
             <description locale="en_US">Place the widget code in this field. The code can be found here <![CDATA[<a target="_blank" href="https://vk.com/dev/Community">VK widget</a>]]></description>
             <description locale="ru_RU">Поместите код виджета в это поле. Код пожно получить по ссылке <![CDATA[<a target="_blank" href="https://vk.com/dev/Community">Виджет ВКонтакте</a>]]></description>
         </setting>
         <setting var="sidebar_site_facebook_widget" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Show FaceBook widget<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Показывать Виджет FaceBook<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Show FaceBook widget<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Показывать Виджет FaceBook<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_facebook_widget_code" control_type="text">
             <value><![CDATA[<h2>Мы на FaceBook</h2>
@@ -924,52 +934,52 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="fb-page" data-href="https://www.facebook.com/Webasyst.RU" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Webasyst.RU"><a href="https://www.facebook.com/Webasyst.RU">Webasyst RU</a></blockquote></div></div>]]></value>
-            <name locale="en_US">FaceBook widget<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Виджет FaceBook<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">FaceBook widget<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Виджет FaceBook<![CDATA[<span class="hidden-site"></span>]]></name>
             <description locale="en_US">Place the widget code in this field. The code can be found here <![CDATA[<a target="_blank" href="https://developers.facebook.com/docs/plugins/page-plugin">FaceBook widget</a>]]></description>
             <description locale="ru_RU">Поместите код виджета в это поле. Код пожно получить по ссылке <![CDATA[<a target="_blank" href="https://developers.facebook.com/docs/plugins/page-plugin">Виджет FaceBook</a>]]></description>
         </setting>
 
         <setting var="divider_sidebar_site_banners" control_type="group_divider">
             <value/>
-            <name locale="en_US">Sidebar. Banners<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">Сайдбар. Баннеры<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">Sidebar. Banners<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">Сайдбар. Баннеры<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         
         <setting var="sidebar_site_banner1" control_type="image">
             <value>img/banners/sidebar-banner-1.jpg</value>
             <filename>img/banners/sidebar-banner-1.*</filename>
-            <name locale="en_US">banner 1<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 1<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 1<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 1<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_banner1_url" control_type="text">
             <value>#</value>
-            <name locale="en_US">banner 1 url<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 1 ссылка<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 1 url<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 1 ссылка<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         
         <setting var="sidebar_site_banner2" control_type="image">
             <value>img/banners/sidebar-banner-2.jpg</value>
             <filename>img/banners/sidebar-banner-2.*</filename>
-            <name locale="en_US">banner 2<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 2<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 2<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 2<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_banner2_url" control_type="text">
             <value>#</value>
-            <name locale="en_US">banner 2 url<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 2 ссылка<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 2 url<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 2 ссылка<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         
         <setting var="sidebar_site_banner3" control_type="image">
             <value></value>
             <filename>img/banners/sidebar-banner-3.*</filename>
-            <name locale="en_US">banner 3<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 3<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 3<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 3<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         <setting var="sidebar_site_banner3_url" control_type="text">
             <value>#</value>
-            <name locale="en_US">banner 3 url<![CDATA[<div class="hidden-site"></div>]]></name>
-            <name locale="ru_RU">баннер 3 ссылка<![CDATA[<div class="hidden-site"></div>]]></name>
+            <name locale="en_US">banner 3 url<![CDATA[<span class="hidden-site"></span>]]></name>
+            <name locale="ru_RU">баннер 3 ссылка<![CDATA[<span class="hidden-site"></span>]]></name>
         </setting>
         
         <setting var="divider_footer" control_type="group_divider">
