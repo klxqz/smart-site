@@ -2,7 +2,7 @@
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
 <theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.0.0">
     <name locale="en_US">Smart</name>
-    <name locale="ru_RU">Умный магазин</name>
+    <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
         <file path="!css/head.css">

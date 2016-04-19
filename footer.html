@@ -177,7 +177,7 @@
                     <div class="payments_types">
                         {foreach $availabe_options as $option}
                             {if $option.logo}
-                                <img data-toggle="tooltip" src="{rtrim($wa_url,'/')}{$option.logo}" alt="{$option.name}" title="{$option.name}">
+                                <img data-toggle="tooltip" src="{$option.logo}" alt="{$option.name}" title="{$option.name}">
                             {/if}
                         {/foreach}
                     </div>
