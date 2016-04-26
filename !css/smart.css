@@ -3104,7 +3104,9 @@ a.toggle-menu:hover{
         display: none;
     }
 }
-
+.item-price{
+    font-weight: bold;
+}
 #container{
     visibility: visible;
 }

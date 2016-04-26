@@ -126,7 +126,7 @@ jQuery(function ($) {
                                 label: $(item).data('name'),
                                 value: $(item).data('name'),
                                 url: $(item).data('url'),
-                                text: '<div><img src="' + $(item).data('img') + '" /><span class="item-name">' + $(item).data('name') + '</span><span class="item-price">' + $(item).data('price') + '</span></div>'
+                                text: '<div><img src="' + $(item).data('img') + '" /><span class="item-name">' + $(item).data('name') + '</span>&nbsp;<span class="item-price">' + $(item).data('price') + '</span></div>'
                             }
                         });
 
