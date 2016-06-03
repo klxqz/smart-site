@@ -55,12 +55,12 @@
                                         {for $i = 1 to 18}
                                             {$color_scheme = "!css/skins/skin`$i`.png"}
                                             <a href="#" data-name="theme_settings[color_scheme]" data-value="{$color_scheme}" class="select-img{if $theme_settings.color_scheme == $color_scheme} selected{/if}">
-                                                <img src="{$wa_theme_url}{$color_scheme}" />
+                                                <img alt="" src="{$wa_theme_url}{$color_scheme}" />
                                             </a>
                                         {/for}
                                         {$color_scheme = "!css/skins/skin_custom_color_scheme.png"}
                                         <a href="#" data-name="theme_settings[color_scheme]" data-value="{$color_scheme}" class="select-img{if $theme_settings.color_scheme == $color_scheme} selected{/if}">
-                                            <img src="{$wa_theme_url}{$color_scheme}" />
+                                            <img alt="" src="{$wa_theme_url}{$color_scheme}" />
                                         </a>
                                     </div>
                                 </div>
@@ -171,12 +171,12 @@
 
                                         {$texture = "img/no_img.png"}
                                         <a href="#" data-name="theme_settings[bg_texture]" data-value="{$texture}" class="select-img{if $theme_settings.bg_texture == $texture} selected{/if}">
-                                            <img src="{$wa_theme_url}{$texture}" />
+                                            <img alt="" src="{$wa_theme_url}{$texture}" />
                                         </a>
                                         {for $i = 1 to 29}
                                             {$texture = "img/texture/texture`$i`.png"}
                                             <a href="#" data-name="theme_settings[bg_texture]" data-value="{$texture}" class="select-img{if $theme_settings.bg_texture == $texture} selected{/if}">
-                                                <img src="{$wa_theme_url}{$texture}" />
+                                                <img alt="" src="{$wa_theme_url}{$texture}" />
                                             </a>
                                         {/for}
                                     </div>
@@ -187,12 +187,12 @@
                                         <input type="hidden" name="theme_settings[bg_image]" value="{$theme_settings.bg_image}" />
                                         {$bg_image = "img/no_img.png"}
                                         <a href="#" data-name="theme_settings[bg_image]" data-value="{$bg_image}" class="select-img{if $theme_settings.bg_image == $bg_image} selected{/if}">
-                                            <img src="{$wa_theme_url}{$bg_image}" />
+                                            <img alt="" src="{$wa_theme_url}{$bg_image}" />
                                         </a>
                                         {for $i = 1 to 29}
                                             {$bg_image = "img/bg/bg`$i`.png"}
                                             <a href="#" data-name="theme_settings[bg_image]" data-value="{$bg_image}" class="select-img{if $theme_settings.bg_image == $bg_image} selected{/if}">
-                                                <img src="{$wa_theme_url}{$bg_image}" />
+                                                <img alt="" src="{$wa_theme_url}{$bg_image}" />
                                             </a>
                                         {/for}
                                     </div>
@@ -307,12 +307,12 @@
                                         {for $i = 1 to 4}
                                             {$menu_image = "img/menu/`$i`.png"}
                                             <a href="#" data-name="theme_settings[main_menu_category_type]" data-value="{$menu_image}" class="select-img{if $theme_settings.main_menu_category_type == $menu_image} selected{/if}">
-                                                <img src="{$wa_theme_url}{$menu_image}" />
+                                                <img alt="" src="{$wa_theme_url}{$menu_image}" />
                                             </a>
                                         {/for}
                                         {$menu_image = "img/menu/no.png"}
                                         <a href="#" data-name="theme_settings[main_menu_category_type]" data-value="{$menu_image}" class="select-img{if $theme_settings.main_menu_category_type == $menu_image} selected{/if}">
-                                            <img src="{$wa_theme_url}{$menu_image}" />
+                                            <img alt="" src="{$wa_theme_url}{$menu_image}" />
                                         </a>
                                     </div>
                                 </div>
@@ -422,7 +422,7 @@
                                         <div class="theme-setting-name">Бренды:</div>
                                         <div class="theme-setting-value">
                                             <input{if $theme_settings.sidebar_brands_plugin == 'brands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="brands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/brands/">Бренды</a><br/>
-                                            <input{if $theme_settings.sidebar_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
+                                            <input{if $theme_settings.sidebar_brands_plugin == 'productbrands'} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="productbrands" /> - Использовать плагин <a target="_blank" href="https://www.webasyst.ru/store/plugin/shop/productbrands/">Бренды с картинками и описаниями</a><br/>
                                             <input{if $theme_settings.sidebar_brands_plugin == ''} checked{/if} type="radio" name="theme_settings[sidebar_brands_plugin]" value="" /> - Не показывать<br/>
                                         </div>
                                     </div>
@@ -485,7 +485,7 @@
                 <input type="submit" name="reset" value="По умолчанию" />
             </form>
         </div>
-        <link rel="stylesheet" href="{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.css" type="text/css" />
-        <link rel="stylesheet" href="{$wa_theme_url}settings-panel/settings-panel.css" type="text/css" />
+        <link rel="stylesheet" property="stylesheet" href="{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.css" type="text/css" />
+        <link rel="stylesheet" property="stylesheet" href="{$wa_theme_url}settings-panel/settings-panel.css" type="text/css" />
     {/strip}
 {/if}

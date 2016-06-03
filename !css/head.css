@@ -2121,6 +2121,7 @@ div.required .control-label:before
     padding: 5px 0 0;
     position: absolute;
     z-index: 1010;
+    overflow: visible !important;
 }
 #menu .nav>li:hover>.dropdown-menu.custom_block ul,#menu .nav>li>.dropdown-menu>ul
 {

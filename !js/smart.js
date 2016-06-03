@@ -166,6 +166,8 @@ function delayedLoading() {
                 window.delayJsFunctions[i]();
             }
         }
+        /*$('#loading-container').hide();
+        $('#container').css('visibility', 'visible');*/
     }
     function callback(load) {
         for (var i in loadedJs) {

@@ -7,10 +7,10 @@
                 {$dropdown_cart = true}
             {/if}
 
-            <button type="button"{if !empty($dropdown_cart)} data-toggle="dropdown"{/if} class="heading dropdown-toggle">
+            <a href="{$wa->getUrl('shop/frontend/cart')}" {if !empty($dropdown_cart)} data-toggle="dropdown"{/if} class="heading dropdown-toggle">
                 <div class="pull-left flip"><div class="cart-icon"></div></div>
                 <span id="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
-            </button>
+            </a>
             {if !empty($dropdown_cart)}
                 <ul class="dropdown-menu">
                     {$cart_items = $cart->items()}
@@ -29,7 +29,7 @@
                                         </td>
                                         <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
                                         <td class="text-right nowrap item-total">
-                                            {$item.price = $wa->shop->cart->getItemTotal($item.id)}
+                                            {*$item.price = $wa->shop->cart->getItemTotal($item.id)*}
                                             {wa_currency_html($item.price, $wa->shop->currency())}
                                         </td>
                                         <td class="text-center">
