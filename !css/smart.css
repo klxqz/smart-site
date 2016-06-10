@@ -1373,7 +1373,8 @@ div.required .control-label:before
     moz-opacity: 1;
     opacity: 1;
 }
-.box-category ul li a,.list-item li a
+.box-category ul li a,.list-item li a,
+.box-category ul li span,.list-item li span
 {
     background: url(../img/icons/bullet-dark.png) 0 10px no-repeat;
     color: #222;
@@ -1397,7 +1398,8 @@ div.required .control-label:before
 {
     background-position: 0 -12px;
 }
-.box-category>ul>li>a
+.box-category>ul>li>a,
+.box-category>ul>li>span
 {
     color: #333;
     text-transform: uppercase;

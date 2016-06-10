@@ -124,7 +124,7 @@
                                 </li>
                                 {foreach $breadcrumbs as $breadcrumb}
                                     <li>
-                                        <a href="{$breadcrumb.url}">{$breadcrumb.name}</a>
+                                        <a href="{$breadcrumb.url}">{$breadcrumb.name|escape}</a>
                                     </li>
                                 {/foreach}
                             </ul>
