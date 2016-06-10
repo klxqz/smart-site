@@ -68,11 +68,13 @@
 {/function}
 {function name = headerLogo}
     {strip}
-        <div id="logo"{if !empty($style)} style="{$style}"{/if}>
-            <a href="{$wa_url}">
-                <img class="img-responsive" src="{$wa_theme_url}{$theme_settings.logo}" title="{$theme_settings.logo_title|escape}" alt="{$theme_settings.logo_title|escape}" />
-            </a>
-        </div>
+        {if !empty($theme_settings.logo)}
+            <div id="logo"{if !empty($style)} style="{$style}"{/if}>
+                <a href="{$wa_url}">
+                    <img class="img-responsive" src="{$wa_theme_url}{$theme_settings.logo}" title="{$theme_settings.logo_title|escape}" alt="{$theme_settings.logo_title|escape}" />
+                </a>
+            </div>
+        {/if}
     {/strip}
 {/function}
 
