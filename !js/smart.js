@@ -158,26 +158,29 @@ jQuery(function ($) {
 
 function delayedLoading() {
     var loadedJs = window.delayJs;
+    var loadedCount = 0;
     function evalJsFunction() {
         for (var i in window.delayJsFunctions) {
-            if (typeof window.delayJsFunctions[i] == 'string') {
-                $.globalEval(window.delayJsFunctions[i]);
-            } else if (typeof window.delayJsFunctions[i] == 'function') {
-                window.delayJsFunctions[i]();
+            try {
+                if (typeof window.delayJsFunctions[i] == 'string') {
+                    $.globalEval(window.delayJsFunctions[i]);
+                } else if (typeof window.delayJsFunctions[i] == 'function') {
+                    window.delayJsFunctions[i]();
+                }
+            } catch (e) {
+                console.log(e);
             }
         }
-        /*$('#loading-container').hide();
-        $('#container').css('visibility', 'visible');*/
+        $('#loading-container').hide();
+        $('#container').css('visibility', 'visible');
     }
     function callback(load) {
-        for (var i in loadedJs) {
-            var index = load.target.src.indexOf(loadedJs[i]);
-            if (index != -1) {
-                loadedJs.splice(i, 1);
-            }
-        }
-        if (!loadedJs.length) {
+        console.log(load.type + ': ' + load.target.src);
+        loadedCount++;
+        if (loadedCount == window.delayJs.length) {
+            // все скрипты загружены, переходим к выполнению JS
             evalJsFunction();
+            $(document).trigger('js_loaded');
         }
     }
     if (window.delayJs.length) {
@@ -192,9 +195,13 @@ function delayedLoading() {
                         callback();
                     }
                 }
+                js.onerror = function () {
+                    callback();
+                }
             }
             else {
                 js.onload = callback;
+                js.onerror = callback;
             }
             js.type = "text/javascript";
             js.src = window.delayJs[i];

@@ -45,9 +45,9 @@
                 {$skin_id = $theme_settings.color_scheme|regex_replace:"/\!css\/skins\/skin(.*?)\.png/":"${1}"}
                 {if $skin_id != 1 && $skin_id != '_custom_color_scheme'}
                     <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/skins/skin{$skin_id}.min.css" />
-                {elseif $theme_settings.color_scheme == '_custom_color_scheme'}
+                {elseif $skin_id == '_custom_color_scheme'}
                     <style>
-                        {include file="`!css/skin-custom.css"}
+                        {include file="!css/skin-custom.css"}
                     </style>
                 {/if}
                 <style>
@@ -179,7 +179,7 @@
                 </style>*}
             {/if}
 
-            <link href="{$wa_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" property="stylesheet" type="text/css" />
+            <link href="{$wa_real_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" property="stylesheet" type="text/css" />
 
             <link href="{$wa_theme_url}!css/owl.carousel.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
             <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
@@ -218,12 +218,17 @@
             <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
+            {include file="`$wa_active_theme_path`/include.html"}
             {if $theme_settings.jquery_delayed_loading}
                 <script type="text/javascript">
                     delayedLoading();
                 </script>
+            {else}
+                <script type="text/javascript">
+                    $('#loading-container').hide();
+                    $('#container').css('visibility', 'visible');
+                </script>
             {/if}
-            {include file="`$wa_active_theme_path`/include.html"}
 
             {if $theme_settings.delayed_plugins_loading}
                 {$wa->css()} {* links active plugins CSS *}

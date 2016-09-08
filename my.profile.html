@@ -82,7 +82,8 @@
                         {/foreach}
                     </ul></div>
                 <script type="text/javascript">
-                    var delayed_function = function () {
+                    {$rand = rand()}
+                    var delayed_function{$rand} = function () {
                         $("div.wa-auth-adapters a").click(function () {
                             var left = (screen.width - 600) / 2;
                             var top = (screen.height - 400) / 2;
@@ -91,9 +92,11 @@
                         });
                     };
                     {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-                    window.delayJsFunctions.push(delayed_function);
+                    window.delayJsFunctions.push(delayed_function{$rand});
                     {else}
-                    $(delayed_function());
+                    $(function () {
+                        $(document).ready(delayed_function{$rand}());
+                    });
                     {/if}
                 </script>
             {/if}
@@ -102,7 +105,8 @@
     {/if}
 
     <script>
-        var delayed_function = function () {
+        {$rand = rand()}
+        var delayed_function{$rand} = function () {
             var $wrapper = $('#wa-my-info-wrapper'),
                     $form = $wrapper.find('#wa-my-info-edit-wrapper'),
                     $info = $wrapper.find('#wa-my-info-read-wrapper'),
@@ -168,9 +172,11 @@
                     });
         };
         {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-        window.delayJsFunctions.push(delayed_function);
+        window.delayJsFunctions.push(delayed_function{$rand});
         {else}
-        $(delayed_function());
+        $(function () {
+            $(document).ready(delayed_function{$rand}());
+        });
         {/if}
     </script>
 
