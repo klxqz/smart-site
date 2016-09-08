@@ -1,0 +1,72 @@
+.select-img{
+    display: inline-block;
+    border: 3px solid #EBEBEB;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
+.select-img.selected{
+    border: 3px solid #FDDA3B;
+}
+.select-img img{
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+}
+.settings-scroll{
+    border: 1px solid #000;
+    height: 500px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+.settings-panel{
+    position: fixed; z-index: 10000; left: -303px; top: 10%; width: 300px; background: #f4f4f4; border-width: 1px 1px 1px 0; 
+    border-style: solid; border-color: grey; border-radius: 0 0 3px 0; padding: 10px;
+}
+.settings-panel h4{
+    font-weight: bold;
+}
+.settings-panel hr{
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.settings-block{
+    margin: 10px 0px;
+}
+.settings-panel h3{
+    text-align: center;
+}
+a.settings-button{
+    padding: 10px;
+    background: #f4f4f4; border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0;
+    font-size: 46px; display: block; position: absolute; right: -70px; top: -1px;
+    border-left: #f4f4f4;
+    outline: none;
+}
+@media only screen and (max-width:400px){
+    .settings-panel{
+        left: -303px;
+        width: 300px;
+    }
+}
+@media (max-height:665px){
+    .settings-scroll{
+        height: 275px;
+    }
+}
+@media (max-height:435px){
+    .settings-scroll{
+        height: 125px;
+    }
+}
+.theme-setting-field{
+    clear: left;
+    margin-bottom: 10px;
+}
+.theme-setting-name{
+    font-weight: bold;
+}
+@media (max-width: 991px){
+    .settings-panel{
+        display: none;
+    }
+}
