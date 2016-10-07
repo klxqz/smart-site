@@ -351,7 +351,7 @@
         </setting>
        
         <setting var="color_scheme" control_type="image_select">
-            <value>!css/skins/skin3.png</value>
+            <value>!css/skins/skin1.png</value>
             <name locale="en_US">Color scheme</name>
             <name locale="ru_RU">Цветовая схема</name>
             <options>
