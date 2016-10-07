@@ -84,7 +84,7 @@
                         <li>
                             {$wishlist = waRequest::cookie('shop_wishlist', array(), waRequest::TYPE_ARRAY_INT)}
                             {$wishlist = array_diff($wishlist,[0])}
-                            <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total">[`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
+                            <a href="{$wa->getUrl('shop/frontend/search')}?list=wishlist" class="wishlist-total"><i class="fa fa-heart"></i> [`Favorite products`] (<span class="count">{count($wishlist)}</span>)</a>
                         </li>
                     {/if}
                     {if $theme_settings.top_menu_show_compare}
@@ -96,7 +96,7 @@
                             {else}
                                 {$compare_url = $wa->getUrl('/frontend/compare')}
                             {/if}
-                            <a href="{$compare_url}" class="compare-total">[`Compare products`] (<span class="count">{count($compare)}</span>)</a>
+                            <a href="{$compare_url}" class="compare-total"><i class="fa fa-exchange"></i> [`Compare products`] (<span class="count">{count($compare)}</span>)</a>
                         </li>
                     {/if}
                 {/if}
@@ -144,7 +144,7 @@
                 {if $wa->user()->isAuth()}
                     {if $wa->shop}
                         <li class="dropdown" id="my_account">
-                            <a href="{$wa->getUrl('shop/frontend/my')}">[s`My account`] <i class="fa fa-caret-down"></i></a>
+                            <a href="{$wa->getUrl('shop/frontend/my')}"><i class="fa fa-user" aria-hidden="true"></i> [s`My account`] <i class="fa fa-caret-down"></i></a>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
                                     <a href="{$wa->getUrl('shop/frontend/myOrders')}">[`My orders`]</a>
@@ -175,14 +175,14 @@
                         </li>
                     {/if}
                     <li>
-                        <a href="?logout">[s`Log out`]</a>
+                        <a href="?logout"><i class="fa fa-sign-out" aria-hidden="true"></i> [s`Log out`]</a>
                     </li>
                 {else}
                     <li>
-                        <a class="modal-dialog-url" href="{$wa->loginUrl()}">[s`Log in`]</a>
+                        <a class="modal-dialog-url" href="{$wa->loginUrl()}"><i class="fa fa-sign-in" aria-hidden="true"></i> [s`Log in`]</a>
                     </li>
                     <li>
-                        <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
+                        <a href="{$wa->signupUrl()}"><i class="fa fa-user-plus" aria-hidden="true"></i> [s`Sign up`]</a>
                     </li>
                 {/if}
             </ul>

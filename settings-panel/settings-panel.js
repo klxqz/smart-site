@@ -75,7 +75,7 @@ $(function () {
         var d = $('#dialog');
         var c = d.find('.content');
         c.html($('#settings-theme-form').clone());
-        c.prepend('<a href="#" class="dialog-close">&times;</a>');
+        c.prepend('<a href="#" class="dialog-close"><i class="fa fa-times" aria-hidden="true"></i></a>');
         d.show();
         $('html').addClass('dialog-open');
         initSettingsPanel(d);

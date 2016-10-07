@@ -24,7 +24,7 @@ function initFormControl(selector) {
 
 function initDialogHendler(d, url) {
     var c = d.find('.content');
-    c.prepend('<a href="#" class="dialog-close">&times;</a>');
+    c.prepend('<a href="#" class="dialog-close"><i class="fa fa-times" aria-hidden="true"></i></a>');
 
     c.find('form').submit(function () {
         postDialogForm(d, $(this), url);

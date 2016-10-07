@@ -38,7 +38,7 @@
 a.settings-button{
     padding: 10px;
     background: #f4f4f4; border-width: 1px 1px 1px 1px; border-style: solid; border-color: grey; border-radius: 0;
-    font-size: 46px; display: block; position: absolute; right: -70px; top: -1px;
+    font-size: 46px; display: block; position: absolute; right: -64px; top: -1px;
     border-left: #f4f4f4;
     outline: none;
 }

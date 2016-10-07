@@ -1701,7 +1701,7 @@ div.required .control-label:before
 }
 #content .product-thumb h4{
     height: 36px;
-    overflow: hidden;
+    position: relative;
 }
 .product-thumb h4 a
 {
@@ -1749,11 +1749,10 @@ div.required .control-label:before
 .product-thumb .button-group .btn-primary
 {
     font-family: Arial,Helvetica,sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     height: auto;
     line-height: normal;
     margin-bottom: 7px;
-    padding: 4px 8px;
     text-transform: uppercase;
     position: relative;
 }
@@ -3124,4 +3123,29 @@ a.toggle-menu:hover{
 }
 .item-price{
     font-weight: bold;
+}
+
+.product-grid  .product-thumb h4 a,
+.owl-item  .product-thumb h4 a{
+    transition: max-height 1s;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    bottom: 0px;
+    width: 100%;
+    left: 0;
+    max-height: 36px;
+    min-height: 36px;
+    overflow: hidden;
+    z-index: 99;
+}
+.product-grid  .product-thumb h4 a:hover,
+.owl-item  .product-thumb h4 a:hover{
+    max-height: 200px;
+}
+
+.drop-icon{
+    color: #fff;
+}
+.left-top{
+    background-color: #3e7cb4;
 }

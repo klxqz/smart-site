@@ -61,7 +61,7 @@
                 </div>
                 {if $theme_settings.footer_extra}
                     <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                        {$theme_settings.footer_extra}
+                        {$theme_settings.footer_extra|strip}
                     </div>
                 {/if}
                 {if $wa->isAuthEnabled()}
@@ -135,6 +135,21 @@
                     </p>
                 </div>
                 <div class="social pull-right flip">
+                    {if $theme_settings.vk_url}
+                        <a href="{$theme_settings.vk_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/vk.png" alt="Вконтакте" title="Вконтакте">
+                        </a>
+                    {/if}
+                    {if $theme_settings.odnoklassniki_url}
+                        <a href="{$theme_settings.odnoklassniki_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/odnoklassniki.png" alt="Одноклассники" title="Одноклассники">
+                        </a>
+                    {/if}
+                    {if $theme_settings.instagram_url}
+                        <a href="{$theme_settings.instagram_url}" target="_blank">
+                            <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/instagram.png" alt="Инстаграмм" title="Инстаграмм">
+                        </a>
+                    {/if}
                     {if $theme_settings.facebook_url}
                         <a href="{$theme_settings.facebook_url}" target="_blank">
                             <img data-toggle="tooltip" src="{$wa_theme_url}img/icons/facebook.png" alt="Facebook" title="Facebook">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.0.2">
+<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.1.0">
     <name locale="en_US">Smart</name>
     <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
@@ -20,6 +20,10 @@
         <file path="!css/smart.min.css" >
             <description locale="en_US">Core CSS of the Smart theme family. Compressed</description>
             <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна Smart. Сжатый</description>
+        </file>
+        <file path="!css/responsive.min.css">
+            <description locale="en_US">Responsive CSS</description>
+            <description locale="ru_RU">CSS для мобильной адаптации</description>
         </file>
         <file path="!css/skin-custom.css">
             <description locale="en_US">Custom skin</description>
@@ -347,7 +351,7 @@
         </setting>
        
         <setting var="color_scheme" control_type="image_select">
-            <value>!css/skins/skin1.png</value>
+            <value>!css/skins/skin3.png</value>
             <name locale="en_US">Color scheme</name>
             <name locale="ru_RU">Цветовая схема</name>
             <options>
@@ -642,7 +646,7 @@
         </setting>
         <setting var="top_menu_custom_link" control_type="text">
             <value><![CDATA[<li>
-    <a href="#">Пользовательская ссылка</a>
+    <a href="#">Ваша ссылка</a>
 </li>]]></value>
             <name locale="en_US">Custom link</name>
             <name locale="ru_RU">Пользовательские ссылки</name>
@@ -798,9 +802,9 @@
         
         <setting var="main_menu_custom_links" control_type="text">
             <value><![CDATA[<li class="custom-link">
-    <a href="#">Пользовательская ссылка</a>
+    <a href="#">Ваша ссылка</a>
 </li>
-<li class="dropdown sub"><a>Пользовательское меню</a>
+<li class="dropdown sub"><a>Ваше меню</a>
     <span class="submore"></span>
 <div class="dropdown-menu">
     <ul>
@@ -811,7 +815,10 @@
 </div>
 </li>
 <li class="custom-link-right">
-    <a id="call-back-button" href="#">Обратный звонок</a>
+    <a href="tel:+7-123-456-78-90"><i class="fa fa-phone"></i> +7-123-456-78-90</a>
+</li>
+<li class="custom-link-right">
+    <a href="skype:skype_namber?call"><i class="fa fa-skype"></i> Skype</a>
 </li>
 ]]></value>
             <name locale="en_US">Custom link</name>
@@ -1022,7 +1029,21 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <name locale="en_US">Extra</name>
             <name locale="ru_RU">Дополнительный блок</name>
         </setting>
-        
+        <setting var="vk_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">VKontakte</name>
+            <name locale="ru_RU">Вконтакте</name>
+        </setting>
+        <setting var="odnoklassniki_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Odnoklassniki</name>
+            <name locale="ru_RU">Одноклассники</name>
+        </setting>
+        <setting var="instagram_url" control_type="text">
+            <value>#</value>
+            <name locale="en_US">Instagram</name>
+            <name locale="ru_RU">Инстаграмм</name>
+        </setting>
         <setting var="facebook_url" control_type="text">
             <value>#</value>
             <name locale="en_US">Facebook</name>
@@ -1162,7 +1183,7 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
         </locale>
         <locale>
             <msgid>Back to Top</msgid>
-            <msgstr locale="ru_RU">Вернуться наверх</msgstr>
+            <msgstr locale="ru_RU">Наверх</msgstr>
         </locale>
         <locale>
             <msgid>News</msgid>

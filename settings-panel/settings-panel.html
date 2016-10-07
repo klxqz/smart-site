@@ -14,7 +14,7 @@
 
 
         <div class="settings-panel">
-            <a class="settings-button" href="#"><i class="fa fa-cogs"></i></a>
+            <a class="settings-button" href="#"><i class="fa fa-cog"></i></a>
             <h3>Настройки</h3>
             <form id="settings-theme-form" method="post">
                 <div class="panel-group" id="settings-accordion">
@@ -450,6 +450,7 @@
                                     <div class="theme-setting-field">
                                         <div class="theme-setting-name">Тип слайдера:</div>
                                         <div class="theme-setting-value">
+                                            <input{if $theme_settings.homepage_slider_type == 'promo'} checked{/if} type="radio" name="theme_settings[homepage_slider_type]" value="promo" /> - Слайдер промо-карточек<br/>
                                             <input{if $theme_settings.homepage_slider_type == 'images'} checked{/if} type="radio" name="theme_settings[homepage_slider_type]" value="images" /> - Слайдер изображений<br/>
                                             <input{if $theme_settings.homepage_slider_type == 'product'} checked{/if} type="radio" name="theme_settings[homepage_slider_type]" value="product" /> - Промо-слайдер товара<br/>
                                             <input{if $theme_settings.homepage_slider_type == 'products'} checked{/if} type="radio" name="theme_settings[homepage_slider_type]" value="products" /> - Товары<br/>

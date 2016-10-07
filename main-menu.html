@@ -13,7 +13,7 @@
                         {if $theme_settings.main_menu_show_homepage}
                             <li>
                                 <a class="home_link" title="{$wa->accountName()}" href="{$wa_url}">
-                                    <span>{$wa->accountName()}</span>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
                                 </a>
                             </li>    
                         {/if}
@@ -23,7 +23,7 @@
                         {include file="main-menu.news.html"}
                         {include file="main-menu.links.html"}
 
-                        {$theme_settings.main_menu_custom_links}
+                        {$theme_settings.main_menu_custom_links|strip}
                     </ul>
                 </div>
                 {if $wide_menu}</div>{/if}      
