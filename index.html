@@ -56,14 +56,14 @@
                     {include file="!css/theme-settings.css"}
                 </style>
             {else}
-                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" property="stylesheet" media="screen" />
-                <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css" />
+                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" media="screen" />
+                <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css?v{$wa_theme_version}" />
                 {if $wa_app == 'shop'}
-                    <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
+                    <link href="{$wa_theme_url}!css/slideshow.min.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
                 {/if}
                 {$skin_id = $theme_settings.color_scheme|regex_replace:"/\!css\/skins\/skin(.*?)\.png/":"${1}"}
                 {if $skin_id != 1 && $skin_id != '_custom_color_scheme'}
-                    <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/skins/skin{$skin_id}.min.css" />
+                    <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/skins/skin{$skin_id}.min.css?v{$wa_theme_version}" />
                 {elseif $skin_id == '_custom_color_scheme'}
                     <style>
                         {include file="!css/skin-custom.css"}
@@ -181,14 +181,14 @@
             {include file="settings-panel/settings-panel.html"}
             
             {if $theme_settings.css_optimization}
-                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css" rel="stylesheet" property="stylesheet" media="screen" />
-                <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.css" />
+                <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" media="screen" />
+                <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css?v{$wa_theme_version}" />
                 {if $wa_app == 'shop'}
-                    <link href="{$wa_theme_url}!css/slideshow.min.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
+                    <link href="{$wa_theme_url}!css/slideshow.min.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
                 {/if}
                 {$skin_id = $theme_settings.color_scheme|regex_replace:"/\!css\/skins\/skin(.*?)\.png/":"${1}"}
                 {if $skin_id != 1 && $skin_id != '_custom_color_scheme'}
-                    <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/skins/skin{$skin_id}.min.css" />
+                    <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/skins/skin{$skin_id}.min.css?v{$wa_theme_version}" />
                 {elseif $skin_id == '_custom_color_scheme'}
                     <style>
                         {include file="!css/skin-custom.css"}
@@ -199,14 +199,14 @@
                 </style>*}
             {/if}
 
-            <link href="{$wa_real_theme_url}font-awesome/css/font-awesome.min.css" rel="stylesheet" property="stylesheet" type="text/css" />
-            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/font-awesome-animation.css" />
+            <link href="{$wa_real_theme_url}font-awesome/css/font-awesome.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
+            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/font-awesome-animation.css?v{$wa_theme_version}" />
 
-            <link href="{$wa_theme_url}!css/owl.carousel.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
-            <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
-            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css" />
+            <link href="{$wa_theme_url}!css/owl.carousel.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
+            <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
+            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css?v{$wa_theme_version}" />
             {if $wa->shop}
-                <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css" rel="stylesheet" property="stylesheet" type="text/css">
+                <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css?v{$wa->version(true)}" rel="stylesheet" property="stylesheet" type="text/css">
             {/if}
 
             {if $theme_settings.jquery_delayed_loading}
@@ -223,12 +223,12 @@
 
 
             {if $theme_settings.is_autocomplete && $wa->shop}
-                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.theme.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
-                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
-                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa_theme_version}"></script>
-                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa_theme_version}"></script>
-                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa_theme_version}"></script>
-                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa_theme_version}"></script>
+                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.theme.min.css?v{$wa->version(true)}" rel="stylesheet" property="stylesheet" type="text/css" />
+                <link href="{$wa_theme_url}!css/jquery-ui/jquery.ui.autocomplete.min.css?v{$wa->version(true)}" rel="stylesheet" property="stylesheet" type="text/css" />
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.core.min.js?v{$wa->version(true)}"></script>
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.widget.min.js?v{$wa->version(true)}"></script>
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa->version(true)}"></script>
+                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa->version(true)}"></script>
             {/if}
             <script type="text/javascript">
                     var show_all_text = '[`view all`]';
