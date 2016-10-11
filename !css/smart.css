@@ -1703,10 +1703,15 @@ div.required .control-label:before
     height: 36px;
     position: relative;
 }
+
+#content .product-list .product-thumb h4{
+    height: auto;
+}
+
 .product-thumb h4 a
 {
     color: #333;
-    display: inline-block;
+    display: inline;
     font-size: 13px;
     line-height: 18px;
     margin: 0 auto;
