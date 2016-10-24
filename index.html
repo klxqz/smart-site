@@ -92,6 +92,18 @@
             {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
         </head>
         <body>
+            {if $theme_settings.header_banner && !waRequest::cookie('header_banner_closed')}
+                <div id="header-banner"{if $theme_settings.header_banner_background} style="background-image: url({$wa_theme_url}{$theme_settings.header_banner_background});"{/if}>
+                    <div  class="container">
+                        <div class="row">
+                            <div id="alert-header-banner" class="alert">
+                                <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                                    {$theme_settings.header_banner_content}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {/if}
             <section class="wrapper-wide{if $theme_settings.page_maket == 'limited'} limited{/if}">
                 <div id="header">
                     <nav class="htop" id="top">
@@ -109,14 +121,17 @@
                 <div class="container" id="loading-container">
                     <i class="icon32 loading"></i>
                 </div>
-                {if $wa->currentUrl() == $wa_url && !empty($theme_settings.homepage_slider_fullwidth) && file_exists("`$wa_active_theme_path`/slider.html")}
+                {if $wa->currentUrl() == $wa->getUrl('shop/frontend') && $theme_settings.homepage_width == 'full_width' && file_exists("`$wa_active_theme_path`/slider.html")}
                     {include file="`$wa_active_theme_path`/slider.html"}
                 {/if}
                 <div id="container" itemtype="http://schema.org/WebPage" itemscope>
-                    {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'top'}
-                        {include file="info-banners.html"}
-                    {/if}
                     <div class="container">
+                        {if $wa->currentUrl() == $wa->getUrl('shop/frontend') && $theme_settings.homepage_width == 'page_width' && file_exists("`$wa_active_theme_path`/slider.html")}
+                            {include file="`$wa_active_theme_path`/slider.html"}
+                        {/if}
+                        {if $wa->currentUrl() == $wa->getUrl('shop/frontend') && $theme_settings.homepage_infobanners == 'top'}
+                            {include file="info-banners.html"}
+                        {/if}
                         {if !empty($breadcrumbs)}
                             <ul class="breadcrumb" itemprop="breadcrumb">
                                 <li>
@@ -143,27 +158,32 @@
                                                 $wa->getUrl('shop/frontend/myProfile'),
                                                 $wa->getUrl('shop/frontend/myAffiliate')]}
                         {if empty($theme_settings.homepage_sidebar)}
-                            {$without_sidebar_urls[] = $wa_url}
+                            {$without_sidebar_urls[] = $wa->getUrl('shop/frontend')}
                         {/if}
                         {$current_url = $wa->currentUrl()}
-                        {if in_array($current_url, $without_sidebar_urls) || preg_match('/compare\/?\//', $current_url) || !empty($error_code)}
-                            <div class="row">
-                                <div id="content" class="col-sm-12">
-                                    {include file="`$wa_active_theme_path`/content.html"}
+
+                        {capture assign = "main_content"}
+                            {if in_array($current_url, $without_sidebar_urls) || preg_match('/compare\/?\//', $current_url) || !empty($error_code)}
+                                <div class="row">
+                                    <div id="content" class="col-sm-12">
+                                        {include file="`$wa_active_theme_path`/content.html"}
+                                    </div>
                                 </div>
-                            </div>
-                        {else}
-                            <div class="row">
-                                <div id="column-left" class="col-sm-3">
-                                    {include file="`$wa_active_theme_path`/sidebar.html"}
+                            {else}
+                                <div class="row">
+                                    <div id="column-left" class="col-sm-3">
+                                        {include file="`$wa_active_theme_path`/sidebar.html"}
+                                    </div>
+                                    <div id="content" class="col-sm-9">
+                                        {include file="`$wa_active_theme_path`/content.html"}
+                                    </div>
                                 </div>
-                                <div id="content" class="col-sm-9">
-                                    {include file="`$wa_active_theme_path`/content.html"}
-                                </div>
-                            </div>
-                        {/if}
+                            {/if}
+                        {/capture}
+
+                        {include file="`$wa_parent_theme_path`/function.imgPrepare.html" content=$main_content}
                     </div>
-                    {if $wa->currentUrl() == $wa_url && $theme_settings.homepage_infobanners == 'bottom'}
+                    {if $wa->currentUrl() == $wa->getUrl('shop/frontend') && $theme_settings.homepage_infobanners == 'bottom'}
                         {include file="info-banners.html"}
                     {/if}
                 </div>
@@ -179,7 +199,7 @@
             </section>
 
             {include file="settings-panel/settings-panel.html"}
-            
+
             {if $theme_settings.css_optimization}
                 <link href="{$wa_theme_url}bootstrap/css/bootstrap.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" media="screen" />
                 <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/smart.min.css?v{$wa_theme_version}" />
@@ -194,9 +214,6 @@
                         {include file="!css/skin-custom.css"}
                     </style>
                 {/if}
-                {*<style type="text/css">
-                {include file="!css/theme-settings.css"}
-                </style>*}
             {/if}
 
             <link href="{$wa_real_theme_url}font-awesome/css/font-awesome.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
@@ -220,6 +237,7 @@
             <script src="{$wa_theme_url}!js/jquery.easing-1.3.min.js?v{$wa_theme_version}" type="text/javascript" ></script>
             <script type="text/javascript" src="{$wa_theme_url}!js/script.min.js?v{$wa_theme_version}"></script>
             <script src="{$wa_theme_url}!js/jquery/owl-carousel/owl.carousel.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+            <script src="{$wa_theme_url}!js/jquery-lazyload/jquery.lazyload.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
             {if $theme_settings.is_autocomplete && $wa->shop}
@@ -230,11 +248,16 @@
                 <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.position.min.js?v{$wa->version(true)}"></script>
                 <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery-ui/jquery.ui.autocomplete.min.js?v{$wa->version(true)}"></script>
             {/if}
+            {if $theme_settings.header_banner && !waRequest::cookie('header_banner_closed')}
+                <script src="{$wa_theme_url}!js/jquery/jquery.cookie.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+            {/if}
             <script type="text/javascript">
                     var show_all_text = '[`view all`]';
                     var is_autocomplete = '{$theme_settings.is_autocomplete && $wa->shop}';
                     var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
                     var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
+                    var fixed_cart = {$theme_settings.fixed_cart};
+                    var img_lazyload = {$theme_settings.image_lazy_load};
             </script>
             <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 
@@ -248,6 +271,11 @@
                 <script type="text/javascript">
                     $('#loading-container').hide();
                     $('#container').css('visibility', 'visible');
+                    if (img_lazyload) {
+                        $('img[data-original]').lazyload({
+                            effect: "fadeIn"
+                        });
+                    }
                 </script>
             {/if}
 
@@ -256,6 +284,7 @@
                 {$wa->js()} {* links active plugins JS *}
             {/if}
 
+            <link href="{$wa_theme_url}!css/custom-styles.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
         </body>
     </html>
 {/strip}

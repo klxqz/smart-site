@@ -8,7 +8,11 @@
             {/if}
 
             <a href="{$wa->getUrl('shop/frontend/cart')}" {if !empty($dropdown_cart)} data-toggle="dropdown"{/if} class="heading dropdown-toggle">
-                <div class="pull-left flip"><div class="cart-icon"></div></div>
+                <div class="pull-left flip">
+                    <div class="cart-icon">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                </div>
                 <span id="cart-total">{wa_currency_html($cart_total, $wa->shop->currency())}</span>
             </a>
             {if !empty($dropdown_cart)}
@@ -29,7 +33,6 @@
                                         </td>
                                         <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
                                         <td class="text-right nowrap item-total">
-                                            {*$item.price = $wa->shop->cart->getItemTotal($item.id)*}
                                             {wa_currency_html($item.price, $wa->shop->currency())}
                                         </td>
                                         <td class="text-center">
@@ -137,6 +140,25 @@
                     {if $wa->shop}
                         {headerCart style="text-align: right;"}
                     {/if}
+                </div>
+            {elseif $header_struct == 5}
+                <div class="table-container">
+                    <div class="col-table-cell col-md-4 col-sm-6 col-xs-12 ">
+                        {headerLogo}
+                    </div>
+                    <div class="col-table-cell col-md-3 col-sm-6 col-xs-12 col-md-push-4"> 
+                        {$theme_settings.header_phones_content|strip}
+                    </div>
+                    <div class="col-table-cell col-md-4 col-sm-12  col-xs-12 col-md-pull-3 "> 
+                        {if $wa->shop}
+                            {hearedSearch}
+                        {/if}
+                    </div>
+                    <div class="col-table-cell col-md-2 col-sm-12 col-xs-12"> 
+                        {if $wa->shop}
+                            {headerCart}
+                        {/if}
+                    </div>
                 </div>
             {/if}
         </div>

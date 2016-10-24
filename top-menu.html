@@ -109,12 +109,13 @@
                 <div class="btn-group">
                     <div class="btn-link dropdown-toggle" data-toggle="dropdown">
                         <span>
-                            [`Currency`]:&nbsp;
                             {if !empty($currency.sign_html)}
                                 {$currency.sign_html}
                             {else}
                                 {$currency.sign}
-                            {/if}
+                            {/if} 
+                            &nbsp;
+                            [`Currency`]
                             &nbsp;
                             <i class="fa fa-caret-down"></i>
                         </span>

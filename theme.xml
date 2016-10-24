@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.1.1">
+<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.2.0">
     <name locale="en_US">Smart</name>
     <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
     <files>
+        <file path="!css/custom-styles.css">
+            <description locale="en_US">Custom CSS-styles</description>
+            <description locale="ru_RU">Пользовательские CSS-стили</description>
+        </file>
         <file path="!css/head.css">
             <description locale="en_US">The basic part of the  CSS in the HEAD</description>
             <description locale="ru_RU">Базовая часть CSS подключаемая в HEAD</description>
@@ -462,7 +466,7 @@
             <name locale="ru_RU">Фон</name>
         </setting>
         <setting var="background_color" control_type="color">
-            <value>#dcdbdb</value>
+            <value>#fff</value>
             <name locale="en_US">Background color</name>
             <name locale="ru_RU">Цвет фона</name>
         </setting>
@@ -675,6 +679,24 @@
             <name locale="en_US">Header</name>
             <name locale="ru_RU">Header</name>
         </setting>
+        <setting var="header_banner" control_type="checkbox">
+            <value>0</value>
+            <name locale="en_US">Show marketing banner</name>
+            <name locale="ru_RU">Показывать продающий баннер</name>
+        </setting>
+        <setting var="header_banner_content" control_type="text">
+            <value><![CDATA[<strong>Внимание!</strong> Продающий баннер. Успейте купить сегодня!]]></value>
+            <name locale="en_US">Custom link</name>
+            <name locale="ru_RU">Пользовательские ссылки</name>
+            <description locale="en_US">Content marketing banner</description>
+            <description locale="ru_RU">Содержимое продающего баннера</description>
+        </setting>
+        <setting var="header_banner_background" control_type="image">
+            <value>img/banners/header-banner.png</value>
+            <filename>img/banners/*</filename>
+            <name locale="en_US">Background marketing banner</name>
+            <name locale="ru_RU">Фоновое изображение продающего баннера</name>
+        </setting>
         <setting var="header_struct" control_type="radio">
             <value>2</value>
             <name locale="en_US">
@@ -700,8 +722,29 @@
                     <name locale="en_US">Search - Logo - Cart<![CDATA[<br/>]]></name>
                     <name locale="ru_RU">Поиск - Логотип - Корзина<![CDATA[<br/>]]></name>
                 </option>
+                <option value="5">
+                    <name locale="en_US">Logo - Search - Phones - Cart<![CDATA[<br/>]]></name>
+                    <name locale="ru_RU">Логотип - Поиск - Телефоны - Корзина<![CDATA[<br/>]]></name>
+                </option>
             </options>
         </setting>
+        <setting var="header_phones_content" control_type="text">
+            <value><![CDATA[<div class="header-phones">
+    <div class="phone">
+        <a href="tel:+7 999 999 99 99"><i class="fa fa-phone"></i> +7 (999)-999-99-99</a>
+    </div>
+    <div class="working-hours">Пн-Пт 9:00-18:00</div>
+</div>]]></value>
+            <name locale="en_US">Phones</name>
+            <name locale="ru_RU">Телефоны</name>
+        </setting>
+        
+        <setting var="fixed_cart" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Floating shopping cart</name>
+            <name locale="ru_RU">Плавающая корзина</name>
+        </setting>
+        
         <setting var="divider_main_menu" control_type="group_divider">
             <value/>
             <name locale="en_US">Main menu</name>
@@ -856,33 +899,33 @@
             </options>
         </setting>
         <setting var="homepage_infobanner1" control_type="text">
-            <value locale="en_US"><![CDATA[<div class="title">Free Shipping</div>
+            <value locale="en_US"><![CDATA[<div class="title"><i class="fa fa-truck" aria-hidden="true"></i> Free Shipping</div>
 <p>Free shipping on order over $1000</p>]]></value>
-            <value locale="ru_RU"><![CDATA[<div class="title">Бесплатная доставка</div>
+            <value locale="ru_RU"><![CDATA[<div class="title"><i class="fa fa-truck" aria-hidden="true"></i> Бесплатная доставка</div>
 <p>Бесплатная доставка по городу</p>]]></value>
             <name locale="en_US">Info banner 1</name>
             <name locale="ru_RU">Информационный баннер №1</name>
         </setting>
         <setting var="homepage_infobanner2" control_type="text">
-            <value locale="en_US"><![CDATA[<div class="title">Free Return</div>
+            <value locale="en_US"><![CDATA[<div class="title"><i class="fa fa-retweet" aria-hidden="true"></i> Free Return</div>
 <p>Free return in 24 hour after purchasing</p>]]></value>
-            <value locale="ru_RU"><![CDATA[<div class="title">Возврат</div>
+            <value locale="ru_RU"><![CDATA[<div class="title"><i class="fa fa-retweet" aria-hidden="true"></i> Возврат</div>
 <p>Бесплатный возврат товара</p>]]></value>
             <name locale="en_US">Info banner 2</name>
             <name locale="ru_RU">Информационный баннер №2</name>
         </setting>
         <setting var="homepage_infobanner3" control_type="text">
-            <value locale="en_US"><![CDATA[<div class="title">Gift Cards</div>
+            <value locale="en_US"><![CDATA[<div class="title"><i class="fa fa-gift" aria-hidden="true"></i> Gift Cards</div>
 <p>Give the special perfect gift</p>]]></value>
-            <value locale="ru_RU"><![CDATA[<div class="title">Подарочные карты</div>
+            <value locale="ru_RU"><![CDATA[<div class="title"><i class="fa fa-gift" aria-hidden="true"></i> Подарочные карты</div>
 <p>Специальные подарочные карты</p>]]></value>
             <name locale="en_US">Info banner 3</name>
             <name locale="ru_RU">Информационный баннер №3</name>
         </setting>
         <setting var="homepage_infobanner4" control_type="text">
-            <value locale="en_US"><![CDATA[<div class="title">Reward Points</div>
+            <value locale="en_US"><![CDATA[<div class="title"><i class="fa fa-map-marker" aria-hidden="true"></i> Reward Points</div>
 <p>Earn and spend with ease</p>]]></value>
-            <value locale="ru_RU"><![CDATA[<div class="title">Пункты самовывоза</div>
+            <value locale="ru_RU"><![CDATA[<div class="title"><i class="fa fa-map-marker" aria-hidden="true"></i> Пункты самовывоза</div>
 <p>Пункты самовывоза по всей России</p>]]></value>
             <name locale="en_US">Info banner 4</name>
             <name locale="ru_RU">Информационный баннер №4</name>
@@ -1140,8 +1183,16 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <value>1</value>
             <name locale="en_US">Delayed loading JQuery</name>
             <name locale="ru_RU">Отложенная загрузка библиотеки JQuery</name>
-            <description locale="en_US"></description>
-            <description locale="ru_RU"></description>
+            <description locale="en_US">To disable lazy loading some javascript-scripts, you must add the attribute data-disable-delayed-loading = 1. For example <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;path to script&quot;&gt;&lt;/script&gt;]]></description>
+            <description locale="ru_RU">Для отключения отложенной загрузки некоторых javascript-скриптов необходимо добавить атрибут data-disable-delayed-loading=1. Например, <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;Путь к скрипту&quot;&gt;&lt;/script&gt;]]></description>
+        </setting>  
+        
+        <setting var="image_lazy_load" control_type="checkbox">
+            <value>1</value>
+            <name locale="en_US">Image lazy load</name>
+            <name locale="ru_RU">Ленивая загрузка изображений</name>
+            <description locale="en_US">To disable lazy loading some images, you must add the attribute data-disable-lazyloading = 1. For example <![CDATA[&lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;path to image&quot;&gt;]]></description>
+            <description locale="ru_RU">Для отключения отложенной загрузки некоторых изображений необходимо добавить атрибут data-disable-lazyloading=1. Например, <![CDATA[&lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;Путь к изображению&quot;&gt;]]></description>
         </setting>     
         
         <setting var="divider_additional_functionality" control_type="group_divider">

@@ -1,3 +1,4 @@
+{strip}
 .articleHeader span a,
 .pagination>li>a,
 a,
@@ -76,7 +77,7 @@ a:hover {
     border-color: {$theme_settings.custom_base_color}
 }
 #header #cart .heading div.cart-icon {
-    background: {$theme_settings.custom_base_color}
+    color: {$theme_settings.custom_base_color}
 }
 #menu {
     background-color: {$theme_settings.custom_menu_color};
@@ -237,3 +238,4 @@ a:hover {
 #menu .nav>li>span.submore:after {
     color: #fff
 }
+{/strip}

@@ -339,41 +339,36 @@ div.required .control-label:before
     position: relative;
     text-align: right;
 }
+#header #cart.fixed{
+    position: fixed;
+    z-index: 999;
+    right: 50px;
+    top:0px;
+    border: 1px solid transparent;
+    border-color: #ddd;
+    background-color:#f5f5f5;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding: 5px 10px;
+    min-width: 150px;
+    text-align: center;
+}
+#header #cart.open.fixed .heading span::after{
+    margin: 0 0 -10px -5px;
+}
+
+@media only screen and (max-width:1540px)
+{
+    #header #cart.fixed{
+        right: 0;
+    }
+}
 #header #cart .heading div.cart-icon
 {
-    margin-top: 9px;
-    background: #3e7cb4;
-    height: 16px;
+    margin-top: 0;
+    color: #3e7cb4;
     margin-right: 5px;
     position: relative;
-    width: 20px;
-}
-#header #cart .heading div.cart-icon:before
-{
-    border: 2px solid #3e7cb4;
-    border-bottom: none;
-    border-radius: 50%;
-    clear: both;
-    content: ' ';
-    display: block;
-    height: 19px;
-    left: 3px;
-    position: absolute;
-    top: -8px;
-    width: 14px;
-}
-#header #cart .heading div.cart-icon:after
-{
-    border: 1px solid #3e7cb4;
-    border-top: none;
-    bottom: -2px;
-    clear: both;
-    content: ' ';
-    display: block;
-    height: 2px;
-    left: 0;
-    position: absolute;
-    width: 20px;
+    font-size: 32px;
 }
 #header ol,#header ul
 {
@@ -411,7 +406,7 @@ div.required .control-label:before
     display: block;
     height: 0;
     left: 50%;
-    margin: 0 0 0 -5px;
+    margin: 0 0 -5px -5px;
     position: absolute;
     width: 0;
     z-index: 1012;
@@ -423,7 +418,7 @@ div.required .control-label:before
     border-radius: 0;
     border-width: 3px 0 0;
     left: auto;
-    margin: 0;
+    margin: 5px 0 0 0;
     padding: 8px;
     right: 0;
     width: 350px;
@@ -1534,6 +1529,9 @@ div.required .control-label:before
     max-width: 100%!important;
     padding: 3px;
 }
+.category-list-thumb a{
+    display: block;   
+}
 .category-list .div a
 {
     font-weight: 700;
@@ -1725,7 +1723,7 @@ div.required .control-label:before
 .product-thumb .price
 {
     color: #3e7cb4;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     margin: 10px 0;
 }
@@ -2035,10 +2033,11 @@ div.required .control-label:before
 .product-info .cart
 {
     border-bottom: 1px solid #eae9e9;
+    border-top: 1px solid #eae9e9;
     color: #4D4D4D;
     margin-bottom: 15px;
     overflow: auto;
-    padding: 0 0 20px;
+    padding: 20px 0;
 }
 .product-info .cart div
 {
@@ -2862,7 +2861,6 @@ form.adv_ajaxfilter
 .owl-carousel.nxt .owl-item a{line-height: 150px;}
 .owl-carousel.nxt .owl-item img{vertical-align: middle;display:inline-block}
 .owl-carousel .owl-item{padding: 5px;}
-#zoom_01{position: absolute;}
 
 table.cart td.image{
     vertical-align: middle;
@@ -3095,6 +3093,9 @@ html.dialog-open{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.blog-photo-block ul li div.image:hover{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .blog-photo-block .post{
     margin-bottom: 20px;
@@ -3153,4 +3154,24 @@ a.toggle-menu:hover{
 }
 .left-top{
     background-color: #3e7cb4;
+}
+
+#header-banner .alert{
+    margin: 0;
+}
+
+.header-phones{
+    color: #555;
+}
+
+.header-phones .phone{
+    margin-bottom: 5px;
+}
+
+.header-phones .phone a{
+    font-size: 18px;
+}
+
+iframe{
+    max-width: 100%
 }
