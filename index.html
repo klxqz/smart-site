@@ -181,7 +181,7 @@
                             {/if}
                         {/capture}
 
-                        {include file="`$wa_parent_theme_path`/function.imgPrepare.html" content=$main_content}
+                        {include file="function.imgPrepare.html" content=$main_content}
                     </div>
                     {if $wa->currentUrl() == $wa->getUrl('shop/frontend') && $theme_settings.homepage_infobanners == 'bottom'}
                         {include file="info-banners.html"}
