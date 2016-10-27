@@ -79,6 +79,18 @@ $(function () {
         d.show();
         $('html').addClass('dialog-open');
         initSettingsPanel(d);
+        $.cookie('settings_panel_opened', '1', {expires: 1, path: '/'});
+        $('.settings-panel .settings-button span').hide();
         return false;
     });
+
+    if (!$.cookie('settings_panel_opened')) {
+        $('.settings-panel .settings-button span').hide();
+        setTimeout(function () {
+            $('.settings-panel .settings-button span').show();
+            setTimeout(function () {
+                $('.settings-panel .settings-button span').addClass('active');
+            }, 1000);
+        }, 5000);
+    }
 });

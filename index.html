@@ -7,6 +7,12 @@
     <html dir="ltr">
         <!--<![endif]-->
         <head>
+            {foreach $theme_settings as $key => $value}
+                {$setting_key = "settings[$key]"}
+                {if $wa->globals($setting_key) !== null}
+                    {$theme_settings[$key] = $wa->globals($setting_key)}
+                {/if}
+            {/foreach}
             {if $wa->post('theme_settings') && !$wa->post('reset')}
                 {foreach $wa->post('theme_settings') as $theme_setting => $value}
                     {$theme_settings[$theme_setting] = $value}
@@ -16,12 +22,6 @@
             {if $wa->post('reset')}
                 {$wa->session('theme_settings', [])}
             {/if}
-            {foreach $theme_settings as $key => $value}
-                {$setting_key = "settings[$key]"}
-                {if $wa->globals($setting_key) !== null}
-                    {$theme_settings[$key] = $wa->globals($setting_key)}
-                {/if}
-            {/foreach}
             {$storage = $wa->session('theme_settings')}
             {foreach $storage as $key => $value}
                 {$theme_settings[$key] = $value}
@@ -217,7 +217,7 @@
             {/if}
 
             <link href="{$wa_real_theme_url}font-awesome/css/font-awesome.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
-            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/font-awesome-animation.css?v{$wa_theme_version}" />
+            <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/font-awesome-animation.min.css?v{$wa_theme_version}" />
 
             <link href="{$wa_theme_url}!css/owl.carousel.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
             <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
@@ -270,6 +270,7 @@
             {else}
                 <script type="text/javascript">
                     $('#loading-container').hide();
+                    $('#menu.navbar').show();
                     $('#container').css('visibility', 'visible');
                     if (img_lazyload) {
                         $('img[data-original]').lazyload({

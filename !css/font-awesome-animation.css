@@ -106,13 +106,19 @@
     }
 }
 * > i.fa.fa-cog{
-    transition-duration: 1s;
-    transition-property: transform;
-    transition-timing-function: linear;
+    animation-name: rotation;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
-*:hover > i.fa.fa-cog{
-    transform: rotate(120deg);
+@keyframes rotation {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
 
 *:hover > i.fa.fa-envelope{

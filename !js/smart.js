@@ -118,6 +118,7 @@ $(document).ready(function () {
                 $("#cart").hide();
                 $("#cart").addClass("fixed");
                 $("#cart").slideToggle(200);
+                $("#cart").css('overflow', 'visible');
             } else if ($(this).scrollTop() < 150 && $("#cart").hasClass("fixed")) {
                 $("#cart").removeClass("fixed");
             }
@@ -198,6 +199,7 @@ function delayedLoading() {
             }
         }
         $('#loading-container').hide();
+        $('#menu.navbar').show();
         $('#container').css('visibility', 'visible');
         if (img_lazyload) {
             $('img[data-original],div[data-original]').lazyload({

@@ -2509,10 +2509,7 @@ div.required .control-label:before
 }
 /*stylesheet*/
 @media (max-width:991px){
-    #menu.navbar{
-        display: none;
-    }
-    .pull-left{
+    #menu.navbar, #top .pull-left{
         display: none;
     }
 }

@@ -352,6 +352,12 @@ div.required .control-label:before
     min-width: 150px;
     text-align: center;
 }
+
+#header #cart.fixed .cart-items{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
 #header #cart.open.fixed .heading span::after{
     margin: 0 0 -10px -5px;
 }

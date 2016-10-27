@@ -69,4 +69,41 @@ a.settings-button{
     .settings-panel{
         display: none;
     }
+    #reformal_tab{
+        display: none;
+    }
+}
+
+a.settings-button span{
+    background-image: url(./img/arrow.png);
+    width: 112px;
+    height: 108px;
+    position: absolute;
+    left: 70px;
+    top: 40px;
+    opacity: 0;
+    transform: rotate(90deg) translateX(2em) translateY(1em);
+}
+
+a.settings-button span.active{
+    transition: opacity .25s, transform .5s;
+    transform: rotate(0) translateX(0) translateY(0);
+    opacity: 1;
+}
+a.settings-button span:after{
+    background-image: url(./img/settings-title.png);
+    width: 263px;
+    height: 82px;
+    content: ' ';
+    position: absolute;
+    left: 0px;
+    top: 120px;
+    opacity: 0;
+    animation-timing-function: ease-in;
+}
+
+
+a.settings-button span.active:after{
+    transition: opacity 3s;
+    opacity: 1;
 }
