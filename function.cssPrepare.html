@@ -1,0 +1,18 @@
+{if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+    {$match = null}
+    {if preg_match_all("/<link[^>]*>/si", $content, $matchs)}
+        {foreach $matchs[0] as $index => $match}       
+            {if strpos($matchs[0][$index], 'stylesheet') !== false}
+                {if strpos($matchs[0][$index], 'data-disable-delayed-loading') === false}
+                    {if preg_match("/<link.+?href\s*=\s*[\"'](.+?)[\"'].*?>/si",$matchs[0][$index], $src)}
+                        {$src_url = $src[1]}
+                        {$content = str_replace($matchs[0][$index], "<script type=\"text/javascript\">window.delayCss.push(\"$src_url\");</script>", $content)}
+                    {/if}
+                {/if}
+            {/if}
+        {/foreach}
+    {/if}
+    {$content}
+{else}
+    {$content}
+{/if}

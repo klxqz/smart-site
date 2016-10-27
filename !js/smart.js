@@ -1,22 +1,3 @@
-$("[data-toggle='tooltip']").tooltip({
-    container: "body"
-});
-
-$(document).keyup(function (e) {
-    if (e.keyCode == 27) {
-        $(".dialog:visible").trigger('close');
-    }
-});
-
-$('.dialog').on('click', 'a.dialog-close', function () {
-    $(this).closest('.dialog').trigger('close');
-    return false;
-});
-$(document).on('close', '.dialog', function () {
-    $(this).closest('.dialog').hide().find('.content').empty();
-    $('html').removeClass('dialog-open');
-});
-
 function initFormControl(selector) {
     selector.find('input[type=text],input[type=email],input[type=password],select,textarea').addClass('form-control');
     selector.find('input[type=submit],input[type=button]').addClass('btn btn-primary');
@@ -65,7 +46,28 @@ function loadDialogContent(d, url) {
     });
     d.show();
 }
-$(document).ready(function () {
+
+function smartInit() {
+    /*$("[data-toggle='tooltip']").tooltip({
+     container: "body"
+     });*/
+
+    $(document).keyup(function (e) {
+        if (e.keyCode == 27) {
+            $(".dialog:visible").trigger('close');
+        }
+    });
+
+    $('.dialog').on('click', 'a.dialog-close', function () {
+        $(this).closest('.dialog').trigger('close');
+        return false;
+    });
+    $(document).on('close', '.dialog', function () {
+        $(this).closest('.dialog').hide().find('.content').empty();
+        $('html').removeClass('dialog-open');
+    });
+
+
     $(document).on('click', '.toggle-menu', function () {
         $(this).parent().next().slideToggle('slow');
         return false;
@@ -128,130 +130,72 @@ $(document).ready(function () {
     $('#alert-header-banner').on('closed.bs.alert', function () {
         $.cookie('header_banner_closed', 'closed', {expires: 30, path: '/'});
     });
+}
 
-});
 
-jQuery(function ($) {
-    $(document).ready(function () {
-        if (!is_autocomplete) {
-            return false;
-        }
-        $('#filter_name').autocomplete({
-            delay: 500,
-            minLength: 3,
-            source: function (request, response) {
-                request.term = request.term.replace(/^\s+|\s+$/g, '');
-                var query = request.term.replace(/\s+/g, '+');
-                $.ajax({
-                    url: shop_search_url + '?query=' + encodeURIComponent(query),
-                    type: "GET",
-                    dataType: "html",
-                    success: function (data) {
-                        var container = $('<div></div>').append(data);
-                        var items = $.map(container.find('.products-category .product-layout:lt(' + 5 + ') .ajax_product_info'), function (item) {
-                            return {
-                                label: $(item).data('name'),
-                                value: $(item).data('name'),
-                                url: $(item).data('url'),
-                                text: '<div><img src="' + $(item).data('img') + '" /><span class="item-name">' + $(item).data('name') + '</span>&nbsp;<span class="item-price">' + $(item).data('price') + '</span></div>'
-                            }
-                        });
-
-                        if (container.find('.products-category .product-layout').length > 5) {
-                            items[items.length] = {
-                                label: '' + query,
-                                value: '' + query,
-                                url: shop_search_url + '?query=' + encodeURIComponent(query),
-                                text: show_all_text
-                            }
+function filterAutocomplete() {
+    if (!is_autocomplete) {
+        return false;
+    }
+    $('#filter_name').autocomplete({
+        delay: 500,
+        minLength: 3,
+        source: function (request, response) {
+            request.term = request.term.replace(/^\s+|\s+$/g, '');
+            var query = request.term.replace(/\s+/g, '+');
+            $.ajax({
+                url: shop_search_url + '?query=' + encodeURIComponent(query),
+                type: "GET",
+                dataType: "html",
+                success: function (data) {
+                    var container = $('<div></div>').append(data);
+                    var items = $.map(container.find('.products-category .product-layout:lt(' + 5 + ') .ajax_product_info'), function (item) {
+                        return {
+                            label: $(item).data('name'),
+                            value: $(item).data('name'),
+                            url: $(item).data('url'),
+                            text: '<div><img src="' + $(item).data('img') + '" /><span class="item-name">' + $(item).data('name') + '</span>&nbsp;<span class="item-price">' + $(item).data('price') + '</span></div>'
                         }
-                        response(items);
+                    });
+
+                    if (container.find('.products-category .product-layout').length > 5) {
+                        items[items.length] = {
+                            label: '' + query,
+                            value: '' + query,
+                            url: shop_search_url + '?query=' + encodeURIComponent(query),
+                            text: show_all_text
+                        }
                     }
-                });
-            },
-            select: function (event, ui) {
-                location.href = ui.item.url;
-            }
-        }).data("autocomplete")._renderMenu = function (ul, items) {
-            $.each(items, function (index, item) {
-                $('<li></li>')
-                        .data('item.autocomplete', item)
-                        .append('<a href="' + item.url + '">' + item.text + '</a>')
-                        .appendTo(ul);
+                    response(items);
+                }
             });
-        };
+        },
+        select: function (event, ui) {
+            location.href = ui.item.url;
+        }
+    }).data("autocomplete")._renderMenu = function (ul, items) {
+        $.each(items, function (index, item) {
+            $('<li></li>')
+                    .data('item.autocomplete', item)
+                    .append('<a href="' + item.url + '">' + item.text + '</a>')
+                    .appendTo(ul);
+        });
+    };
+}
+
+
+function afterLoaded() {
+    smartInit();
+    filterAutocomplete();
+}
+
+
+if (jquery_delayed_loading) {
+    $(document).on('js_loaded', function () {
+        afterLoaded();
     });
-});
-
-function delayedLoading() {
-    var loadedJs = window.delayJs;
-    var loadedCount = 0;
-    function evalJsFunction() {
-        for (var i in window.delayJsFunctions) {
-            try {
-                if (typeof window.delayJsFunctions[i] == 'string') {
-                    $.globalEval(window.delayJsFunctions[i]);
-                } else if (typeof window.delayJsFunctions[i] == 'function') {
-                    window.delayJsFunctions[i]();
-                }
-            } catch (e) {
-                console.log(e);
-            }
-        }
-        $('#loading-container').hide();
-        $('#menu.navbar').show();
-        $('#container').css('visibility', 'visible');
-        if (img_lazyload) {
-            $('img[data-original],div[data-original]').lazyload({
-                effect: "fadeIn"
-            });
-        }
-    }
-    function callback(load) {
-        console.log(load.type + ': ' + load.target.src);
-        loadedCount++;
-        if (loadedCount == window.delayJs.length) {
-            // все скрипты загружены, переходим к выполнению JS
-            evalJsFunction();
-            $(document).trigger('js_loaded');
-        }
-    }
-    if (window.delayJs.length) {
-        for (var i in window.delayJs) {
-            var js = document.createElement("script");
-
-            if (js.readyState && !js.onload) {
-                /*IE, Opera*/
-                js.onreadystatechange = function () {
-                    if (js.readyState == "loaded" || js.readyState == "complete") {
-                        js.onreadystatechange = null;
-                        callback();
-                    }
-                }
-                js.onerror = function () {
-                    callback();
-                }
-            }
-            else {
-                js.onload = callback;
-                js.onerror = callback;
-            }
-            js.type = "text/javascript";
-            js.src = window.delayJs[i];
-            var head = document.getElementsByTagName("head")[0].firstChild;
-            document.getElementsByTagName("head")[0].insertBefore(js, head);
-        }
-    } else {
-        evalJsFunction();
-    }
-    if (window.delayCss.length) {
-        for (var i in window.delayCss) {
-            var link = document.createElement("link");
-            link.type = "text/css";
-            link.rel = "stylesheet";
-            link.href = window.delayCss[i];
-            var head = document.getElementsByTagName("head")[0].firstChild;
-            document.getElementsByTagName("head")[0].insertBefore(link, head);
-        }
-    }
+} else {
+    jQuery(function ($) {
+        $(document).ready(afterLoaded());
+    });
 }

@@ -1,16 +1,10 @@
 {if !strpos($wa->server('HTTP_USER_AGENT'), 'Google Page Speed')}
     {strip}
-        {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-            <script type="text/javascript">
-                window.delayJs.push("{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.js?v{$wa_theme_version}");
-                    window.delayJs.push("{$wa_theme_url}settings-panel/jquery.cookie.min.js?v{$wa_theme_version}");
-                        window.delayJs.push("{$wa_theme_url}settings-panel/settings-panel.js?v{$wa_theme_version}");
-            </script>
-        {else}
-            <script src="{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.js?v{$wa_theme_version}" type="text/javascript"></script>
-            <script src="{$wa_theme_url}settings-panel/jquery.cookie.min.js?v{$wa_theme_version}" type="text/javascript"></script>
-            <script src="{$wa_theme_url}settings-panel/settings-panel.js?v{$wa_theme_version}" type="text/javascript"></script>
-        {/if}
+
+        <script src="{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+        <script src="{$wa_theme_url}settings-panel/jquery.cookie.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+        <script src="{$wa_theme_url}settings-panel/settings-panel.js?v{$wa_theme_version}" type="text/javascript"></script>
+
 
 
         <div class="settings-panel">
@@ -496,25 +490,25 @@
         <link rel="stylesheet" property="stylesheet" href="{$wa_theme_url}settings-panel/farbtastic/farbtastic.min.css?v{$wa_theme_version}" type="text/css" />
         <link rel="stylesheet" property="stylesheet" href="{$wa_theme_url}settings-panel/settings-panel.css?v{$wa_theme_version}" type="text/css" />
 
-        <script type="text/javascript">
-                            var reformalOptions = {
-                                project_id: 975659,
-                                project_host: "smart-wa.reformal.ru",
-                                tab_orientation: "right",
-                                tab_indent: "50%",
-                                tab_bg_color: "#F05A00",
-                                tab_border_color: "#FFFFFF",
-                                tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/2a94cfe6511106e7a48d0af3904e3090/left/1/tab.png",
-                                tab_border_width: 2
-                            };
+        <script data-disable-delayed-loading="1" type="text/javascript">
+            var reformalOptions = {
+                project_id: 975659,
+                project_host: "smart-wa.reformal.ru",
+                tab_orientation: "right",
+                tab_indent: "50%",
+                tab_bg_color: "#F05A00",
+                tab_border_color: "#FFFFFF",
+                tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/2a94cfe6511106e7a48d0af3904e3090/left/1/tab.png",
+                tab_border_width: 2
+            };
 
-                            (function () {
-                                var script = document.createElement('script');
-                                script.type = 'text/javascript';
-                                script.async = true;
-                                script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
-                                document.getElementsByTagName('head')[0].appendChild(script);
-                            })();
+            (function () {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+                document.getElementsByTagName('head')[0].appendChild(script);
+            })();
         </script>
         <noscript>
         <a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://smart-wa.reformal.ru">Oтзывы и предложения для Smart</a>

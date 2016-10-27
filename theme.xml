@@ -1171,14 +1171,6 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <description locale="ru_RU">Основные CSS стили темы дизайна разбиваются на две части: минимальную часть и оставшуюся часть. Минимальная часть служит для корректного отображения основной части страницы и подключается в HEAD, оставшаяся часть подключается в конце страницы.</description>
         </setting>
         
-        <setting var="delayed_plugins_loading" control_type="checkbox">
-            <value>1</value>
-            <name locale="en_US">Delayed loading CSS and JS plugins</name>
-            <name locale="ru_RU">Отложенная загрузка CSS и JS плагинов</name>
-            <description locale="en_US">Move CSS and JS plugins from HEAD to the lower part of the site to plugin scripts are loaded at the end and do not block the first page load</description>
-            <description locale="ru_RU">Перенести CSS и JS плагинов из HEAD в нижнюю часть сайта для того чтобы скрипты плагинов загружались в конце и не блокировали страницу вначале загрузки</description>
-        </setting>   
-        
         <setting var="jquery_delayed_loading" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">Delayed loading JQuery</name>

@@ -70,7 +70,7 @@ a.settings-button{
         display: none;
     }
     #reformal_tab{
-        display: none;
+        display: none !important;
     }
 }
 

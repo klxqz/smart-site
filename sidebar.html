@@ -45,24 +45,18 @@
             {/for}
         </div>
         <script type="text/javascript">
-            {$rand = rand()}
-            var delayed_function{$rand} = function () {
-                $('#banner0').owlCarousel({
-                    items: 6,
-                    autoPlay: 3000,
-                    singleItem: true,
-                    navigation: false,
-                    pagination: false,
-                    transitionStyle: 'fade'
-                });
-            };
-            {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-            window.delayJsFunctions.push(delayed_function{$rand});
-            {else}
             $(function () {
-                $(document).ready(delayed_function{$rand}());
+                $(document).ready(function () {
+                    $('#banner0').owlCarousel({
+                        items: 6,
+                        autoPlay: 3000,
+                        singleItem: true,
+                        navigation: false,
+                        pagination: false,
+                        transitionStyle: 'fade'
+                    });
+                });
             });
-            {/if}
         </script>
     {/if}
 {/strip}

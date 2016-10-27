@@ -1,4 +1,23 @@
-{strip}
+{foreach $theme_settings as $key => $value}
+    {$setting_key = "settings[$key]"}
+    {if $wa->globals($setting_key) !== null}
+        {$theme_settings[$key] = $wa->globals($setting_key)}
+    {/if}
+{/foreach}
+{if $wa->post('theme_settings') && !$wa->post('reset')}
+    {foreach $wa->post('theme_settings') as $theme_setting => $value}
+        {$theme_settings[$theme_setting] = $value}
+    {/foreach}
+    {$wa->session('theme_settings', $theme_settings)}
+{/if}
+{if $wa->post('reset')}
+    {$wa->session('theme_settings', [])}
+{/if}
+{$storage = $wa->session('theme_settings')}
+{foreach $storage as $key => $value}
+    {$theme_settings[$key] = $value}
+{/foreach}
+{capture assign = "content"}
     <!DOCTYPE html>
     <!--[if IE]><![endif]-->
     <!--[if IE 8 ]><html dir="ltr" lang="en" class="ie8"><![endif]-->
@@ -7,25 +26,6 @@
     <html dir="ltr">
         <!--<![endif]-->
         <head>
-            {foreach $theme_settings as $key => $value}
-                {$setting_key = "settings[$key]"}
-                {if $wa->globals($setting_key) !== null}
-                    {$theme_settings[$key] = $wa->globals($setting_key)}
-                {/if}
-            {/foreach}
-            {if $wa->post('theme_settings') && !$wa->post('reset')}
-                {foreach $wa->post('theme_settings') as $theme_setting => $value}
-                    {$theme_settings[$theme_setting] = $value}
-                {/foreach}
-                {$wa->session('theme_settings', $theme_settings)}
-            {/if}
-            {if $wa->post('reset')}
-                {$wa->session('theme_settings', [])}
-            {/if}
-            {$storage = $wa->session('theme_settings')}
-            {foreach $storage as $key => $value}
-                {$theme_settings[$key] = $value}
-            {/foreach}
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>{$wa->title()|escape}</title>
@@ -77,17 +77,17 @@
             {if !$theme_settings.jquery_delayed_loading}
                 <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
             {else}
-                <script type="text/javascript">
+                <script data-disable-delayed-loading="1" type="text/javascript">
                     window.delayJs = [];
                     window.delayJsFunctions = [];
                     window.delayCss = [];
                 </script>
             {/if}
 
-            {if !$theme_settings.delayed_plugins_loading}
-                {$wa->css()} {* links active plugins CSS *}
-                {$wa->js()} {* links active plugins JS *}
-            {/if}
+
+            {$wa->css()} {* links active plugins CSS *}
+            {$wa->js()} {* links active plugins JS *}
+
             {include file="`$wa_active_theme_path`/head.html" inline}
             {$wa->headJs()} {* links Google Analytics tracking code and current site's custom JS (Site app) *}
         </head>
@@ -220,15 +220,12 @@
             <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/font-awesome-animation.min.css?v{$wa_theme_version}" />
 
             <link href="{$wa_theme_url}!css/owl.carousel.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
-            <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
+            <link href="{$wa_theme_url}!js/jquery/owl-carousel/owl.transitions.min.css?v{$wa_theme_version}" type="text/css" rel="stylesheet" property="stylesheet" media="screen" />
             <link rel="stylesheet" property="stylesheet" type="text/css" href="{$wa_theme_url}!css/responsive.min.css?v{$wa_theme_version}" />
             {if $wa->shop}
                 <link href="{$wa_static_url}wa-content/font/ruble/arial/fontface.css?v{$wa->version(true)}" rel="stylesheet" property="stylesheet" type="text/css">
             {/if}
 
-            {if $theme_settings.jquery_delayed_loading}
-                <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-            {/if}
 
             <link href="{$wa_theme_url}!js/noty/animate.min.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
             <script type="text/javascript" src="{$wa_theme_url}!js/noty/packaged/jquery.noty.packaged.min.js?v{$wa_theme_version}"></script> 
@@ -251,20 +248,25 @@
             {if $theme_settings.header_banner && !waRequest::cookie('header_banner_closed')}
                 <script src="{$wa_theme_url}!js/jquery/jquery.cookie.min.js?v{$wa_theme_version}" type="text/javascript"></script>
             {/if}
-            <script type="text/javascript">
+            <script data-disable-delayed-loading="1" type="text/javascript">
                     var show_all_text = '[`view all`]';
                     var is_autocomplete = '{$theme_settings.is_autocomplete && $wa->shop}';
                     var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
                     var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
                     var fixed_cart = {$theme_settings.fixed_cart};
                     var img_lazyload = {$theme_settings.image_lazy_load};
+                    var jquery_delayed_loading = {$theme_settings.jquery_delayed_loading};
             </script>
-            <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
+            <script src="{$wa_theme_url}!js/smart.js?v{$wa_theme_version}" type="text/javascript"></script>
 
 
             {include file="`$wa_active_theme_path`/include.html"}
             {if $theme_settings.jquery_delayed_loading}
-                <script type="text/javascript">
+                <script data-disable-delayed-loading="1" type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
+            {/if}
+            {if $theme_settings.jquery_delayed_loading}
+                <script data-disable-delayed-loading="1" src="{$wa_theme_url}!js/delayed-loading.js?v{$wa_theme_version}" type="text/javascript"></script>
+                <script data-disable-delayed-loading="1" type="text/javascript">
                     delayedLoading();
                 </script>
             {else}
@@ -280,12 +282,18 @@
                 </script>
             {/if}
 
-            {if $theme_settings.delayed_plugins_loading}
-                {$wa->css()} {* links active plugins CSS *}
-                {$wa->js()} {* links active plugins JS *}
-            {/if}
-
             <link href="{$wa_theme_url}!css/custom-styles.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
         </body>
     </html>
+{/capture}
+{strip}
+    {capture assign = "content"}
+        {include file="function.jsPrepare.html" content=$content}
+    {/capture}
+
+    {capture assign = "content"}
+        {include file="function.cssPrepare.html" content=$content}
+    {/capture}
+
+    {$content|trim}
 {/strip}

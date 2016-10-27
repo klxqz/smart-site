@@ -1,5 +1,5 @@
 {strip}
     <h1>[s`Login`]</h1>
-    {include file="`$wa_parent_theme_path`/function.hookPrepare.html" content=$wa->authAdapters()}
-    {include file="`$wa_parent_theme_path`/function.hookPrepare.html" content=$wa->loginForm($error, empty($without_form))}
+    {$wa->authAdapters()}
+    {$wa->loginForm($error, empty($without_form))}
 {/strip}

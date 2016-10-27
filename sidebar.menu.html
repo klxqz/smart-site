@@ -13,25 +13,19 @@
             {wa_print_tree tree=$items selected=$selected unfolded=true class="" attrs="id='`$menu_id`'" elem ='<a href=":url" title=":name">:name</a>'}
         </div>
         <script type="text/javascript">
-            {$rand = rand()}
-            var delayed_function{$rand} = function () {
-                $('#{$menu_id} ul').parents('li').find('>a').after('<span class="down"></span>');
-                $('#{$menu_id}').cutomAccordion({
-                    classExpand: 'selected',
-                    menuClose: false,
-                    autoClose: true,
-                    saveState: false,
-                    disableLink: false,
-                    autoExpand: true
-                });
-            };
-            {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-            window.delayJsFunctions.push(delayed_function{$rand});
-            {else}
             $(function () {
-                $(document).ready(delayed_function{$rand}());
+                $(document).ready(function () {
+                    $('#{$menu_id} ul').parents('li').find('>a').after('<span class="down"></span>');
+                    $('#{$menu_id}').cutomAccordion({
+                        classExpand: 'selected',
+                        menuClose: false,
+                        autoClose: true,
+                        saveState: false,
+                        disableLink: false,
+                        autoExpand: true
+                    });
+                });
             });
-            {/if}
         </script>        
     {/if}
 {/strip}

@@ -11,7 +11,7 @@
         {/if}
     {else}
         <h1>[s`Sign up`]</h1>
-        {include file="`$wa_parent_theme_path`/function.hookPrepare.html" content=$wa->authAdapters()}
-        {include file="`$wa_parent_theme_path`/function.hookPrepare.html" content=$wa->signupForm($errors)}
+        {$wa->authAdapters()}
+        {$wa->signupForm($errors)}
     {/if}
 {/strip}

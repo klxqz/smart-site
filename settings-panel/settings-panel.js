@@ -84,13 +84,25 @@ $(function () {
         return false;
     });
 
-    if (!$.cookie('settings_panel_opened')) {
-        $('.settings-panel .settings-button span').hide();
-        setTimeout(function () {
-            $('.settings-panel .settings-button span').show();
+    function settingsAlert() {
+        if (!$.cookie('settings_panel_opened')) {
+            $('.settings-panel .settings-button span').hide();
             setTimeout(function () {
-                $('.settings-panel .settings-button span').addClass('active');
-            }, 1000);
-        }, 5000);
+                $('.settings-panel .settings-button span').show();
+                setTimeout(function () {
+                    $('.settings-panel .settings-button span').addClass('active');
+                }, 1000);
+            }, 5000);
+        }
     }
+    if (jquery_delayed_loading) {
+        $(document).on('js_loaded', function () {
+            settingsAlert();
+        });
+    } else {
+        $(document).ready(function () {
+            settingsAlert();
+        });
+    }
+
 });

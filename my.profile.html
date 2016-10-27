@@ -82,22 +82,17 @@
                         {/foreach}
                     </ul></div>
                 <script type="text/javascript">
-                    {$rand = rand()}
-                    var delayed_function{$rand} = function () {
-                        $("div.wa-auth-adapters a").click(function () {
-                            var left = (screen.width - 600) / 2;
-                            var top = (screen.height - 400) / 2;
-                            window.open($(this).attr('href'), 'oauth', "width=600,height=400,left=" + left + ",top=" + top + ",status=no,toolbar=no,menubar=no");
-                            return false;
-                        });
-                    };
-                    {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-                    window.delayJsFunctions.push(delayed_function{$rand});
-                    {else}
+
                     $(function () {
-                        $(document).ready(delayed_function{$rand}());
+                        $(document).ready(function () {
+                            $("div.wa-auth-adapters a").click(function () {
+                                var left = (screen.width - 600) / 2;
+                                var top = (screen.height - 400) / 2;
+                                window.open($(this).attr('href'), 'oauth', "width=600,height=400,left=" + left + ",top=" + top + ",status=no,toolbar=no,menubar=no");
+                                return false;
+                            });
+                        });
                     });
-                    {/if}
                 </script>
             {/if}
 
@@ -105,79 +100,73 @@
     {/if}
 
     <script>
-        {$rand = rand()}
-        var delayed_function{$rand} = function () {
-            var $wrapper = $('#wa-my-info-wrapper'),
-                    $form = $wrapper.find('#wa-my-info-edit-wrapper'),
-                    $info = $wrapper.find('#wa-my-info-read-wrapper'),
-                    $password = $form.find('.wa-field-password'),
-                    $photo = $form.find('.wa-field-photo');
-
-            if ($password.length) {
-                var $change_link = $('<span><a href="#">[s`Change password`]</a></span>'),
-                        $password_inputs = $password.find('p');
-
-                $password.find('.wa-value').prepend($change_link);
-
-                $change_link.on('click', 'a', function (e) {
-                    e.preventDefault();
-                    $change_link.hide();
-                    $password_inputs.slideDown();
-                });
-            }
-
-            if ($photo.length) {
-                var $delete_photo = $('<span><a href="#">[s`Delete photo`]</a></span>'),
-                        $photo_input = $photo.find('[name="profile[photo]"]'),
-                        $user_photo = $photo.find('img:first'),
-                        $default_photo = $photo.find('img:last');
-
-                if ($user_photo[0] != $default_photo[0]) {
-                    $default_photo
-                            .hide()
-                            .after($delete_photo);
-
-                    $delete_photo.on('click', 'a', function (e) {
-                        e.preventDefault();
-                        $default_photo.show();
-                        $user_photo.hide();
-                        $delete_photo.hide();
-                        $photo_input.val('');
-                    });
-                } else {
-                    $default_photo.show();
-                }
-            }
-
-            $wrapper
-                    .on('click', '#wa-my-info-edit', function (e) {
-                        e.preventDefault();
-                        if ($password.length) {
-                            $change_link.show();
-                            $password_inputs.hide();
-                        }
-                        if ($photo.length) {
-                            if ($user_photo[0] != $default_photo[0]) {
-                                $delete_photo.show();
-                                $default_photo.hide();
-                            }
-                        }
-                        $form.show();
-                        $info.hide();
-                    })
-                    .on('click', '#wa-my-info-cancel', function (e) {
-                        e.preventDefault();
-                        $form.hide();
-                        $info.show();
-                    });
-        };
-        {if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
-        window.delayJsFunctions.push(delayed_function{$rand});
-        {else}
         $(function () {
-            $(document).ready(delayed_function{$rand}());
+            $(document).ready(function () {
+                var $wrapper = $('#wa-my-info-wrapper'),
+                        $form = $wrapper.find('#wa-my-info-edit-wrapper'),
+                        $info = $wrapper.find('#wa-my-info-read-wrapper'),
+                        $password = $form.find('.wa-field-password'),
+                        $photo = $form.find('.wa-field-photo');
+
+                if ($password.length) {
+                    var $change_link = $('<span><a href="#">[s`Change password`]</a></span>'),
+                            $password_inputs = $password.find('p');
+
+                    $password.find('.wa-value').prepend($change_link);
+
+                    $change_link.on('click', 'a', function (e) {
+                        e.preventDefault();
+                        $change_link.hide();
+                        $password_inputs.slideDown();
+                    });
+                }
+
+                if ($photo.length) {
+                    var $delete_photo = $('<span><a href="#">[s`Delete photo`]</a></span>'),
+                            $photo_input = $photo.find('[name="profile[photo]"]'),
+                            $user_photo = $photo.find('img:first'),
+                            $default_photo = $photo.find('img:last');
+
+                    if ($user_photo[0] != $default_photo[0]) {
+                        $default_photo
+                                .hide()
+                                .after($delete_photo);
+
+                        $delete_photo.on('click', 'a', function (e) {
+                            e.preventDefault();
+                            $default_photo.show();
+                            $user_photo.hide();
+                            $delete_photo.hide();
+                            $photo_input.val('');
+                        });
+                    } else {
+                        $default_photo.show();
+                    }
+                }
+
+                $wrapper
+                        .on('click', '#wa-my-info-edit', function (e) {
+                            e.preventDefault();
+                            if ($password.length) {
+                                $change_link.show();
+                                $password_inputs.hide();
+                            }
+                            if ($photo.length) {
+                                if ($user_photo[0] != $default_photo[0]) {
+                                    $delete_photo.show();
+                                    $default_photo.hide();
+                                }
+                            }
+                            $form.show();
+                            $info.hide();
+                        })
+                        .on('click', '#wa-my-info-cancel', function (e) {
+                            e.preventDefault();
+                            $form.hide();
+                            $info.show();
+                        });
+            });
         });
-        {/if}
     </script>
 
     {$wa->globals('isMyAccount', true)}
