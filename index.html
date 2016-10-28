@@ -35,7 +35,6 @@
         {if $rss}<link rel="alternate" type="application/rss+xml" title="[s`RSS`] &mdash; {$wa->accountName()}" href="{$rss}">{/if}
     {/if}
 
-
     {if $theme_settings.css_optimization}
         <style>
             {include file="!css/head.min.css"}
@@ -68,9 +67,7 @@
         </style>
     {/if}
 
-    {if !$theme_settings.jquery_delayed_loading}
-        <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-    {/if}
+    <script type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
 
 
     {$wa->css()} {* links active plugins CSS *}
@@ -264,13 +261,15 @@
 
     <link href="{$wa_theme_url}!css/custom-styles.css?v{$wa_theme_version}" rel="stylesheet" property="stylesheet" type="text/css" />
 
-    {if $theme_settings.jquery_delayed_loading}
-        <script data-disable-delayed-loading="1" type="text/javascript" src="{$wa_static_url}wa-content/js/jquery/jquery-1.8.2.min.js"></script>
-        <script data-disable-delayed-loading="1" src="{$wa_theme_url}!js/delayed-loading.js?v{$wa_theme_version}" type="text/javascript"></script>
-        <script data-disable-delayed-loading="1" type="text/javascript">
+
+
+    <script  src="{$wa_theme_url}!js/delayed-loading.js?v{$wa_theme_version}" type="text/javascript"></script>
+    <script  type="text/javascript">
         delayedLoading();
-        </script>
-    {else}
+    </script>
+
+
+    {if !$theme_settings.jquery_delayed_loading}
         <script type="text/javascript">
             $('#loading-container').hide();
             $('#menu.navbar').show();
@@ -302,8 +301,6 @@
     <head>
         {$head}
         <script type="text/javascript">
-            window.delayJs = [{*if $wa->globals("delay_js")}{implode(',', $wa->globals("delay_js"))}{/if*}];
-            window.delayJsFunctions = [{*if $wa->globals("delay_js_functions")}{implode(',', $wa->globals("delay_js_functions"))}{/if*}];
             window.delayCss = [{if $wa->globals("delay_css")}{implode(',', $wa->globals("delay_css"))}{/if}];
         </script>
     </head>

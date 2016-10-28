@@ -183,19 +183,10 @@ function filterAutocomplete() {
     };
 }
 
-
-function afterLoaded() {
-    smartInit();
-    filterAutocomplete();
-}
-
-
-if (jquery_delayed_loading) {
-    $(document).on('js_loaded', function () {
-        afterLoaded();
+jQuery(function ($) {
+    $(document).ready(function () {
+        smartInit();
+        filterAutocomplete();
     });
-} else {
-    jQuery(function ($) {
-        $(document).ready(afterLoaded());
-    });
-}
+});
+
