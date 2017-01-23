@@ -1,5 +1,5 @@
 {if $content}
-    {if $theme_settings.image_lazy_load}
+    {if $theme_settings.image_lazy_load && (!waRequest::isXMLHttpRequest() || $ignore)}
         {$match = null}
         {if preg_match_all("/<img[^>]*>/si", $content, $matchs)}
             {foreach $matchs[0] as $index => $match}       
@@ -7,7 +7,7 @@
                     {if preg_match("/<img.+?(src\s*=\s*[\"'](.+?)[\"']).*?>/si", $matchs[0][$index], $img)}
                         {$full_src = $img[1]}
                         {$src_url = $img[2]}
-                        {$loading_path = "`$wa_theme_url`img/loading-animation.gif"}
+                        {$loading_path = "`$wa_parent_theme_url`img/loading-animation.png"}
                         {$new_img = str_replace($full_src, "src=\"`$loading_path`\" data-original=\"`$src_url`\"", $matchs[0][$index])}         
                         {$content = str_replace($matchs[0][$index], $new_img, $content)}
                     {/if}

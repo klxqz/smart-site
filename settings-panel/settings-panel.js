@@ -84,7 +84,7 @@ $(function () {
         return false;
     });
 
-    function settingsAlert() {
+    $(document).ready(function () {
         if (!$.cookie('settings_panel_opened')) {
             $('.settings-panel .settings-button span').hide();
             setTimeout(function () {
@@ -94,15 +94,6 @@ $(function () {
                 }, 1000);
             }, 5000);
         }
-    }
-    if (jquery_delayed_loading) {
-        $(document).on('js_loaded', function () {
-            settingsAlert();
-        });
-    } else {
-        $(document).ready(function () {
-            settingsAlert();
-        });
-    }
+    });
 
 });

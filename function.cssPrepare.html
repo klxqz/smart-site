@@ -1,4 +1,4 @@
-{if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+{if $theme_settings.css_delayed_loading && !waRequest::isXMLHttpRequest()}
     {$match = null}
     {if preg_match_all("/<link[^>]*>/si", $content, $matchs)}
         {$delay_css = $wa->globals("delay_css")}

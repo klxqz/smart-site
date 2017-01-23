@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.2.1">
+<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.3.0">
     <name locale="en_US">Smart</name>
     <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
@@ -1163,7 +1163,7 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <name locale="ru_RU">Оптимизация</name>
         </setting>
                
-        <setting var="css_optimization" control_type="checkbox">
+        <setting var="css_delayed_loading" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">CSS Optimization</name>
             <name locale="ru_RU">CSS Оптимизация</name>
@@ -1171,10 +1171,10 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <description locale="ru_RU">Основные CSS стили темы дизайна разбиваются на две части: минимальную часть и оставшуюся часть. Минимальная часть служит для корректного отображения основной части страницы и подключается в HEAD, оставшаяся часть подключается в конце страницы.</description>
         </setting>
         
-        <setting var="jquery_delayed_loading" control_type="checkbox">
+        <setting var="js_delayed_loading" control_type="checkbox">
             <value>1</value>
-            <name locale="en_US">Delayed loading JQuery</name>
-            <name locale="ru_RU">Отложенная загрузка библиотеки JQuery</name>
+            <name locale="en_US">Delayed loading javascript</name>
+            <name locale="ru_RU">Отложенная загрузка библиотеки javascript</name>
             <description locale="en_US">To disable lazy loading some javascript-scripts, you must add the attribute data-disable-delayed-loading = 1. For example <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;path to script&quot;&gt;&lt;/script&gt;]]></description>
             <description locale="ru_RU">Для отключения отложенной загрузки некоторых javascript-скриптов необходимо добавить атрибут data-disable-delayed-loading=1. Например, <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;Путь к скрипту&quot;&gt;&lt;/script&gt;]]></description>
         </setting>  

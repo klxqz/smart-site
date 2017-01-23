@@ -48,9 +48,14 @@ function loadDialogContent(d, url) {
 }
 
 function smartInit() {
-    /*$("[data-toggle='tooltip']").tooltip({
-     container: "body"
-     });*/
+    $("[data-toggle='tooltip']").tooltip({
+        container: "body"
+    });
+    if (img_lazyload) {
+        $('img[data-original],div[data-original]').lazyload({
+            effect: "fadeIn"
+        });
+    }
 
     $(document).keyup(function (e) {
         if (e.keyCode == 27) {
@@ -144,7 +149,7 @@ function filterAutocomplete() {
             request.term = request.term.replace(/^\s+|\s+$/g, '');
             var query = request.term.replace(/\s+/g, '+');
             $.ajax({
-                url: shop_search_url + '?query=' + encodeURIComponent(query),
+                url: shop_search_url + '?_=_&query=' + encodeURIComponent(query),
                 type: "GET",
                 dataType: "html",
                 success: function (data) {

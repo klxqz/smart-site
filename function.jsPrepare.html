@@ -1,4 +1,4 @@
-{*if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+{*if $theme_settings.js_delayed_loading && !waRequest::isXMLHttpRequest()}
 {$match = null}
 {if preg_match_all("/<script[^>]*>(.*?)<\/script>/si", $content, $matches)}
 {$delay_js = $wa->globals("delay_js")}
@@ -29,7 +29,7 @@
 {else}
 {$content}
 {/if*}
-{if $theme_settings.jquery_delayed_loading && !waRequest::isXMLHttpRequest()}
+{if $theme_settings.js_delayed_loading && !waRequest::isXMLHttpRequest()}
     {$match = null}
     {if preg_match_all("/(<script\b[^>]*>[\s\S]*?<\/script>)/", $content, $matches) !== false && count($matches[0]) > 0}
         {$delay_js = $wa->globals("delay_js")}

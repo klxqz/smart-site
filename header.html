@@ -33,6 +33,7 @@
                                         </td>
                                         <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
                                         <td class="text-right nowrap item-total">
+                                            {$item.price = $wa->shop->cart->getItemTotal($item.id)}
                                             {wa_currency_html($item.price, $wa->shop->currency())}
                                         </td>
                                         <td class="text-center">
