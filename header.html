@@ -29,7 +29,7 @@
                                             </a>
                                         </td>
                                         <td class="text-left">
-                                            <a href="{$wa->shop->productUrl($item.product)}">{$item.name}</a>
+                                            <a href="{$wa->shop->productUrl($item.product)}" title="{$item.name|escape}">{$item.name|truncate:52}</a>
                                         </td>
                                         <td class="text-right nowrap">x<span class="quantity">{$item.quantity}</span></td>
                                         <td class="text-right nowrap item-total">

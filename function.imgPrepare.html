@@ -1,5 +1,5 @@
 {if $content}
-    {if $theme_settings.image_lazy_load && (!waRequest::isXMLHttpRequest() || $ignore)}
+    {if $theme_settings.image_lazy_load && (!waRequest::isXMLHttpRequest())}
         {$match = null}
         {if preg_match_all("/<img[^>]*>/si", $content, $matchs)}
             {foreach $matchs[0] as $index => $match}       

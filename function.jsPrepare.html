@@ -1,34 +1,3 @@
-{*if $theme_settings.js_delayed_loading && !waRequest::isXMLHttpRequest()}
-{$match = null}
-{if preg_match_all("/<script[^>]*>(.*?)<\/script>/si", $content, $matches)}
-{$delay_js = $wa->globals("delay_js")}
-{if !is_array($delay_js)}
-{$delay_js = []}
-{/if}
-{$delay_js_functions = $wa->globals("delay_js_functions")}
-{if !is_array($delay_js_functions)}
-{$delay_js_functions = []}
-{/if}
-{foreach $matches[1] as $index => $match}               
-{if strpos($matches[0][$index], 'data-disable-delayed-loading') === false}
-{if trim($match)}
-{$json = json_encode($match)}
-{$delay_js_functions[] = $json}
-{$content = str_replace($matches[0][$index], "", $content)}
-{elseif preg_match("/<script.+?src\s*=\s*[\"'](.+?)[\"'].*?>.*?<\/script>/si",$matches[0][$index], $src)}
-{$src_url = $src[1]}
-{$delay_js[] = "\"`$src[1]`\""}
-{$content = str_replace($matches[0][$index], "", $content)}
-{/if}
-{/if}
-{/foreach}
-{$wa->globals("delay_js", $delay_js)}
-{$wa->globals("delay_js_functions", $delay_js_functions)}
-{/if}
-{$content}
-{else}
-{$content}
-{/if*}
 {if $theme_settings.js_delayed_loading && !waRequest::isXMLHttpRequest()}
     {$match = null}
     {if preg_match_all("/(<script\b[^>]*>[\s\S]*?<\/script>)/", $content, $matches) !== false && count($matches[0]) > 0}

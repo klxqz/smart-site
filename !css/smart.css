@@ -2730,15 +2730,15 @@ form.adv_ajaxfilter
     background: #d9f2fc;
     border: 1px solid #08C;
 }
-.adv_ajaxfilter .price_slider
+.adv_ajaxfilter .range_slider
 {
     padding: 5px;
 }
-.adv_ajaxfilter .price_slider input
+.adv_ajaxfilter .range_slider input
 {
     width: 30%!important;
 }
-.adv_ajaxfilter .price_slider label
+.adv_ajaxfilter .range_slider label
 {
     display: inline!important;
 }
@@ -3175,9 +3175,21 @@ a.toggle-menu:hover{
 }
 
 .header-phones .phone a{
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+}
+@media (max-width:1199px){
+    .header-phones .phone a{
+        font-size: 13px;
+    }
 }
 
 iframe{
     max-width: 100%
+}
+.page-contant img{
+    display: block;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
 }

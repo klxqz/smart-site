@@ -40,7 +40,7 @@ function postDialogForm(d, f, url) {
 function loadDialogContent(d, url) {
     var c = d.find('.content');
     c.html('<i class="icon32 loading"><i>');
-    c.load(url + ' #content >', function () {
+    c.load(url + '?_=_ #content >', function () {
         initDialogHendler(d, url);
         initFormControl(d);
     });
