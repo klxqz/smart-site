@@ -153,6 +153,7 @@
                         </ul>
                     {/if}
                     {$without_sidebar_urls = [  $wa->getUrl('shop/frontend/cart'), 
+												$wa->getUrl('shop/frontend/order'), 
                                                 $wa->getUrl('shop/frontend/checkout'), 
                                                 $wa->getUrl('shop/frontend/checkout',['step'=>'contactinfo']),
                                                 $wa->getUrl('shop/frontend/checkout',['step'=>'shipping']),
@@ -238,12 +239,12 @@
         {/if}
         <script type="text/javascript">
             var show_all_text = '[`view all`]';
-            var is_autocomplete = '{$theme_settings.is_autocomplete && $wa->shop}';
+            var is_autocomplete = {(int)($theme_settings.is_autocomplete && $wa->shop)};
             var shop_search_url = '{$wa->getUrl("shop/frontend/search")}';
             var cart_url = '{$wa->getUrl("shop/frontend/cart")}';
-            var fixed_cart = {$theme_settings.fixed_cart};
-            var img_lazyload = {$theme_settings.image_lazy_load};
-            var js_delayed_loading = {$theme_settings.js_delayed_loading};
+            var fixed_cart = {(int)$theme_settings.fixed_cart};
+            var img_lazyload = {(int)$theme_settings.image_lazy_load};
+            var js_delayed_loading = {(int)$theme_settings.js_delayed_loading};
         </script>
         <script src="{$wa_theme_url}!js/smart.min.js?v{$wa_theme_version}" type="text/javascript"></script>
 

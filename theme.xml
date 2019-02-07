@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.3.1">
+<theme id="smart" system="0" vendor="985310" author="wa-plugins.ru" app="site" version="1.3.3">
     <name locale="en_US">Smart</name>
     <name locale="ru_RU">Smart</name>
     <description locale="ru_RU">Семейство адаптивных тем дизайна.</description>
@@ -1175,16 +1175,16 @@ VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FF
             <value>1</value>
             <name locale="en_US">Delayed loading javascript</name>
             <name locale="ru_RU">Отложенная загрузка библиотеки javascript</name>
-            <description locale="en_US">To disable lazy loading some javascript-scripts, you must add the attribute data-disable-delayed-loading = 1. For example <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;path to script&quot;&gt;&lt;/script&gt;]]></description>
-            <description locale="ru_RU">Для отключения отложенной загрузки некоторых javascript-скриптов необходимо добавить атрибут data-disable-delayed-loading=1. Например, <![CDATA[&lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;Путь к скрипту&quot;&gt;&lt;/script&gt;]]></description>
+            <description locale="en_US"><![CDATA[To disable lazy loading some javascript-scripts, you must add the attribute data-disable-delayed-loading = 1. For example &lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;path to script&quot;&gt;&lt;/script&gt;]]></description>
+            <description locale="ru_RU"><![CDATA[Для отключения отложенной загрузки некоторых javascript-скриптов необходимо добавить атрибут data-disable-delayed-loading=1. Например, &lt;script data-disable-delayed-loading=&quot;1&quot; src=&quot;Путь к скрипту&quot;&gt;&lt;/script&gt;]]></description>
         </setting>  
         
         <setting var="image_lazy_load" control_type="checkbox">
             <value>1</value>
             <name locale="en_US">Image lazy load</name>
             <name locale="ru_RU">Ленивая загрузка изображений</name>
-            <description locale="en_US">To disable lazy loading some images, you must add the attribute data-disable-lazyloading = 1. For example <![CDATA[&lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;path to image&quot;&gt;]]></description>
-            <description locale="ru_RU">Для отключения отложенной загрузки некоторых изображений необходимо добавить атрибут data-disable-lazyloading=1. Например, <![CDATA[&lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;Путь к изображению&quot;&gt;]]></description>
+            <description locale="en_US"><![CDATA[To disable lazy loading some images, you must add the attribute data-disable-lazyloading = 1. For example &lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;path to image&quot;&gt;]]></description>
+            <description locale="ru_RU"><![CDATA[Для отключения отложенной загрузки некоторых изображений необходимо добавить атрибут data-disable-lazyloading=1. Например, &lt;img data-disable-lazyloading=&quot;1&quot; src=&quot;Путь к изображению&quot;&gt;]]></description>
         </setting>     
         
         <setting var="divider_additional_functionality" control_type="group_divider">

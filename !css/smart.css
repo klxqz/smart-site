@@ -1807,7 +1807,7 @@ div.required .control-label:before
 {
     display: none;
 }
-,.owl-carousel .product-thumb .button-group .add-to-links button,.product-grid .product-thumb .button-group .add-to-links button
+.owl-carousel .product-thumb .button-group .add-to-links button,.product-grid .product-thumb .button-group .add-to-links button
 {
     padding: 2px 6px;
 }
@@ -2762,7 +2762,8 @@ form.adv_ajaxfilter
     border-width: 4px 5px 0;
     clear: both;
     content: " ";
-    display: inline-block height:0;
+    display: inline-block;
+    height:0;
     margin: 0 0 1px;
     position: absolute;
     right: 6px;
@@ -3094,7 +3095,7 @@ html.dialog-open{
 }
 .blog-photo-block ul li div.image{
     height: 115px;
-    widows: 100%;
+    width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3192,4 +3193,8 @@ iframe{
     height: auto;
     max-width: 100%;
     vertical-align: middle;
+}
+.page-contant ul,
+.page-contant ol{
+    padding-left: 15px;
 }
